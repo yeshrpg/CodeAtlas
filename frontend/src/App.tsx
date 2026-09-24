@@ -4,6 +4,7 @@ import StatsBar from './components/StatsBar'
 import DemoDropdown from './components/DemoDropdown'
 import ErrorBanner from './components/ErrorBanner'
 import DiagramView from './components/DiagramView'
+import CompareView from './components/CompareView'
 import SidePanel from './components/SidePanel'
 import ConnectionsTable from './components/ConnectionsTable'
 import { toL2Analysis } from './lib/subgraph'
@@ -26,6 +27,7 @@ function App() {
     null,
   )
   const [l2ComponentId, setL2ComponentId] = useState<string | null>(null)
+  const [view, setView] = useState<'analyze' | 'compare'>('analyze')
 
   // Single entry point for new analysis data: resets selection and L2 view
   // so stale ids can never point at data that no longer exists.
@@ -71,90 +73,124 @@ function App() {
 
   return (
     <main className="app">
-      <Header
-        repoUrl={repoUrl}
-        ref={ref}
-        loading={loading}
-        validationMessage={validationMessage}
-        onRepoUrlChange={(v) => {
-          setRepoUrl(v)
-          if (v.trim()) setValidationMessage(null)
-        }}
-        onRefChange={setRef}
-        onAnalyze={handleAnalyze}
-      />
-
-      <div className="toolbar">
-        <DemoDropdown
-          loading={loading}
-          onLoadingChange={setLoading}
-          onResult={(data) => {
-            setError(null)
-            replaceAnalysis(data)
-          }}
-          onError={setError}
-        />
-        {loading && (
-          <span className="spinner" role="status" aria-label="Loading">
-            <span className="spinner-dot" />
-            Loading…
-          </span>
-        )}
-      </div>
+      <nav className="tab-bar" aria-label="Views">
+        <button
+          type="button"
+          role="tab"
+          aria-selected={view === 'analyze'}
+          className={view === 'analyze' ? 'tab-button active' : 'tab-button'}
+          onClick={() => setView('analyze')}
+        >
+          Analyze
+        </button>
+        <button
+          type="button"
+          role="tab"
+          aria-selected={view === 'compare'}
+          className={view === 'compare' ? 'tab-button active' : 'tab-button'}
+          onClick={() => setView('compare')}
+        >
+          Compare
+        </button>
+      </nav>
 
       {error && (
         <ErrorBanner message={error} onDismiss={() => setError(null)} />
       )}
 
-      <StatsBar stats={analysis.stats} showHeuristicBadge={showHeuristicBadge} />
+      {view === 'analyze' ? (
+        <>
+          <Header
+            repoUrl={repoUrl}
+            ref={ref}
+            loading={loading}
+            validationMessage={validationMessage}
+            onRepoUrlChange={(v) => {
+              setRepoUrl(v)
+              if (v.trim()) setValidationMessage(null)
+            }}
+            onRefChange={setRef}
+            onAnalyze={handleAnalyze}
+          />
 
-      {l2ComponentId !== null && (
-        <div className="l2-bar">
-          <span>
-            Detail view: <strong>{labelOf(l2ComponentId)}</strong>
-          </span>
-          <button
-            type="button"
-            className="analyze-button"
-            onClick={() => setL2ComponentId(null)}
-          >
-            ← Back to full diagram
-          </button>
-        </div>
+          <div className="toolbar">
+            <DemoDropdown
+              loading={loading}
+              onLoadingChange={setLoading}
+              onResult={(data) => {
+                setError(null)
+                replaceAnalysis(data)
+              }}
+              onError={setError}
+            />
+            {loading && (
+              <span className="spinner" role="status" aria-label="Loading">
+                <span className="spinner-dot" />
+                Loading…
+              </span>
+            )}
+          </div>
+
+          <StatsBar stats={analysis.stats} showHeuristicBadge={showHeuristicBadge} />
+
+          {l2ComponentId !== null && (
+            <div className="l2-bar">
+              <span>
+                Detail view: <strong>{labelOf(l2ComponentId)}</strong>
+              </span>
+              <button
+                type="button"
+                className="analyze-button"
+                onClick={() => setL2ComponentId(null)}
+              >
+                ← Back to full diagram
+              </button>
+            </div>
+          )}
+
+          <div className="content-row">
+            <div className="diagram-column">
+              <DiagramView
+                analysis={displayAnalysis}
+                onSelectComponent={setSelectedComponentId}
+                fileName={
+                  l2ComponentId === null
+                    ? 'codeatlas-diagram.svg'
+                    : `codeatlas-${l2ComponentId}.svg`
+                }
+              />
+              <ConnectionsTable
+                connections={displayAnalysis.connections}
+                labelOf={labelOf}
+              />
+            </div>
+            {selectedComponent && (
+              <SidePanel
+                key={selectedComponent.id}
+                component={selectedComponent}
+                connections={analysis.connections}
+                labelOf={labelOf}
+                onClose={() => setSelectedComponentId(null)}
+                onOpenDetailView={setL2ComponentId}
+              />
+            )}
+          </div>
+
+          <section className="raw-data">
+            <h2>Analysis data</h2>
+            <pre>{JSON.stringify(analysis, null, 2)}</pre>
+          </section>
+        </>
+      ) : (
+        <>
+          <h1 className="app-title">CodeAtlas</h1>
+          <CompareView
+            loading={loading}
+            onLoadingChange={setLoading}
+            onError={setError}
+          />
+        </>
       )}
-
-      <div className="content-row">
-        <div className="diagram-column">
-          <DiagramView
-            analysis={displayAnalysis}
-            onSelectComponent={setSelectedComponentId}
-            fileName={
-              l2ComponentId === null
-                ? 'codeatlas-diagram.svg'
-                : `codeatlas-${l2ComponentId}.svg`
-            }
-          />
-          <ConnectionsTable
-            connections={displayAnalysis.connections}
-            labelOf={labelOf}
-          />
-        </div>
-        {selectedComponent && (
-          <SidePanel
-            key={selectedComponent.id}
-            component={selectedComponent}
-            connections={analysis.connections}
-            labelOf={labelOf}
-            onClose={() => setSelectedComponentId(null)}
-            onOpenDetailView={setL2ComponentId}
-          />
-        )}
-      </div>
-
-      <section className="raw-data">
-        <h2>Analysis data</h2>
-        <pre>{JSON.stringify(analysis, null, 2)}</pre>
-      </section>
     </main>
   )
 }

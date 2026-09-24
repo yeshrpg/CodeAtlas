@@ -46,3 +46,17 @@ export interface Analysis {
   connections: AnalysisConnection[]
   stats: AnalysisStats
 }
+
+export interface CompareEndpoint {
+  repo_url: string
+  ref?: string
+}
+
+export interface CompareResponse {
+  analysis: Analysis
+  added_components: string[]
+  removed_components: string[]
+  added_connections: AnalysisConnection[]
+  removed_connections: AnalysisConnection[]
+  reading_order?: string[]
+}

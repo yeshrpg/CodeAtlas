@@ -5,6 +5,99 @@
   text-align: left;
 }
 
+.tab-bar {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.tab-button {
+  font: inherit;
+  font-size: 15px;
+  padding: 8px 20px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  cursor: pointer;
+}
+
+.tab-button.active {
+  border-color: var(--accent-border);
+  background: var(--accent-bg);
+  color: var(--accent);
+}
+
+.compare-form {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+
+.compare-form fieldset {
+  flex: 1 1 280px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 0;
+}
+
+.compare-form legend {
+  font-size: 14px;
+  padding: 0 6px;
+}
+
+.diff-section h3,
+.reading-order h2 {
+  margin: 16px 0 8px;
+  font-size: 16px;
+  color: var(--text-h);
+}
+
+.diff-added,
+.diff-removed {
+  list-style: none;
+  padding-left: 0;
+  margin: 4px 0;
+  font-size: 15px;
+}
+
+.diff-added li {
+  color: #15803d;
+  padding: 2px 0 2px 24px;
+  position: relative;
+}
+
+.diff-added li::before {
+  content: '+';
+  position: absolute;
+  left: 8px;
+  font-weight: bold;
+}
+
+.diff-removed li {
+  color: #b91c1c;
+  padding: 2px 0 2px 24px;
+  position: relative;
+}
+
+.diff-removed li::before {
+  content: '−';
+  position: absolute;
+  left: 8px;
+  font-weight: bold;
+}
+
+.reading-order ol {
+  font-size: 15px;
+  margin: 4px 0;
+  padding-left: 24px;
+}
+
 .app-header {
   border-bottom: 1px solid var(--border);
   padding-bottom: 16px;
