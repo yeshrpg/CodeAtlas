@@ -128,6 +128,11 @@ function App() {
           <DiagramView
             analysis={displayAnalysis}
             onSelectComponent={setSelectedComponentId}
+            fileName={
+              l2ComponentId === null
+                ? 'codeatlas-diagram.svg'
+                : `codeatlas-${l2ComponentId}.svg`
+            }
           />
           <ConnectionsTable
             connections={displayAnalysis.connections}

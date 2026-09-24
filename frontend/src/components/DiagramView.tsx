@@ -5,6 +5,8 @@ import {
   attachNodeClickListeners,
   buildNodeIndex,
 } from '../lib/nodeMapping'
+import { downloadBlob, serializeSvgToBlob } from '../lib/exportDiagram'
+import ExportControls from './ExportControls'
 import type { Analysis } from '../types'
 
 let mermaidInitialized = false
@@ -23,10 +25,13 @@ function ensureMermaidInitialized() {
 interface DiagramViewProps {
   analysis: Analysis
   onSelectComponent: (componentId: string) => void
+  /** Download file name (App makes it L1/L2-aware). */
+  fileName: string
 }
 
-function DiagramView({ analysis, onSelectComponent }: DiagramViewProps) {
+function DiagramView({ analysis, onSelectComponent, fileName }: DiagramViewProps) {
   const [svg, setSvg] = useState<string | null>(null)
+  const [code, setCode] = useState<string | null>(null)
   const [failed, setFailed] = useState(false)
   const rawId = useId()
   const renderCount = useRef(0)
@@ -35,6 +40,7 @@ function DiagramView({ analysis, onSelectComponent }: DiagramViewProps) {
   useEffect(() => {
     let cancelled = false
     setSvg(null)
+    setCode(null)
     setFailed(false)
 
     const render = async () => {
@@ -44,7 +50,10 @@ function DiagramView({ analysis, onSelectComponent }: DiagramViewProps) {
         renderCount.current += 1
         const renderId = `codeatlas_${rawId.replace(/[^A-Za-z0-9_]/g, '')}_${renderCount.current}`
         const { svg } = await mermaid.render(renderId, code)
-        if (!cancelled) setSvg(svg)
+        if (!cancelled) {
+          setSvg(svg)
+          setCode(code)
+        }
       } catch {
         if (!cancelled) setFailed(true)
       }
@@ -69,9 +78,16 @@ function DiagramView({ analysis, onSelectComponent }: DiagramViewProps) {
     return cleanup
   }, [svg, analysis, onSelectComponent])
 
+  const handleDownload = () => {
+    const svgElement = svgContainerRef.current?.querySelector('svg')
+    if (!svgElement) return
+    downloadBlob(serializeSvgToBlob(svgElement), fileName)
+  }
+
   if (failed) {
     return (
       <section className="diagram-container" aria-label="Analysis fallback table">
+        <ExportControls code={null} canDownload={false} onDownload={() => {}} />
         <p className="fallback-note">
           Diagram rendering failed — showing data as a table instead.
         </p>
@@ -119,6 +135,7 @@ function DiagramView({ analysis, onSelectComponent }: DiagramViewProps) {
 
   return (
     <section className="diagram-container" aria-label="Architecture diagram">
+      <ExportControls code={code} canDownload={svg !== null} onDownload={handleDownload} />
       {svg ? (
         <div ref={svgContainerRef} dangerouslySetInnerHTML={{ __html: svg }} />
       ) : (
