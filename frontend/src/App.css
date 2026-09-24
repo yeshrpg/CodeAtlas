@@ -150,6 +150,44 @@
   padding: 4px 12px;
 }
 
+.diagram-container {
+  overflow: auto;
+  max-width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 16px;
+  margin-bottom: 16px;
+  background: var(--bg);
+  min-height: 120px;
+}
+
+.diagram-container svg {
+  max-width: none;
+}
+
+.diagram-pending {
+  font-size: 15px;
+  margin: 0;
+}
+
+.fallback-note {
+  font-size: 14px;
+  margin: 0 0 12px;
+}
+
+.fallback-table {
+  border-collapse: collapse;
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+
+.fallback-table th,
+.fallback-table td {
+  border: 1px solid var(--border);
+  padding: 6px 12px;
+  text-align: left;
+}
+
 .raw-data h2 {
   margin-bottom: 8px;
 }

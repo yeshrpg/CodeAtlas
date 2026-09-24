@@ -3,6 +3,7 @@ import Header from './components/Header'
 import StatsBar from './components/StatsBar'
 import DemoDropdown from './components/DemoDropdown'
 import ErrorBanner from './components/ErrorBanner'
+import DiagramView from './components/DiagramView'
 import mockData from './mock/analysis.json'
 import type { Analysis } from './types'
 import './App.css'
@@ -76,6 +77,8 @@ function App() {
       )}
 
       <StatsBar stats={analysis.stats} showHeuristicBadge={showHeuristicBadge} />
+
+      <DiagramView analysis={analysis} />
 
       <section className="raw-data">
         <h2>Analysis data</h2>
