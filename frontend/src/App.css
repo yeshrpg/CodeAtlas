@@ -165,6 +165,17 @@
   max-width: none;
 }
 
+.diagram-container g.node.codeatlas-node {
+  cursor: pointer;
+}
+
+.selected-node {
+  font-size: 14px;
+  font-family: var(--mono);
+  color: var(--text-h);
+  margin: 12px 0 0;
+}
+
 .diagram-pending {
   font-size: 15px;
   margin: 0;

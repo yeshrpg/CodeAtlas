@@ -1,6 +1,10 @@
 import { useEffect, useId, useRef, useState } from 'react'
 import mermaid from 'mermaid'
 import { toMermaid } from '../lib/toMermaid'
+import {
+  attachNodeClickListeners,
+  buildNodeIndex,
+} from '../lib/nodeMapping'
 import type { Analysis } from '../types'
 
 let mermaidInitialized = false
@@ -23,13 +27,18 @@ interface DiagramViewProps {
 function DiagramView({ analysis }: DiagramViewProps) {
   const [svg, setSvg] = useState<string | null>(null)
   const [failed, setFailed] = useState(false)
+  const [selectedComponentId, setSelectedComponentId] = useState<string | null>(
+    null,
+  )
   const rawId = useId()
   const renderCount = useRef(0)
+  const svgContainerRef = useRef<HTMLDivElement | null>(null)
 
   useEffect(() => {
     let cancelled = false
     setSvg(null)
     setFailed(false)
+    setSelectedComponentId(null)
 
     const render = async () => {
       try {
@@ -49,6 +58,19 @@ function DiagramView({ analysis }: DiagramViewProps) {
       cancelled = true
     }
   }, [analysis, rawId])
+
+  // Re-attach node click listeners after every successful render so they
+  // always match the currently displayed SVG (no stale/duplicate listeners).
+  useEffect(() => {
+    const container = svgContainerRef.current
+    if (!svg || !container) return undefined
+    const index = buildNodeIndex(analysis?.components)
+    const cleanup = attachNodeClickListeners(container, index, (componentId) => {
+      console.log(`[CodeAtlas] node clicked: ${componentId}`)
+      setSelectedComponentId(componentId)
+    })
+    return cleanup
+  }, [svg, analysis])
 
   if (failed) {
     return (
@@ -101,7 +123,14 @@ function DiagramView({ analysis }: DiagramViewProps) {
   return (
     <section className="diagram-container" aria-label="Architecture diagram">
       {svg ? (
-        <div dangerouslySetInnerHTML={{ __html: svg }} />
+        <>
+          <div ref={svgContainerRef} dangerouslySetInnerHTML={{ __html: svg }} />
+          {selectedComponentId && (
+            <p className="selected-node">
+              Selected component: {selectedComponentId}
+            </p>
+          )}
+        </>
       ) : (
         <p className="diagram-pending">Rendering diagram…</p>
       )}
