@@ -72,7 +72,6 @@ function DiagramView({ analysis, onSelectComponent, fileName }: DiagramViewProps
     if (!svg || !container) return undefined
     const index = buildNodeIndex(analysis?.components)
     const cleanup = attachNodeClickListeners(container, index, (componentId) => {
-      console.log(`[CodeAtlas] node clicked: ${componentId}`)
       onSelectComponent(componentId)
     })
     return cleanup
