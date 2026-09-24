@@ -1,3 +1,15 @@
+export interface FileImport {
+  name: string
+  line: number
+  from?: string
+}
+
+export interface FileDetail {
+  symbols: string[]
+  imports: FileImport[]
+  importers: string[]
+}
+
 export interface AnalysisComponent {
   id: string
   label: string
@@ -5,12 +17,20 @@ export interface AnalysisComponent {
   summary: string
   label_source: 'heuristic' | 'llm'
   files: string[]
+  file_details?: Record<string, FileDetail>
+}
+
+export interface EvidenceLine {
+  file: string
+  line: number
+  text: string
 }
 
 export interface AnalysisConnection {
   from: string
   to: string
   weight: number
+  evidence?: EvidenceLine[]
 }
 
 export interface AnalysisStats {

@@ -6,7 +6,22 @@
       "layer": "backend",
       "summary": "Handles incoming HTTP requests and routes them to services.",
       "label_source": "heuristic",
-      "files": ["src/api/routes.ts", "src/api/middleware.ts"]
+      "files": ["src/api/routes.ts", "src/api/middleware.ts"],
+      "file_details": {
+        "src/api/routes.ts": {
+          "symbols": ["createRouter", "authMiddleware"],
+          "imports": [
+            { "name": "Router", "line": 1, "from": "express" },
+            { "name": "AuthService", "line": 3, "from": "../services/auth" }
+          ],
+          "importers": ["src/server.ts"]
+        },
+        "src/api/middleware.ts": {
+          "symbols": ["errorHandler", "requestLogger"],
+          "imports": [{ "name": "Request", "line": 1, "from": "express" }],
+          "importers": ["src/api/routes.ts"]
+        }
+      }
     },
     {
       "id": "db",
@@ -14,7 +29,19 @@
       "layer": "storage",
       "summary": "Manages persistence and query execution.",
       "label_source": "llm",
-      "files": ["src/db/client.ts", "src/db/models.ts"]
+      "files": ["src/db/client.ts", "src/db/models.ts"],
+      "file_details": {
+        "src/db/client.ts": {
+          "symbols": ["getClient", "query"],
+          "imports": [{ "name": "Pool", "line": 2, "from": "pg" }],
+          "importers": ["src/api/routes.ts", "src/db/models.ts"]
+        },
+        "src/db/models.ts": {
+          "symbols": ["User", "Session"],
+          "imports": [{ "name": "getClient", "line": 1, "from": "./client" }],
+          "importers": []
+        }
+      }
     },
     {
       "id": "ui",
@@ -22,12 +49,58 @@
       "layer": "frontend",
       "summary": "Renders the architecture diagram and detail panels.",
       "label_source": "heuristic",
-      "files": ["src/App.tsx", "src/components/Graph.tsx"]
+      "files": ["src/App.tsx", "src/components/Graph.tsx"],
+      "file_details": {
+        "src/App.tsx": {
+          "symbols": ["App", "useAnalysis"],
+          "imports": [
+            { "name": "DiagramView", "line": 4, "from": "./components/DiagramView" }
+          ],
+          "importers": []
+        },
+        "src/components/Graph.tsx": {
+          "symbols": ["Graph", "toMermaid"],
+          "imports": [{ "name": "mermaid", "line": 1, "from": "mermaid" }],
+          "importers": ["src/App.tsx"]
+        }
+      }
     }
   ],
   "connections": [
-    { "from": "ui", "to": "api", "weight": 5 },
-    { "from": "api", "to": "db", "weight": 8 }
+    {
+      "from": "ui",
+      "to": "api",
+      "weight": 5,
+      "evidence": [
+        {
+          "file": "src/App.tsx",
+          "line": 12,
+          "text": "fetch(`${API_URL}/analyze`, { method: 'POST' })"
+        },
+        {
+          "file": "src/App.tsx",
+          "line": 27,
+          "text": "import { DiagramView } from './components/DiagramView'"
+        }
+      ]
+    },
+    {
+      "from": "api",
+      "to": "db",
+      "weight": 8,
+      "evidence": [
+        {
+          "file": "src/api/routes.ts",
+          "line": 3,
+          "text": "import { AuthService } from '../services/auth'"
+        },
+        {
+          "file": "src/db/client.ts",
+          "line": 5,
+          "text": "export async function query(sql: string) {"
+        }
+      ]
+    }
   ],
   "stats": {
     "files": 6,

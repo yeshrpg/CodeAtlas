@@ -176,6 +176,174 @@
   margin: 12px 0 0;
 }
 
+.content-row {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.diagram-column {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.l2-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 15px;
+  background: var(--accent-bg);
+  border: 1px solid var(--accent-border);
+  border-radius: 6px;
+  padding: 8px 14px;
+  margin-bottom: 16px;
+}
+
+.side-panel {
+  flex: 0 0 340px;
+  max-width: 340px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 16px;
+  background: var(--bg);
+  position: sticky;
+  top: 16px;
+  max-height: calc(100vh - 32px);
+  overflow-y: auto;
+  font-size: 15px;
+}
+
+.side-panel-header {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.side-panel h2 {
+  margin-top: 0;
+  overflow-wrap: anywhere;
+}
+
+.side-panel h3 {
+  margin: 16px 0 8px;
+  font-size: 16px;
+  color: var(--text-h);
+}
+
+.side-panel h4 {
+  margin: 12px 0 4px;
+  font-size: 14px;
+  color: var(--text-h);
+}
+
+.side-panel ul {
+  margin: 4px 0;
+  padding-left: 20px;
+}
+
+.component-meta {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin: 8px 0;
+}
+
+.file-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.file-list li {
+  margin-bottom: 4px;
+}
+
+.link-button {
+  background: none;
+  border: none;
+  padding: 0;
+  color: var(--accent);
+  font: inherit;
+  font-size: 15px;
+  cursor: pointer;
+  text-align: left;
+}
+
+.link-button:hover {
+  text-decoration: underline;
+}
+
+.connections-list ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.connection-item {
+  margin-bottom: 4px;
+}
+
+.connection-item summary {
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.weight-chip {
+  margin-left: 8px;
+}
+
+.evidence-list {
+  list-style: none;
+  padding-left: 12px;
+  font-size: 13px;
+}
+
+.evidence-list li {
+  margin: 4px 0;
+}
+
+.evidence-text {
+  font-family: var(--mono);
+  overflow-wrap: anywhere;
+}
+
+.empty-note {
+  font-size: 14px;
+  font-style: italic;
+  margin: 4px 0;
+}
+
+.detail-view-button {
+  margin-top: 16px;
+  width: 100%;
+}
+
+.connections-table-section h2 {
+  margin-bottom: 8px;
+}
+
+.connections-table {
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.file-path {
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 900px) {
+  .content-row {
+    flex-direction: column;
+  }
+
+  .side-panel {
+    flex: 1 1 auto;
+    max-width: none;
+    width: 100%;
+    box-sizing: border-box;
+    position: static;
+    max-height: none;
+  }
+}
+
 .diagram-pending {
   font-size: 15px;
   margin: 0;

@@ -22,14 +22,12 @@ function ensureMermaidInitialized() {
 
 interface DiagramViewProps {
   analysis: Analysis
+  onSelectComponent: (componentId: string) => void
 }
 
-function DiagramView({ analysis }: DiagramViewProps) {
+function DiagramView({ analysis, onSelectComponent }: DiagramViewProps) {
   const [svg, setSvg] = useState<string | null>(null)
   const [failed, setFailed] = useState(false)
-  const [selectedComponentId, setSelectedComponentId] = useState<string | null>(
-    null,
-  )
   const rawId = useId()
   const renderCount = useRef(0)
   const svgContainerRef = useRef<HTMLDivElement | null>(null)
@@ -38,7 +36,6 @@ function DiagramView({ analysis }: DiagramViewProps) {
     let cancelled = false
     setSvg(null)
     setFailed(false)
-    setSelectedComponentId(null)
 
     const render = async () => {
       try {
@@ -67,10 +64,10 @@ function DiagramView({ analysis }: DiagramViewProps) {
     const index = buildNodeIndex(analysis?.components)
     const cleanup = attachNodeClickListeners(container, index, (componentId) => {
       console.log(`[CodeAtlas] node clicked: ${componentId}`)
-      setSelectedComponentId(componentId)
+      onSelectComponent(componentId)
     })
     return cleanup
-  }, [svg, analysis])
+  }, [svg, analysis, onSelectComponent])
 
   if (failed) {
     return (
@@ -123,14 +120,7 @@ function DiagramView({ analysis }: DiagramViewProps) {
   return (
     <section className="diagram-container" aria-label="Architecture diagram">
       {svg ? (
-        <>
-          <div ref={svgContainerRef} dangerouslySetInnerHTML={{ __html: svg }} />
-          {selectedComponentId && (
-            <p className="selected-node">
-              Selected component: {selectedComponentId}
-            </p>
-          )}
-        </>
+        <div ref={svgContainerRef} dangerouslySetInnerHTML={{ __html: svg }} />
       ) : (
         <p className="diagram-pending">Rendering diagram…</p>
       )}
