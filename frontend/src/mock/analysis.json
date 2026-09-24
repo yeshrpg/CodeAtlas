@@ -1,0 +1,39 @@
+{
+  "components": [
+    {
+      "id": "api",
+      "label": "API Layer",
+      "layer": "backend",
+      "summary": "Handles incoming HTTP requests and routes them to services.",
+      "label_source": "heuristic",
+      "files": ["src/api/routes.ts", "src/api/middleware.ts"]
+    },
+    {
+      "id": "db",
+      "label": "Database Layer",
+      "layer": "storage",
+      "summary": "Manages persistence and query execution.",
+      "label_source": "llm",
+      "files": ["src/db/client.ts", "src/db/models.ts"]
+    },
+    {
+      "id": "ui",
+      "label": "UI Layer",
+      "layer": "frontend",
+      "summary": "Renders the architecture diagram and detail panels.",
+      "label_source": "heuristic",
+      "files": ["src/App.tsx", "src/components/Graph.tsx"]
+    }
+  ],
+  "connections": [
+    { "from": "ui", "to": "api", "weight": 5 },
+    { "from": "api", "to": "db", "weight": 8 }
+  ],
+  "stats": {
+    "files": 6,
+    "skipped": 0,
+    "edges": 2,
+    "unresolved_pct": 0,
+    "ms": 42
+  }
+}
