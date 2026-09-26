@@ -1,3 +1,7 @@
+# Planning docs / local exports - not part of the product
+*.pdf
+CodeAtlas Master Plan and locked spec.txt
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
