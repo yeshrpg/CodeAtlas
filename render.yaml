@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: codeatlas-backend
+    runtime: python
+    plan: free
+    region: oregon
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
+    autoDeploy: true
+    branch: yesh/backend
+    envVars:
+      - key: ALLOWED_ORIGINS
+        sync: false      # set manually: frontend origin(s), comma-separated
+      - key: GITHUB_TOKEN
+        sync: false      # fine-grained, public-repo read-only, 7-day expiry
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: GEMINI_MODEL
+        value: gemini-3-flash-preview   # confirm exact string in AI Studio before demo
+      - key: PYTHON_VERSION
+        value: "3.12.7"
