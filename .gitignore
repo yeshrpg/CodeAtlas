@@ -216,3 +216,7 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Temporary test repos
+backend/repos_temp/
+backend/benchmark_repos/
