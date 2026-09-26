@@ -1,0 +1,27 @@
+{
+  "repo": "https://github.com/pallets/flask",
+  "ref": "main",
+  "commit_sha": "abc123",
+  "stats": {
+    "files": 0,
+    "skipped": 0,
+    "edges": 0,
+    "unresolved_pct": 0.0,
+    "ms": 0,
+    "llm_used": true
+  },
+  "components": [],
+  "edges": [],
+  "files": [],
+  "diagrams": {
+    "l1": {
+      "mermaid": "",
+      "node_map": {}
+    },
+    "l2": {}
+  },
+  "onboarding": {
+    "summary": "",
+    "reading_order": []
+  }
+}
