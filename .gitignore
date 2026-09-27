@@ -1,3 +1,30 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+*.egg-info/
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# Secrets — never commit real keys
+.env
+.env.txt
+.env.local
+*.env
+!backend/.env.example
+
+# Throwaway/manual test scripts and scratch work
+backend/codeatlas_test_y2_manual.py
+backend/y2_test_work/
+
+# OS/editor cruft
+.DS_Store
+*.swp
+
 # Planning docs / local exports - not part of the product
 *.pdf
 CodeAtlas Master Plan and locked spec.txt
