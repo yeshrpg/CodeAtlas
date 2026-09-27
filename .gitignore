@@ -220,3 +220,6 @@ __marimo__/
 # Temporary test repos
 backend/repos_temp/
 backend/benchmark_repos/
+
+# Reference graphs (temporary, generated per-repo)
+reference.json
