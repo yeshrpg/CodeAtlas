@@ -6,10 +6,20 @@ Locked constraints reflected here:
 - CORS allowlist comes from the ALLOWED_ORIGINS env var (comma-separated),
   never hardcoded or wildcarded in production.
 - No SSE, no SQLite — in-memory dict cache only.
+
+v0.3.0 hardening (demo-day safety on Render free tier, ~512MB RAM):
+- At most MAX_CONCURRENT_ANALYSES pipelines run at once (each can download
+  up to 100MB); extra requests wait, then get status="failed" "server busy".
+- Successful results are reused for RESULT_TTL_SECONDS per (owner, name, ref),
+  so repeated demo clicks are instant and don't burn the Gemini free-tier quota.
+  Bypass with POST /analyze?fresh=true.
 """
 
 import os
 import threading
+import time
+import uuid
+from datetime import datetime, timezone
 from typing import Optional
 
 from fastapi import FastAPI, HTTPException
@@ -17,10 +27,10 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
 
 from app.pipeline import run_analysis
-from app.schema import AnalysisResult
+from app.schema import AnalysisResult, AnalysisStatus, RepoMeta
 
 APP_NAME = "codeatlas-backend"
-APP_VERSION = "0.2.0"
+APP_VERSION = "0.3.0"
 
 app = FastAPI(title=APP_NAME, version=APP_VERSION)
 
@@ -36,19 +46,60 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# --- In-memory cache ----------------------------------------------------
-# Keyed by analysis_id. Capped (oldest evicted first) so a long-running
-# Render free-tier instance can't grow without bound.
+# --- In-memory stores -----------------------------------------------------
 MAX_CACHED_ANALYSES = 50
-ANALYSIS_CACHE: dict[str, AnalysisResult] = {}
+MAX_CONCURRENT_ANALYSES = 2
+BUSY_WAIT_SECONDS = 45
+RESULT_TTL_SECONDS = 15 * 60
+
+ANALYSIS_CACHE: dict[str, AnalysisResult] = {}  # analysis_id -> result
+_RESULT_INDEX: dict[tuple[str, str, str], tuple[float, str]] = {}  # (owner,name,ref) -> (time, analysis_id)
 _CACHE_LOCK = threading.Lock()
+_SLOTS = threading.BoundedSemaphore(MAX_CONCURRENT_ANALYSES)
 
 
-def _cache_put(result: AnalysisResult) -> None:
+def _cache_put(result: AnalysisResult, key: Optional[tuple[str, str, str]] = None) -> None:
     with _CACHE_LOCK:
         while len(ANALYSIS_CACHE) >= MAX_CACHED_ANALYSES:
             ANALYSIS_CACHE.pop(next(iter(ANALYSIS_CACHE)))
         ANALYSIS_CACHE[result.analysis_id] = result
+        if key is not None:
+            while len(_RESULT_INDEX) >= 200:
+                _RESULT_INDEX.pop(next(iter(_RESULT_INDEX)))
+            _RESULT_INDEX[key] = (time.time(), result.analysis_id)
+
+
+def _cache_get(key: tuple[str, str, str]) -> Optional[AnalysisResult]:
+    with _CACHE_LOCK:
+        entry = _RESULT_INDEX.get(key)
+        if entry is None:
+            return None
+        stamped_at, analysis_id = entry
+        if time.time() - stamped_at > RESULT_TTL_SECONDS:
+            _RESULT_INDEX.pop(key, None)
+            return None
+        return ANALYSIS_CACHE.get(analysis_id)
+
+
+def _busy_result(req: "AnalyzeRequest") -> AnalysisResult:
+    now = datetime.now(timezone.utc)
+    return AnalysisResult(
+        analysis_id=uuid.uuid4().hex,
+        status=AnalysisStatus.failed,
+        repo=RepoMeta(
+            owner=req.owner,
+            name=req.name,
+            default_branch=req.ref or "unknown",
+            commit_sha="",
+            is_public=False,
+            total_files_scanned=0,
+            total_files_skipped=0,
+            total_size_bytes=0,
+        ),
+        created_at=now,
+        completed_at=now,
+        error="Server is busy analyzing other repositories. Please try again in a minute.",
+    )
 
 
 # --- Request models -------------------------------------------------------
@@ -72,11 +123,26 @@ def health():
 
 
 @app.post("/analyze", response_model=AnalysisResult)
-def analyze(req: AnalyzeRequest) -> AnalysisResult:
+def analyze(req: AnalyzeRequest, fresh: bool = False) -> AnalysisResult:
     """Runs the full pipeline synchronously. Pipeline failures come back as
-    HTTP 200 with status="failed" + `error`; only bad input gets a 422."""
-    result = run_analysis(req.owner, req.name, req.ref)
-    _cache_put(result)
+    HTTP 200 with status="failed" + `error`; only bad input gets a 422.
+    A recent successful result for the same (owner, name, ref) is returned
+    instantly unless ?fresh=true."""
+    key = (req.owner.lower(), req.name.lower(), req.ref or "")
+
+    if not fresh:
+        cached = _cache_get(key)
+        if cached is not None:
+            return cached
+
+    if not _SLOTS.acquire(timeout=BUSY_WAIT_SECONDS):
+        return _busy_result(req)
+    try:
+        result = run_analysis(req.owner, req.name, req.ref)
+    finally:
+        _SLOTS.release()
+
+    _cache_put(result, key if result.status == AnalysisStatus.done else None)
     return result
 
 
