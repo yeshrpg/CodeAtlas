@@ -4,12 +4,12 @@ Parse GitHub repositories and generate interactive architecture diagrams.
 
 ## Quick Start
 
-```bash
+\\\ash
 cd backend
 python -m uvicorn app.main:app --reload --port 8000
-```
+\\\
 
-Server running at `http://localhost:8000`
+Server running at \http://localhost:8000\
 
 ## API Endpoints
 
@@ -17,16 +17,16 @@ Server running at `http://localhost:8000`
 Analyze a repository and extract architecture.
 
 **Request:**
-```json
+\\\json
 {
   "repo_url": "https://github.com/fastapi/full-stack-fastapi-template",
   "ref": "main",
   "use_llm": true
 }
-```
+\\\
 
 **Response:**
-```json
+\\\json
 {
   "repo": "https://...",
   "commit_sha": "abc123",
@@ -38,29 +38,30 @@ Analyze a repository and extract architecture.
   "components": [],
   "edges": []
 }
-```
+\\\
 
 ### GET /health
 Health check endpoint.
 
-**Response:** `{"status": "ok"}`
+**Response:** \{"status": "ok"}\
 
 ### GET /
 Root endpoint.
 
-**Response:** `{"message": "CodeAtlas API", "docs": "/docs"}`
+**Response:** \{"message": "CodeAtlas API", "docs": "/docs"}\
 
 ## Architecture
 
+\'\'\'
 backend/
-├── core/ # JS/TS Parser
-├── llm/ # Fallback labels
-├── app/ # FastAPI app
-├── bench/ # Benchmarking
-├── demo_data/ # Demo JSONs
-├── README.md # This file
-└── NEXT_STEPS.md # Next steps guide
-
+├── core/              # JS/TS Parser
+├── llm/               # Fallback labels
+├── app/               # FastAPI app
+├── bench/             # Benchmarking
+├── demo_data/         # Demo JSONs
+├── README.md          # This file
+└── NEXT_STEPS.md      # Next steps guide
+\'\'\'
 
 ## Features
 
@@ -74,21 +75,21 @@ backend/
 ## Development
 
 ### Run Tests
-```bash
+\\\ash
 pytest . -v
-```
+\\\
 
 ### Install Dependencies
-```bash
+\\\ash
 pip install fastapi uvicorn pydantic requests pytest
-```
+\\\
 
 ### File Structure
-- `app/main.py` - FastAPI application
-- `core/parse_js.py` - JS/TS parser
-- `llm/fallback.py` - Heuristic labels
-- `bench/measure_precision_recall.py` - Measurement script
-- `demo_data/*.json` - Example outputs
+- \pp/main.py\ - FastAPI application
+- \core/parse_js.py\ - JS/TS parser
+- \llm/fallback.py\ - Heuristic labels
+- \ench/measure_precision_recall.py\ - Measurement script
+- \demo_data/*.json\ - Example outputs
 
 ## Status
 
@@ -99,4 +100,4 @@ pip install fastapi uvicorn pydantic requests pytest
 
 ## Next Steps
 
-See `NEXT_STEPS.md` for integration workflow.
+See \NEXT_STEPS.md\ for integration workflow.
