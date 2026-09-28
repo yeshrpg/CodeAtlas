@@ -189,6 +189,150 @@
   animation: spin 0.8s linear infinite;
 }
 
+.analyze-result {
+  font-size: 14px;
+  background: var(--accent-bg);
+  border: 1px solid var(--accent-border);
+  border-radius: 6px;
+  padding: 8px 14px;
+  margin-bottom: 16px;
+}
+
+.analyze-result p {
+  margin: 0;
+}
+
+.component-list-section h2 {
+  margin-bottom: 8px;
+}
+
+.component-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 4px 0 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.component-row {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+  box-sizing: border-box;
+  text-align: left;
+  font: inherit;
+  background: var(--bg);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 10px 14px;
+  cursor: pointer;
+}
+
+.component-row:hover {
+  border-color: var(--accent-border);
+}
+
+.component-row.selected {
+  border-color: var(--accent-border);
+  background: var(--accent-bg);
+}
+
+.component-row-main {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.component-row-main strong {
+  color: var(--text-h);
+  font-size: 15px;
+}
+
+.component-row-summary {
+  font-size: 14px;
+}
+
+.component-row-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  font-size: 13px;
+}
+
+.component-row-path {
+  font-family: var(--mono);
+  overflow-wrap: anywhere;
+}
+
+.label-badge-ai {
+  font-size: 14px;
+  background: var(--accent-bg);
+  color: var(--accent);
+  border: 1px solid var(--accent-border);
+  border-radius: 999px;
+  padding: 4px 12px;
+}
+
+.label-badge-heuristic {
+  font-size: 14px;
+  background: var(--code-bg);
+  color: var(--text-h);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 4px 12px;
+}
+
+.label-badge-merged {
+  font-size: 14px;
+  background: transparent;
+  color: var(--text);
+  border: 1px dashed var(--border);
+  border-radius: 999px;
+  padding: 4px 12px;
+}
+
+.unresolved-section {
+  margin-bottom: 16px;
+}
+
+.unresolved-section h2 {
+  margin-bottom: 8px;
+}
+
+.unresolved-section summary {
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.unresolved-meta {
+  font-size: 13px;
+}
+
+.repo-header {
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 12px 16px;
+  margin-bottom: 16px;
+  background: var(--bg);
+}
+
+.repo-title {
+  margin: 0 0 8px;
+  overflow-wrap: anywhere;
+}
+
+.repo-header .component-meta {
+  margin: 0;
+}
+
+.repo-header .empty-note {
+  margin: 8px 0 0;
+}
+
 @keyframes spin {
   to {
     transform: rotate(360deg);

@@ -2,6 +2,10 @@ import { useEffect, useId, useRef, useState } from 'react'
 import mermaid from 'mermaid'
 import { toMermaid } from '../lib/toMermaid'
 import {
+  resolveDiagramSource,
+  type FallbackTables,
+} from '../lib/diagramSource'
+import {
   attachNodeClickListeners,
   buildNodeIndex,
 } from '../lib/nodeMapping'
@@ -27,12 +31,32 @@ interface DiagramViewProps {
   onSelectComponent: (componentId: string) => void
   /** Download file name (App makes it L1/L2-aware). */
   fileName: string
+  /**
+   * Stage B2 real-backend path. `undefined` (default) = legacy mode: Mermaid
+   * is generated locally from `analysis` via toMermaid (Compare tab and the
+   * pre-analyze default — unchanged). A string is rendered directly via
+   * `mermaid.render()` with no conversion. `null` means the backend produced
+   * no diagram → empty state, never a crash.
+   */
+  mermaidSource?: string | null
+  /**
+   * Real-shape rows for the fallback table when a direct render fails, so it
+   * shows real data instead of stale mock data. Omit in legacy mode.
+   */
+  realFallback?: FallbackTables | null
 }
 
-function DiagramView({ analysis, onSelectComponent, fileName }: DiagramViewProps) {
+function DiagramView({
+  analysis,
+  onSelectComponent,
+  fileName,
+  mermaidSource,
+  realFallback,
+}: DiagramViewProps) {
   const [svg, setSvg] = useState<string | null>(null)
   const [code, setCode] = useState<string | null>(null)
   const [failed, setFailed] = useState(false)
+  const [empty, setEmpty] = useState(false)
   const rawId = useId()
   const renderCount = useRef(0)
   const svgContainerRef = useRef<HTMLDivElement | null>(null)
@@ -42,11 +66,22 @@ function DiagramView({ analysis, onSelectComponent, fileName }: DiagramViewProps
     setSvg(null)
     setCode(null)
     setFailed(false)
+    setEmpty(false)
 
     const render = async () => {
       try {
         ensureMermaidInitialized()
-        const code = toMermaid(analysis?.components, analysis?.connections)
+        const source = resolveDiagramSource(mermaidSource)
+        if (source.kind === 'empty') {
+          if (!cancelled) setEmpty(true)
+          return
+        }
+        // Legacy mode generates locally; direct mode renders the backend's
+        // `mermaid.source` verbatim — no conversion step either way here.
+        const code =
+          source.kind === 'direct'
+            ? source.code
+            : toMermaid(analysis?.components, analysis?.connections)
         renderCount.current += 1
         const renderId = `codeatlas_${rawId.replace(/[^A-Za-z0-9_]/g, '')}_${renderCount.current}`
         const { svg } = await mermaid.render(renderId, code)
@@ -63,7 +98,7 @@ function DiagramView({ analysis, onSelectComponent, fileName }: DiagramViewProps
     return () => {
       cancelled = true
     }
-  }, [analysis, rawId])
+  }, [analysis, mermaidSource, rawId])
 
   // Re-attach node click listeners after every successful render so they
   // always match the currently displayed SVG (no stale/duplicate listeners).
@@ -84,6 +119,12 @@ function DiagramView({ analysis, onSelectComponent, fileName }: DiagramViewProps
   }
 
   if (failed) {
+    // Direct-render failure on a real analysis shows real rows; legacy mode
+    // keeps the previous mock-shape tables.
+    const fallbackComponents =
+      realFallback?.components ?? analysis?.components ?? []
+    const fallbackConnections =
+      realFallback?.connections ?? analysis?.connections ?? []
     return (
       <section className="diagram-container" aria-label="Analysis fallback table">
         <ExportControls code={null} canDownload={false} onDownload={() => {}} />
@@ -100,7 +141,7 @@ function DiagramView({ analysis, onSelectComponent, fileName }: DiagramViewProps
             </tr>
           </thead>
           <tbody>
-            {(analysis?.components ?? []).map((c) => (
+            {fallbackComponents.map((c) => (
               <tr key={c.id}>
                 <td>{c.id}</td>
                 <td>{c.label}</td>
@@ -119,7 +160,7 @@ function DiagramView({ analysis, onSelectComponent, fileName }: DiagramViewProps
             </tr>
           </thead>
           <tbody>
-            {(analysis?.connections ?? []).map((conn, i) => (
+            {fallbackConnections.map((conn, i) => (
               <tr key={`${conn.from}-${conn.to}-${i}`}>
                 <td>{conn.from}</td>
                 <td>{conn.to}</td>
@@ -128,6 +169,18 @@ function DiagramView({ analysis, onSelectComponent, fileName }: DiagramViewProps
             ))}
           </tbody>
         </table>
+      </section>
+    )
+  }
+
+  if (empty) {
+    return (
+      <section className="diagram-container" aria-label="Architecture diagram">
+        <ExportControls code={null} canDownload={false} onDownload={() => {}} />
+        <p className="empty-note">
+          No diagram was produced for this analysis — data is still available
+          in the tables below.
+        </p>
       </section>
     )
   }
