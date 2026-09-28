@@ -247,3 +247,7 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# local API test artifacts
+/body.json
+/analysis_sample.json
