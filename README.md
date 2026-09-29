@@ -12,11 +12,15 @@
 
 **Code Atlas converts multi-million-line repositories into interactive, mathematically verified architectural maps via static AST analysis—with zero cloud dependencies.**
 
+[![Frontend](https://img.shields.io/badge/Frontend-React%2019%20%7C%20Vite-61dafb?style=flat-square&logo=react)](https://github.com/yeshrpg/CodeAtlas/tree/adithya/frontend)
 [![Backend Status](https://img.shields.io/badge/Backend-Render%20Live-success?style=flat-square&logo=render)](https://codeatlas-backend-a6jw.onrender.com)
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square)](LICENSE)
-[![Engine: Python 3.11+ / TypeScript 5.8+](https://img.shields.io/badge/Runtime-Py%203.11%2B%20%7C%20TS%205.8%2B-informational?style=flat-square)](backend/requirements.txt)
-[![Architecture Spec](https://img.shields.io/badge/RFC-Pydantic%20v2%20Strict-emerald?style=flat-square)](docs/schema.md)
 [![API Docs](https://img.shields.io/badge/API%20Docs-Swagger%20%2F%20OpenAPI-orange?style=flat-square)](https://codeatlas-backend-a6jw.onrender.com/docs)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square)](LICENSE)
+[![Runtime](https://img.shields.io/badge/Runtime-Py%203.11%2B%20%7C%20TS%205.8%2B-informational?style=flat-square)](backend/requirements.txt)
+
+<br/>
+
+**[🌐 Frontend Application](https://github.com/yeshrpg/CodeAtlas/tree/adithya/frontend)** &nbsp;•&nbsp; **[⚡ Live Backend API](https://codeatlas-backend-a6jw.onrender.com)** &nbsp;•&nbsp; **[📖 Interactive Swagger Docs](https://codeatlas-backend-a6jw.onrender.com/docs)**
 
 ---
 
