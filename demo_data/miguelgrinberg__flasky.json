@@ -1,0 +1,2887 @@
+{
+  "analysis_id": "0045c365086f407f9de929d9b00c0521",
+  "status": "done",
+  "repo": {
+    "owner": "miguelgrinberg",
+    "name": "flasky",
+    "default_branch": "master",
+    "commit_sha": "3beedd640b9146b0bd65c8c2ecf402b01798bc33",
+    "is_public": true,
+    "total_files_scanned": 33,
+    "total_files_skipped": 52,
+    "total_size_bytes": 56021,
+    "is_flat_repo": false
+  },
+  "created_at": "2026-09-29T03:38:44.110085Z",
+  "completed_at": "2026-09-29T03:38:50.101159Z",
+  "error": null,
+  "parsed_files": [
+    {
+      "path": "flasky.py",
+      "language": "python",
+      "line_count": 82,
+      "docstring": null,
+      "imports": [
+        {
+          "raw": "import os",
+          "module": "os",
+          "line": 1,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from dotenv import load_dotenv",
+          "module": "dotenv",
+          "line": 2,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import sys",
+          "module": "sys",
+          "line": 14,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import click",
+          "module": "click",
+          "line": 15,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from flask_migrate import Migrate, upgrade",
+          "module": "flask_migrate",
+          "line": 16,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from app import create_app, db",
+          "module": "app",
+          "line": 17,
+          "status": "resolved",
+          "resolved_path": "app/__init__.py"
+        },
+        {
+          "raw": "from app.models import User, Follow, Role, Permission, Post, Comment",
+          "module": "app.models",
+          "line": 18,
+          "status": "resolved",
+          "resolved_path": "app/models.py"
+        },
+        {
+          "raw": "import coverage",
+          "module": "coverage",
+          "line": 10,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import unittest",
+          "module": "unittest",
+          "line": 41,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from werkzeug.contrib.profiler import ProfilerMiddleware",
+          "module": "werkzeug.contrib.profiler",
+          "line": 66,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import subprocess",
+          "module": "subprocess",
+          "line": 37,
+          "status": "external",
+          "resolved_path": null
+        }
+      ],
+      "symbols": [
+        {
+          "name": "make_shell_context",
+          "kind": "function",
+          "line": 25,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "test",
+          "kind": "function",
+          "line": 34,
+          "docstring": "Run the unit tests.",
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "profile",
+          "kind": "function",
+          "line": 64,
+          "docstring": "Start the application under the code profiler.",
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "deploy",
+          "kind": "function",
+          "line": 73,
+          "docstring": "Run deployment tasks.",
+          "route_path": null,
+          "route_methods": []
+        }
+      ],
+      "parse_error": null
+    },
+    {
+      "path": "config.py",
+      "language": "python",
+      "line_count": 128,
+      "docstring": null,
+      "imports": [
+        {
+          "raw": "import os",
+          "module": "os",
+          "line": 1,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import logging",
+          "module": "logging",
+          "line": 52,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from logging.handlers import SMTPHandler",
+          "module": "logging.handlers",
+          "line": 53,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import logging",
+          "module": "logging",
+          "line": 86,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from logging import StreamHandler",
+          "module": "logging",
+          "line": 87,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import logging",
+          "module": "logging",
+          "line": 99,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from logging import StreamHandler",
+          "module": "logging",
+          "line": 100,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import logging",
+          "module": "logging",
+          "line": 112,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from logging.handlers import SysLogHandler",
+          "module": "logging.handlers",
+          "line": 113,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from werkzeug.middleware.proxy_fix import ProxyFix",
+          "module": "werkzeug.middleware.proxy_fix",
+          "line": 80,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from werkzeug.contrib.fixers import ProxyFix",
+          "module": "werkzeug.contrib.fixers",
+          "line": 82,
+          "status": "external",
+          "resolved_path": null
+        }
+      ],
+      "symbols": [
+        {
+          "name": "Config",
+          "kind": "class",
+          "line": 5,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "DevelopmentConfig",
+          "kind": "class",
+          "line": 29,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "TestingConfig",
+          "kind": "class",
+          "line": 35,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "ProductionConfig",
+          "kind": "class",
+          "line": 42,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "HerokuConfig",
+          "kind": "class",
+          "line": 71,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "DockerConfig",
+          "kind": "class",
+          "line": 93,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "UnixConfig",
+          "kind": "class",
+          "line": 106,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        }
+      ],
+      "parse_error": null
+    },
+    {
+      "path": "app/models.py",
+      "language": "python",
+      "line_count": 367,
+      "docstring": null,
+      "imports": [
+        {
+          "raw": "from datetime import datetime",
+          "module": "datetime",
+          "line": 1,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import hashlib",
+          "module": "hashlib",
+          "line": 2,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from werkzeug.security import generate_password_hash, check_password_hash",
+          "module": "werkzeug.security",
+          "line": 3,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from itsdangerous import TimedJSONWebSignatureSerializer as Serializer",
+          "module": "itsdangerous",
+          "line": 4,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from markdown import markdown",
+          "module": "markdown",
+          "line": 5,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import bleach",
+          "module": "bleach",
+          "line": 6,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from flask import current_app, request, url_for",
+          "module": "flask",
+          "line": 7,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from flask_login import UserMixin, AnonymousUserMixin",
+          "module": "flask_login",
+          "line": 8,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from app.exceptions import ValidationError",
+          "module": "app.exceptions",
+          "line": 9,
+          "status": "resolved",
+          "resolved_path": "app/exceptions.py"
+        },
+        {
+          "raw": "from . import db, login_manager",
+          "module": ".",
+          "line": 10,
+          "status": "resolved",
+          "resolved_path": "app/__init__.py"
+        }
+      ],
+      "symbols": [
+        {
+          "name": "Permission",
+          "kind": "class",
+          "line": 13,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "Role",
+          "kind": "class",
+          "line": 21,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "Follow",
+          "kind": "class",
+          "line": 74,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "User",
+          "kind": "class",
+          "line": 83,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "AnonymousUser",
+          "kind": "class",
+          "line": 274,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "load_user",
+          "kind": "function",
+          "line": 285,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "Post",
+          "kind": "class",
+          "line": 289,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "Comment",
+          "kind": "class",
+          "line": 330,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        }
+      ],
+      "parse_error": null
+    },
+    {
+      "path": "app/decorators.py",
+      "language": "python",
+      "line_count": 19,
+      "docstring": null,
+      "imports": [
+        {
+          "raw": "from functools import wraps",
+          "module": "functools",
+          "line": 1,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from flask import abort",
+          "module": "flask",
+          "line": 2,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from flask_login import current_user",
+          "module": "flask_login",
+          "line": 3,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from .models import Permission",
+          "module": "models",
+          "line": 4,
+          "status": "resolved",
+          "resolved_path": "app/models.py"
+        }
+      ],
+      "symbols": [
+        {
+          "name": "permission_required",
+          "kind": "function",
+          "line": 7,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "admin_required",
+          "kind": "function",
+          "line": 18,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        }
+      ],
+      "parse_error": null
+    },
+    {
+      "path": "app/__init__.py",
+      "language": "python",
+      "line_count": 45,
+      "docstring": null,
+      "imports": [
+        {
+          "raw": "from flask import Flask",
+          "module": "flask",
+          "line": 1,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from flask_bootstrap import Bootstrap",
+          "module": "flask_bootstrap",
+          "line": 2,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from flask_mail import Mail",
+          "module": "flask_mail",
+          "line": 3,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from flask_moment import Moment",
+          "module": "flask_moment",
+          "line": 4,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from flask_sqlalchemy import SQLAlchemy",
+          "module": "flask_sqlalchemy",
+          "line": 5,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from flask_login import LoginManager",
+          "module": "flask_login",
+          "line": 6,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from flask_pagedown import PageDown",
+          "module": "flask_pagedown",
+          "line": 7,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from config import config",
+          "module": "config",
+          "line": 8,
+          "status": "resolved",
+          "resolved_path": "config.py"
+        },
+        {
+          "raw": "from .main import main as main_blueprint",
+          "module": "main",
+          "line": 36,
+          "status": "resolved",
+          "resolved_path": "app/main/__init__.py"
+        },
+        {
+          "raw": "from .auth import auth as auth_blueprint",
+          "module": "auth",
+          "line": 39,
+          "status": "resolved",
+          "resolved_path": "app/auth/__init__.py"
+        },
+        {
+          "raw": "from .api import api as api_blueprint",
+          "module": "api",
+          "line": 42,
+          "status": "resolved",
+          "resolved_path": "app/api/__init__.py"
+        },
+        {
+          "raw": "from flask_sslify import SSLify",
+          "module": "flask_sslify",
+          "line": 33,
+          "status": "external",
+          "resolved_path": null
+        }
+      ],
+      "symbols": [
+        {
+          "name": "create_app",
+          "kind": "function",
+          "line": 20,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        }
+      ],
+      "parse_error": null
+    },
+    {
+      "path": "app/fake.py",
+      "language": "python",
+      "line_count": 37,
+      "docstring": null,
+      "imports": [
+        {
+          "raw": "from random import randint",
+          "module": "random",
+          "line": 1,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from sqlalchemy.exc import IntegrityError",
+          "module": "sqlalchemy.exc",
+          "line": 2,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from faker import Faker",
+          "module": "faker",
+          "line": 3,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from . import db",
+          "module": ".",
+          "line": 4,
+          "status": "resolved",
+          "resolved_path": "app/__init__.py"
+        },
+        {
+          "raw": "from .models import User, Post",
+          "module": "models",
+          "line": 5,
+          "status": "resolved",
+          "resolved_path": "app/models.py"
+        }
+      ],
+      "symbols": [
+        {
+          "name": "users",
+          "kind": "function",
+          "line": 8,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "posts",
+          "kind": "function",
+          "line": 28,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        }
+      ],
+      "parse_error": null
+    },
+    {
+      "path": "app/exceptions.py",
+      "language": "python",
+      "line_count": 2,
+      "docstring": null,
+      "imports": [],
+      "symbols": [
+        {
+          "name": "ValidationError",
+          "kind": "class",
+          "line": 1,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        }
+      ],
+      "parse_error": null
+    },
+    {
+      "path": "app/email.py",
+      "language": "python",
+      "line_count": 20,
+      "docstring": null,
+      "imports": [
+        {
+          "raw": "from threading import Thread",
+          "module": "threading",
+          "line": 1,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from flask import current_app, render_template",
+          "module": "flask",
+          "line": 2,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from flask_mail import Message",
+          "module": "flask_mail",
+          "line": 3,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from . import mail",
+          "module": ".",
+          "line": 4,
+          "status": "resolved",
+          "resolved_path": "app/__init__.py"
+        }
+      ],
+      "symbols": [
+        {
+          "name": "send_async_email",
+          "kind": "function",
+          "line": 7,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "send_email",
+          "kind": "function",
+          "line": 12,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        }
+      ],
+      "parse_error": null
+    },
+    {
+      "path": "migrations/env.py",
+      "language": "python",
+      "line_count": 73,
+      "docstring": null,
+      "imports": [
+        {
+          "raw": "from __future__ import with_statement",
+          "module": "__future__",
+          "line": 1,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from alembic import context",
+          "module": "alembic",
+          "line": 2,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from sqlalchemy import engine_from_config, pool",
+          "module": "sqlalchemy",
+          "line": 3,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from logging.config import fileConfig",
+          "module": "logging.config",
+          "line": 4,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from flask import current_app",
+          "module": "flask",
+          "line": 18,
+          "status": "external",
+          "resolved_path": null
+        }
+      ],
+      "symbols": [
+        {
+          "name": "run_migrations_offline",
+          "kind": "function",
+          "line": 27,
+          "docstring": "Run migrations in 'offline' mode.\n\nThis configures the context with just a URL\nand not an Engine, though an Engine is acceptable\nhere as well.  By skipping the Engine creation\nwe don't even need a DBAPI to be available.\n\nCalls to context.execute() here emit the given string to the\nscript output.",
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "run_migrations_online",
+          "kind": "function",
+          "line": 45,
+          "docstring": "Run migrations in 'online' mode.\n\nIn this scenario we need to create an Engine\nand associate a connection with the context.",
+          "route_path": null,
+          "route_methods": []
+        }
+      ],
+      "parse_error": null
+    },
+    {
+      "path": "app/main/errors.py",
+      "language": "python",
+      "line_count": 32,
+      "docstring": null,
+      "imports": [
+        {
+          "raw": "from flask import render_template, request, jsonify",
+          "module": "flask",
+          "line": 1,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from . import main",
+          "module": ".",
+          "line": 2,
+          "status": "resolved",
+          "resolved_path": "app/main/__init__.py"
+        }
+      ],
+      "symbols": [
+        {
+          "name": "forbidden",
+          "kind": "function",
+          "line": 6,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "page_not_found",
+          "kind": "function",
+          "line": 16,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "internal_server_error",
+          "kind": "function",
+          "line": 26,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        }
+      ],
+      "parse_error": null
+    },
+    {
+      "path": "app/main/__init__.py",
+      "language": "python",
+      "line_count": 11,
+      "docstring": null,
+      "imports": [
+        {
+          "raw": "from flask import Blueprint",
+          "module": "flask",
+          "line": 1,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from . import views, errors",
+          "module": ".",
+          "line": 5,
+          "status": "resolved",
+          "resolved_path": "app/main/__init__.py"
+        },
+        {
+          "raw": "from ..models import Permission",
+          "module": "models",
+          "line": 6,
+          "status": "resolved",
+          "resolved_path": "app/models.py"
+        }
+      ],
+      "symbols": [
+        {
+          "name": "inject_permissions",
+          "kind": "function",
+          "line": 10,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        }
+      ],
+      "parse_error": null
+    },
+    {
+      "path": "app/main/forms.py",
+      "language": "python",
+      "line_count": 61,
+      "docstring": null,
+      "imports": [
+        {
+          "raw": "from flask_wtf import FlaskForm",
+          "module": "flask_wtf",
+          "line": 1,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from wtforms import StringField, TextAreaField, BooleanField, SelectField,\\\n    SubmitField",
+          "module": "wtforms",
+          "line": 2,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from wtforms.validators import DataRequired, Length, Email, Regexp",
+          "module": "wtforms.validators",
+          "line": 4,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from wtforms import ValidationError",
+          "module": "wtforms",
+          "line": 5,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from flask_pagedown.fields import PageDownField",
+          "module": "flask_pagedown.fields",
+          "line": 6,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from ..models import Role, User",
+          "module": "models",
+          "line": 7,
+          "status": "resolved",
+          "resolved_path": "app/models.py"
+        }
+      ],
+      "symbols": [
+        {
+          "name": "NameForm",
+          "kind": "class",
+          "line": 10,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "EditProfileForm",
+          "kind": "class",
+          "line": 15,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "EditProfileAdminForm",
+          "kind": "class",
+          "line": 22,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "PostForm",
+          "kind": "class",
+          "line": 54,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "CommentForm",
+          "kind": "class",
+          "line": 59,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        }
+      ],
+      "parse_error": null
+    },
+    {
+      "path": "app/main/views.py",
+      "language": "python",
+      "line_count": 278,
+      "docstring": null,
+      "imports": [
+        {
+          "raw": "from flask import render_template, redirect, url_for, abort, flash, request,\\\n    current_app, make_response",
+          "module": "flask",
+          "line": 1,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from flask_login import login_required, current_user",
+          "module": "flask_login",
+          "line": 3,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from flask_sqlalchemy import get_debug_queries",
+          "module": "flask_sqlalchemy",
+          "line": 4,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from . import main",
+          "module": ".",
+          "line": 5,
+          "status": "resolved",
+          "resolved_path": "app/main/__init__.py"
+        },
+        {
+          "raw": "from .forms import EditProfileForm, EditProfileAdminForm, PostForm,\\\n    CommentForm",
+          "module": "forms",
+          "line": 6,
+          "status": "resolved",
+          "resolved_path": "app/main/forms.py"
+        },
+        {
+          "raw": "from .. import db",
+          "module": ".",
+          "line": 8,
+          "status": "resolved",
+          "resolved_path": "app/__init__.py"
+        },
+        {
+          "raw": "from ..models import Permission, Role, User, Post, Comment",
+          "module": "models",
+          "line": 9,
+          "status": "resolved",
+          "resolved_path": "app/models.py"
+        },
+        {
+          "raw": "from ..decorators import admin_required, permission_required",
+          "module": "decorators",
+          "line": 10,
+          "status": "resolved",
+          "resolved_path": "app/decorators.py"
+        }
+      ],
+      "symbols": [
+        {
+          "name": "after_request",
+          "kind": "function",
+          "line": 14,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "server_shutdown",
+          "kind": "function",
+          "line": 25,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "server_shutdown",
+          "kind": "route",
+          "line": 25,
+          "docstring": null,
+          "route_path": "/shutdown",
+          "route_methods": [
+            "GET"
+          ]
+        },
+        {
+          "name": "index",
+          "kind": "function",
+          "line": 36,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "index",
+          "kind": "route",
+          "line": 36,
+          "docstring": null,
+          "route_path": "/",
+          "route_methods": [
+            "GET",
+            "POST"
+          ]
+        },
+        {
+          "name": "user",
+          "kind": "function",
+          "line": 61,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "user",
+          "kind": "route",
+          "line": 61,
+          "docstring": null,
+          "route_path": "/user/<username>",
+          "route_methods": [
+            "GET"
+          ]
+        },
+        {
+          "name": "edit_profile",
+          "kind": "function",
+          "line": 74,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "edit_profile",
+          "kind": "route",
+          "line": 74,
+          "docstring": null,
+          "route_path": "/edit-profile",
+          "route_methods": [
+            "GET",
+            "POST"
+          ]
+        },
+        {
+          "name": "edit_profile_admin",
+          "kind": "function",
+          "line": 93,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "edit_profile_admin",
+          "kind": "route",
+          "line": 93,
+          "docstring": null,
+          "route_path": "/edit-profile/<int:id>",
+          "route_methods": [
+            "GET",
+            "POST"
+          ]
+        },
+        {
+          "name": "post",
+          "kind": "function",
+          "line": 119,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "post",
+          "kind": "route",
+          "line": 119,
+          "docstring": null,
+          "route_path": "/post/<int:id>",
+          "route_methods": [
+            "GET",
+            "POST"
+          ]
+        },
+        {
+          "name": "edit",
+          "kind": "function",
+          "line": 144,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "edit",
+          "kind": "route",
+          "line": 144,
+          "docstring": null,
+          "route_path": "/edit/<int:id>",
+          "route_methods": [
+            "GET",
+            "POST"
+          ]
+        },
+        {
+          "name": "follow",
+          "kind": "function",
+          "line": 163,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "follow",
+          "kind": "route",
+          "line": 163,
+          "docstring": null,
+          "route_path": "/follow/<username>",
+          "route_methods": [
+            "GET"
+          ]
+        },
+        {
+          "name": "unfollow",
+          "kind": "function",
+          "line": 180,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "unfollow",
+          "kind": "route",
+          "line": 180,
+          "docstring": null,
+          "route_path": "/unfollow/<username>",
+          "route_methods": [
+            "GET"
+          ]
+        },
+        {
+          "name": "followers",
+          "kind": "function",
+          "line": 195,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "followers",
+          "kind": "route",
+          "line": 195,
+          "docstring": null,
+          "route_path": "/followers/<username>",
+          "route_methods": [
+            "GET"
+          ]
+        },
+        {
+          "name": "followed_by",
+          "kind": "function",
+          "line": 212,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "followed_by",
+          "kind": "route",
+          "line": 212,
+          "docstring": null,
+          "route_path": "/followed_by/<username>",
+          "route_methods": [
+            "GET"
+          ]
+        },
+        {
+          "name": "show_all",
+          "kind": "function",
+          "line": 230,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "show_all",
+          "kind": "route",
+          "line": 230,
+          "docstring": null,
+          "route_path": "/all",
+          "route_methods": [
+            "GET"
+          ]
+        },
+        {
+          "name": "show_followed",
+          "kind": "function",
+          "line": 238,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "show_followed",
+          "kind": "route",
+          "line": 238,
+          "docstring": null,
+          "route_path": "/followed",
+          "route_methods": [
+            "GET"
+          ]
+        },
+        {
+          "name": "moderate",
+          "kind": "function",
+          "line": 247,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "moderate",
+          "kind": "route",
+          "line": 247,
+          "docstring": null,
+          "route_path": "/moderate",
+          "route_methods": [
+            "GET"
+          ]
+        },
+        {
+          "name": "moderate_enable",
+          "kind": "function",
+          "line": 260,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "moderate_enable",
+          "kind": "route",
+          "line": 260,
+          "docstring": null,
+          "route_path": "/moderate/enable/<int:id>",
+          "route_methods": [
+            "GET"
+          ]
+        },
+        {
+          "name": "moderate_disable",
+          "kind": "function",
+          "line": 272,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "moderate_disable",
+          "kind": "route",
+          "line": 272,
+          "docstring": null,
+          "route_path": "/moderate/disable/<int:id>",
+          "route_methods": [
+            "GET"
+          ]
+        }
+      ],
+      "parse_error": null
+    },
+    {
+      "path": "app/api/errors.py",
+      "language": "python",
+      "line_count": 26,
+      "docstring": null,
+      "imports": [
+        {
+          "raw": "from flask import jsonify",
+          "module": "flask",
+          "line": 1,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from app.exceptions import ValidationError",
+          "module": "app.exceptions",
+          "line": 2,
+          "status": "resolved",
+          "resolved_path": "app/exceptions.py"
+        },
+        {
+          "raw": "from . import api",
+          "module": ".",
+          "line": 3,
+          "status": "resolved",
+          "resolved_path": "app/api/__init__.py"
+        }
+      ],
+      "symbols": [
+        {
+          "name": "bad_request",
+          "kind": "function",
+          "line": 6,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "unauthorized",
+          "kind": "function",
+          "line": 12,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "forbidden",
+          "kind": "function",
+          "line": 18,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "validation_error",
+          "kind": "function",
+          "line": 25,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        }
+      ],
+      "parse_error": null
+    },
+    {
+      "path": "app/api/decorators.py",
+      "language": "python",
+      "line_count": 14,
+      "docstring": null,
+      "imports": [
+        {
+          "raw": "from functools import wraps",
+          "module": "functools",
+          "line": 1,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from flask import g",
+          "module": "flask",
+          "line": 2,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from .errors import forbidden",
+          "module": "errors",
+          "line": 3,
+          "status": "resolved",
+          "resolved_path": "app/api/errors.py"
+        }
+      ],
+      "symbols": [
+        {
+          "name": "permission_required",
+          "kind": "function",
+          "line": 6,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        }
+      ],
+      "parse_error": null
+    },
+    {
+      "path": "app/api/comments.py",
+      "language": "python",
+      "line_count": 67,
+      "docstring": null,
+      "imports": [
+        {
+          "raw": "from flask import jsonify, request, g, url_for, current_app",
+          "module": "flask",
+          "line": 1,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from .. import db",
+          "module": ".",
+          "line": 2,
+          "status": "resolved",
+          "resolved_path": "app/__init__.py"
+        },
+        {
+          "raw": "from ..models import Post, Permission, Comment",
+          "module": "models",
+          "line": 3,
+          "status": "resolved",
+          "resolved_path": "app/models.py"
+        },
+        {
+          "raw": "from . import api",
+          "module": ".",
+          "line": 4,
+          "status": "resolved",
+          "resolved_path": "app/api/__init__.py"
+        },
+        {
+          "raw": "from .decorators import permission_required",
+          "module": "decorators",
+          "line": 5,
+          "status": "resolved",
+          "resolved_path": "app/api/decorators.py"
+        }
+      ],
+      "symbols": [
+        {
+          "name": "get_comments",
+          "kind": "function",
+          "line": 9,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "get_comments",
+          "kind": "route",
+          "line": 9,
+          "docstring": null,
+          "route_path": "/comments/",
+          "route_methods": [
+            "GET"
+          ]
+        },
+        {
+          "name": "get_comment",
+          "kind": "function",
+          "line": 30,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "get_comment",
+          "kind": "route",
+          "line": 30,
+          "docstring": null,
+          "route_path": "/comments/<int:id>",
+          "route_methods": [
+            "GET"
+          ]
+        },
+        {
+          "name": "get_post_comments",
+          "kind": "function",
+          "line": 36,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "get_post_comments",
+          "kind": "route",
+          "line": 36,
+          "docstring": null,
+          "route_path": "/posts/<int:id>/comments/",
+          "route_methods": [
+            "GET"
+          ]
+        },
+        {
+          "name": "new_post_comment",
+          "kind": "function",
+          "line": 59,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "new_post_comment",
+          "kind": "route",
+          "line": 59,
+          "docstring": null,
+          "route_path": "/posts/<int:id>/comments/",
+          "route_methods": [
+            "POST"
+          ]
+        }
+      ],
+      "parse_error": null
+    },
+    {
+      "path": "app/api/__init__.py",
+      "language": "python",
+      "line_count": 5,
+      "docstring": null,
+      "imports": [
+        {
+          "raw": "from flask import Blueprint",
+          "module": "flask",
+          "line": 1,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from . import authentication, posts, users, comments, errors",
+          "module": ".",
+          "line": 5,
+          "status": "resolved",
+          "resolved_path": "app/api/__init__.py"
+        }
+      ],
+      "symbols": [],
+      "parse_error": null
+    },
+    {
+      "path": "app/api/authentication.py",
+      "language": "python",
+      "line_count": 44,
+      "docstring": null,
+      "imports": [
+        {
+          "raw": "from flask import g, jsonify",
+          "module": "flask",
+          "line": 1,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from flask_httpauth import HTTPBasicAuth",
+          "module": "flask_httpauth",
+          "line": 2,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from ..models import User",
+          "module": "models",
+          "line": 3,
+          "status": "resolved",
+          "resolved_path": "app/models.py"
+        },
+        {
+          "raw": "from . import api",
+          "module": ".",
+          "line": 4,
+          "status": "resolved",
+          "resolved_path": "app/api/__init__.py"
+        },
+        {
+          "raw": "from .errors import unauthorized, forbidden",
+          "module": "errors",
+          "line": 5,
+          "status": "resolved",
+          "resolved_path": "app/api/errors.py"
+        }
+      ],
+      "symbols": [
+        {
+          "name": "verify_password",
+          "kind": "function",
+          "line": 11,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "auth_error",
+          "kind": "function",
+          "line": 27,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "before_request",
+          "kind": "function",
+          "line": 33,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "get_token",
+          "kind": "function",
+          "line": 40,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "get_token",
+          "kind": "route",
+          "line": 40,
+          "docstring": null,
+          "route_path": "/tokens/",
+          "route_methods": [
+            "POST"
+          ]
+        }
+      ],
+      "parse_error": null
+    },
+    {
+      "path": "app/api/posts.py",
+      "language": "python",
+      "line_count": 57,
+      "docstring": null,
+      "imports": [
+        {
+          "raw": "from flask import jsonify, request, g, url_for, current_app",
+          "module": "flask",
+          "line": 1,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from .. import db",
+          "module": ".",
+          "line": 2,
+          "status": "resolved",
+          "resolved_path": "app/__init__.py"
+        },
+        {
+          "raw": "from ..models import Post, Permission",
+          "module": "models",
+          "line": 3,
+          "status": "resolved",
+          "resolved_path": "app/models.py"
+        },
+        {
+          "raw": "from . import api",
+          "module": ".",
+          "line": 4,
+          "status": "resolved",
+          "resolved_path": "app/api/__init__.py"
+        },
+        {
+          "raw": "from .decorators import permission_required",
+          "module": "decorators",
+          "line": 5,
+          "status": "resolved",
+          "resolved_path": "app/api/decorators.py"
+        },
+        {
+          "raw": "from .errors import forbidden",
+          "module": "errors",
+          "line": 6,
+          "status": "resolved",
+          "resolved_path": "app/api/errors.py"
+        }
+      ],
+      "symbols": [
+        {
+          "name": "get_posts",
+          "kind": "function",
+          "line": 10,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "get_posts",
+          "kind": "route",
+          "line": 10,
+          "docstring": null,
+          "route_path": "/posts/",
+          "route_methods": [
+            "GET"
+          ]
+        },
+        {
+          "name": "get_post",
+          "kind": "function",
+          "line": 31,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "get_post",
+          "kind": "route",
+          "line": 31,
+          "docstring": null,
+          "route_path": "/posts/<int:id>",
+          "route_methods": [
+            "GET"
+          ]
+        },
+        {
+          "name": "new_post",
+          "kind": "function",
+          "line": 38,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "new_post",
+          "kind": "route",
+          "line": 38,
+          "docstring": null,
+          "route_path": "/posts/",
+          "route_methods": [
+            "POST"
+          ]
+        },
+        {
+          "name": "edit_post",
+          "kind": "function",
+          "line": 49,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "edit_post",
+          "kind": "route",
+          "line": 49,
+          "docstring": null,
+          "route_path": "/posts/<int:id>",
+          "route_methods": [
+            "PUT"
+          ]
+        }
+      ],
+      "parse_error": null
+    },
+    {
+      "path": "app/api/users.py",
+      "language": "python",
+      "line_count": 53,
+      "docstring": null,
+      "imports": [
+        {
+          "raw": "from flask import jsonify, request, current_app, url_for",
+          "module": "flask",
+          "line": 1,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from . import api",
+          "module": ".",
+          "line": 2,
+          "status": "resolved",
+          "resolved_path": "app/api/__init__.py"
+        },
+        {
+          "raw": "from ..models import User, Post",
+          "module": "models",
+          "line": 3,
+          "status": "resolved",
+          "resolved_path": "app/models.py"
+        }
+      ],
+      "symbols": [
+        {
+          "name": "get_user",
+          "kind": "function",
+          "line": 7,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "get_user",
+          "kind": "route",
+          "line": 7,
+          "docstring": null,
+          "route_path": "/users/<int:id>",
+          "route_methods": [
+            "GET"
+          ]
+        },
+        {
+          "name": "get_user_posts",
+          "kind": "function",
+          "line": 13,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "get_user_posts",
+          "kind": "route",
+          "line": 13,
+          "docstring": null,
+          "route_path": "/users/<int:id>/posts/",
+          "route_methods": [
+            "GET"
+          ]
+        },
+        {
+          "name": "get_user_followed_posts",
+          "kind": "function",
+          "line": 35,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "get_user_followed_posts",
+          "kind": "route",
+          "line": 35,
+          "docstring": null,
+          "route_path": "/users/<int:id>/timeline/",
+          "route_methods": [
+            "GET"
+          ]
+        }
+      ],
+      "parse_error": null
+    },
+    {
+      "path": "app/auth/__init__.py",
+      "language": "python",
+      "line_count": 5,
+      "docstring": null,
+      "imports": [
+        {
+          "raw": "from flask import Blueprint",
+          "module": "flask",
+          "line": 1,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from . import views",
+          "module": ".",
+          "line": 5,
+          "status": "resolved",
+          "resolved_path": "app/auth/__init__.py"
+        }
+      ],
+      "symbols": [],
+      "parse_error": null
+    },
+    {
+      "path": "app/auth/forms.py",
+      "language": "python",
+      "line_count": 68,
+      "docstring": null,
+      "imports": [
+        {
+          "raw": "from flask_wtf import FlaskForm",
+          "module": "flask_wtf",
+          "line": 1,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from wtforms import StringField, PasswordField, BooleanField, SubmitField",
+          "module": "wtforms",
+          "line": 2,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from wtforms.validators import DataRequired, Length, Email, Regexp, EqualTo",
+          "module": "wtforms.validators",
+          "line": 3,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from wtforms import ValidationError",
+          "module": "wtforms",
+          "line": 4,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from ..models import User",
+          "module": "models",
+          "line": 5,
+          "status": "resolved",
+          "resolved_path": "app/models.py"
+        }
+      ],
+      "symbols": [
+        {
+          "name": "LoginForm",
+          "kind": "class",
+          "line": 8,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "RegistrationForm",
+          "kind": "class",
+          "line": 16,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "ChangePasswordForm",
+          "kind": "class",
+          "line": 38,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "PasswordResetRequestForm",
+          "kind": "class",
+          "line": 47,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "PasswordResetForm",
+          "kind": "class",
+          "line": 53,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "ChangeEmailForm",
+          "kind": "class",
+          "line": 60,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        }
+      ],
+      "parse_error": null
+    },
+    {
+      "path": "app/auth/views.py",
+      "language": "python",
+      "line_count": 169,
+      "docstring": null,
+      "imports": [
+        {
+          "raw": "from flask import render_template, redirect, request, url_for, flash",
+          "module": "flask",
+          "line": 1,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from flask_login import login_user, logout_user, login_required, \\\n    current_user",
+          "module": "flask_login",
+          "line": 2,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from . import auth",
+          "module": ".",
+          "line": 4,
+          "status": "resolved",
+          "resolved_path": "app/auth/__init__.py"
+        },
+        {
+          "raw": "from .. import db",
+          "module": ".",
+          "line": 5,
+          "status": "resolved",
+          "resolved_path": "app/__init__.py"
+        },
+        {
+          "raw": "from ..models import User",
+          "module": "models",
+          "line": 6,
+          "status": "resolved",
+          "resolved_path": "app/models.py"
+        },
+        {
+          "raw": "from ..email import send_email",
+          "module": "email",
+          "line": 7,
+          "status": "resolved",
+          "resolved_path": "app/email.py"
+        },
+        {
+          "raw": "from .forms import LoginForm, RegistrationForm, ChangePasswordForm,\\\n    PasswordResetRequestForm, PasswordResetForm, ChangeEmailForm",
+          "module": "forms",
+          "line": 8,
+          "status": "resolved",
+          "resolved_path": "app/auth/forms.py"
+        }
+      ],
+      "symbols": [
+        {
+          "name": "before_request",
+          "kind": "function",
+          "line": 13,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "unconfirmed",
+          "kind": "function",
+          "line": 24,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "unconfirmed",
+          "kind": "route",
+          "line": 24,
+          "docstring": null,
+          "route_path": "/unconfirmed",
+          "route_methods": [
+            "GET"
+          ]
+        },
+        {
+          "name": "login",
+          "kind": "function",
+          "line": 31,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "login",
+          "kind": "route",
+          "line": 31,
+          "docstring": null,
+          "route_path": "/login",
+          "route_methods": [
+            "GET",
+            "POST"
+          ]
+        },
+        {
+          "name": "logout",
+          "kind": "function",
+          "line": 47,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "logout",
+          "kind": "route",
+          "line": 47,
+          "docstring": null,
+          "route_path": "/logout",
+          "route_methods": [
+            "GET"
+          ]
+        },
+        {
+          "name": "register",
+          "kind": "function",
+          "line": 54,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "register",
+          "kind": "route",
+          "line": 54,
+          "docstring": null,
+          "route_path": "/register",
+          "route_methods": [
+            "GET",
+            "POST"
+          ]
+        },
+        {
+          "name": "confirm",
+          "kind": "function",
+          "line": 72,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "confirm",
+          "kind": "route",
+          "line": 72,
+          "docstring": null,
+          "route_path": "/confirm/<token>",
+          "route_methods": [
+            "GET"
+          ]
+        },
+        {
+          "name": "resend_confirmation",
+          "kind": "function",
+          "line": 85,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "resend_confirmation",
+          "kind": "route",
+          "line": 85,
+          "docstring": null,
+          "route_path": "/confirm",
+          "route_methods": [
+            "GET"
+          ]
+        },
+        {
+          "name": "change_password",
+          "kind": "function",
+          "line": 95,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "change_password",
+          "kind": "route",
+          "line": 95,
+          "docstring": null,
+          "route_path": "/change-password",
+          "route_methods": [
+            "GET",
+            "POST"
+          ]
+        },
+        {
+          "name": "password_reset_request",
+          "kind": "function",
+          "line": 110,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "password_reset_request",
+          "kind": "route",
+          "line": 110,
+          "docstring": null,
+          "route_path": "/reset",
+          "route_methods": [
+            "GET",
+            "POST"
+          ]
+        },
+        {
+          "name": "password_reset",
+          "kind": "function",
+          "line": 128,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "password_reset",
+          "kind": "route",
+          "line": 128,
+          "docstring": null,
+          "route_path": "/reset/<token>",
+          "route_methods": [
+            "GET",
+            "POST"
+          ]
+        },
+        {
+          "name": "change_email_request",
+          "kind": "function",
+          "line": 144,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "change_email_request",
+          "kind": "route",
+          "line": 144,
+          "docstring": null,
+          "route_path": "/change_email",
+          "route_methods": [
+            "GET",
+            "POST"
+          ]
+        },
+        {
+          "name": "change_email",
+          "kind": "function",
+          "line": 163,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "change_email",
+          "kind": "route",
+          "line": 163,
+          "docstring": null,
+          "route_path": "/change_email/<token>",
+          "route_methods": [
+            "GET"
+          ]
+        }
+      ],
+      "parse_error": null
+    },
+    {
+      "path": "migrations/versions/51f5ccfba190_comments.py",
+      "language": "python",
+      "line_count": 39,
+      "docstring": "comments\n\nRevision ID: 51f5ccfba190\nRevises: 2356a38169ea\nCreate Date: 2014-01-01 12:08:43.287523",
+      "imports": [
+        {
+          "raw": "from alembic import op",
+          "module": "alembic",
+          "line": 13,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import sqlalchemy as sa",
+          "module": "sqlalchemy",
+          "line": 14,
+          "status": "external",
+          "resolved_path": null
+        }
+      ],
+      "symbols": [
+        {
+          "name": "upgrade",
+          "kind": "function",
+          "line": 17,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "downgrade",
+          "kind": "function",
+          "line": 35,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        }
+      ],
+      "parse_error": null
+    },
+    {
+      "path": "migrations/versions/456a945560f6_login_support.py",
+      "language": "python",
+      "line_count": 30,
+      "docstring": "login support\n\nRevision ID: 456a945560f6\nRevises: 38c4e85512a9\nCreate Date: 2013-12-29 00:18:35.795259",
+      "imports": [
+        {
+          "raw": "from alembic import op",
+          "module": "alembic",
+          "line": 13,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import sqlalchemy as sa",
+          "module": "sqlalchemy",
+          "line": 14,
+          "status": "external",
+          "resolved_path": null
+        }
+      ],
+      "symbols": [
+        {
+          "name": "upgrade",
+          "kind": "function",
+          "line": 17,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "downgrade",
+          "kind": "function",
+          "line": 25,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        }
+      ],
+      "parse_error": null
+    },
+    {
+      "path": "migrations/versions/2356a38169ea_followers.py",
+      "language": "python",
+      "line_count": 33,
+      "docstring": "followers\n\nRevision ID: 2356a38169ea\nRevises: 288cd3dc5a8\nCreate Date: 2013-12-31 16:10:34.500006",
+      "imports": [
+        {
+          "raw": "from alembic import op",
+          "module": "alembic",
+          "line": 13,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import sqlalchemy as sa",
+          "module": "sqlalchemy",
+          "line": 14,
+          "status": "external",
+          "resolved_path": null
+        }
+      ],
+      "symbols": [
+        {
+          "name": "upgrade",
+          "kind": "function",
+          "line": 17,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "downgrade",
+          "kind": "function",
+          "line": 30,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        }
+      ],
+      "parse_error": null
+    },
+    {
+      "path": "migrations/versions/56ed7d33de8d_user_roles.py",
+      "language": "python",
+      "line_count": 30,
+      "docstring": "user roles\n\nRevision ID: 56ed7d33de8d\nRevises: 190163627111\nCreate Date: 2013-12-29 22:19:54.212604",
+      "imports": [
+        {
+          "raw": "from alembic import op",
+          "module": "alembic",
+          "line": 13,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import sqlalchemy as sa",
+          "module": "sqlalchemy",
+          "line": 14,
+          "status": "external",
+          "resolved_path": null
+        }
+      ],
+      "symbols": [
+        {
+          "name": "upgrade",
+          "kind": "function",
+          "line": 17,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "downgrade",
+          "kind": "function",
+          "line": 25,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        }
+      ],
+      "parse_error": null
+    },
+    {
+      "path": "migrations/versions/190163627111_account_confirmation.py",
+      "language": "python",
+      "line_count": 26,
+      "docstring": "account confirmation\n\nRevision ID: 190163627111\nRevises: 456a945560f6\nCreate Date: 2013-12-29 02:58:45.577428",
+      "imports": [
+        {
+          "raw": "from alembic import op",
+          "module": "alembic",
+          "line": 13,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import sqlalchemy as sa",
+          "module": "sqlalchemy",
+          "line": 14,
+          "status": "external",
+          "resolved_path": null
+        }
+      ],
+      "symbols": [
+        {
+          "name": "upgrade",
+          "kind": "function",
+          "line": 17,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "downgrade",
+          "kind": "function",
+          "line": 23,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        }
+      ],
+      "parse_error": null
+    },
+    {
+      "path": "migrations/versions/38c4e85512a9_initial_migration.py",
+      "language": "python",
+      "line_count": 41,
+      "docstring": "initial migration\n\nRevision ID: 38c4e85512a9\nRevises: None\nCreate Date: 2013-12-27 01:23:59.392801",
+      "imports": [
+        {
+          "raw": "from alembic import op",
+          "module": "alembic",
+          "line": 13,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import sqlalchemy as sa",
+          "module": "sqlalchemy",
+          "line": 14,
+          "status": "external",
+          "resolved_path": null
+        }
+      ],
+      "symbols": [
+        {
+          "name": "upgrade",
+          "kind": "function",
+          "line": 17,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "downgrade",
+          "kind": "function",
+          "line": 36,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        }
+      ],
+      "parse_error": null
+    },
+    {
+      "path": "migrations/versions/198b0eebcf9_caching_of_avatar_hashes.py",
+      "language": "python",
+      "line_count": 26,
+      "docstring": "caching of avatar hashes\n\nRevision ID: 198b0eebcf9\nRevises: d66f086b258\nCreate Date: 2014-02-04 09:10:02.245503",
+      "imports": [
+        {
+          "raw": "from alembic import op",
+          "module": "alembic",
+          "line": 13,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import sqlalchemy as sa",
+          "module": "sqlalchemy",
+          "line": 14,
+          "status": "external",
+          "resolved_path": null
+        }
+      ],
+      "symbols": [
+        {
+          "name": "upgrade",
+          "kind": "function",
+          "line": 17,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "downgrade",
+          "kind": "function",
+          "line": 23,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        }
+      ],
+      "parse_error": null
+    },
+    {
+      "path": "migrations/versions/d66f086b258_user_information.py",
+      "language": "python",
+      "line_count": 34,
+      "docstring": "user information\n\nRevision ID: d66f086b258\nRevises: 56ed7d33de8d\nCreate Date: 2013-12-29 23:50:49.566954",
+      "imports": [
+        {
+          "raw": "from alembic import op",
+          "module": "alembic",
+          "line": 13,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import sqlalchemy as sa",
+          "module": "sqlalchemy",
+          "line": 14,
+          "status": "external",
+          "resolved_path": null
+        }
+      ],
+      "symbols": [
+        {
+          "name": "upgrade",
+          "kind": "function",
+          "line": 17,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "downgrade",
+          "kind": "function",
+          "line": 27,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        }
+      ],
+      "parse_error": null
+    },
+    {
+      "path": "migrations/versions/288cd3dc5a8_rich_text_posts.py",
+      "language": "python",
+      "line_count": 26,
+      "docstring": "rich text posts\n\nRevision ID: 288cd3dc5a8\nRevises: 1b966e7f4b9e\nCreate Date: 2013-12-31 03:25:13.286503",
+      "imports": [
+        {
+          "raw": "from alembic import op",
+          "module": "alembic",
+          "line": 13,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import sqlalchemy as sa",
+          "module": "sqlalchemy",
+          "line": 14,
+          "status": "external",
+          "resolved_path": null
+        }
+      ],
+      "symbols": [
+        {
+          "name": "upgrade",
+          "kind": "function",
+          "line": 17,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "downgrade",
+          "kind": "function",
+          "line": 23,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        }
+      ],
+      "parse_error": null
+    },
+    {
+      "path": "migrations/versions/1b966e7f4b9e_post_model.py",
+      "language": "python",
+      "line_count": 35,
+      "docstring": "post model\n\nRevision ID: 1b966e7f4b9e\nRevises: 198b0eebcf9\nCreate Date: 2013-12-31 00:00:14.700591",
+      "imports": [
+        {
+          "raw": "from alembic import op",
+          "module": "alembic",
+          "line": 13,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import sqlalchemy as sa",
+          "module": "sqlalchemy",
+          "line": 14,
+          "status": "external",
+          "resolved_path": null
+        }
+      ],
+      "symbols": [
+        {
+          "name": "upgrade",
+          "kind": "function",
+          "line": 17,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "downgrade",
+          "kind": "function",
+          "line": 31,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        }
+      ],
+      "parse_error": null
+    }
+  ],
+  "components": [
+    {
+      "id": "root",
+      "folder_path": "",
+      "files": [
+        "config.py",
+        "flasky.py"
+      ],
+      "label": {
+        "name": "Application Entry Point",
+        "summary": "Contains the core configuration and main execution script for the Flask application.",
+        "source": "llm"
+      },
+      "is_other_merge": false
+    },
+    {
+      "id": "app",
+      "folder_path": "app",
+      "files": [
+        "app/__init__.py",
+        "app/decorators.py",
+        "app/email.py",
+        "app/exceptions.py",
+        "app/fake.py",
+        "app/models.py"
+      ],
+      "label": {
+        "name": "Core Application Logic",
+        "summary": "Houses the primary application factory, shared utilities, database models, and global helper functions.",
+        "source": "llm"
+      },
+      "is_other_merge": false
+    },
+    {
+      "id": "migrations",
+      "folder_path": "migrations",
+      "files": [
+        "migrations/env.py"
+      ],
+      "label": {
+        "name": "Database Migration Environment",
+        "summary": "Manages the database schema versioning environment and configuration settings.",
+        "source": "llm"
+      },
+      "is_other_merge": false
+    },
+    {
+      "id": "app_main",
+      "folder_path": "app/main",
+      "files": [
+        "app/main/__init__.py",
+        "app/main/errors.py",
+        "app/main/forms.py",
+        "app/main/views.py"
+      ],
+      "label": {
+        "name": "Main Application Routes",
+        "summary": "Handles the primary user-facing views, web forms, and error handling for the main interface.",
+        "source": "llm"
+      },
+      "is_other_merge": false
+    },
+    {
+      "id": "app_api",
+      "folder_path": "app/api",
+      "files": [
+        "app/api/__init__.py",
+        "app/api/authentication.py",
+        "app/api/comments.py",
+        "app/api/decorators.py",
+        "app/api/errors.py",
+        "app/api/posts.py",
+        "app/api/users.py"
+      ],
+      "label": {
+        "name": "REST API Layer",
+        "summary": "Provides the API endpoints for managing users, posts, and comments with integrated authentication and error handling.",
+        "source": "llm"
+      },
+      "is_other_merge": false
+    },
+    {
+      "id": "app_auth",
+      "folder_path": "app/auth",
+      "files": [
+        "app/auth/__init__.py",
+        "app/auth/forms.py",
+        "app/auth/views.py"
+      ],
+      "label": {
+        "name": "Authentication Module",
+        "summary": "Manages user authentication workflows including login forms and associated view logic.",
+        "source": "llm"
+      },
+      "is_other_merge": false
+    },
+    {
+      "id": "migrations_versions",
+      "folder_path": "migrations/versions",
+      "files": [
+        "migrations/versions/190163627111_account_confirmation.py",
+        "migrations/versions/198b0eebcf9_caching_of_avatar_hashes.py",
+        "migrations/versions/1b966e7f4b9e_post_model.py",
+        "migrations/versions/2356a38169ea_followers.py",
+        "migrations/versions/288cd3dc5a8_rich_text_posts.py",
+        "migrations/versions/38c4e85512a9_initial_migration.py",
+        "migrations/versions/456a945560f6_login_support.py",
+        "migrations/versions/51f5ccfba190_comments.py",
+        "migrations/versions/56ed7d33de8d_user_roles.py",
+        "migrations/versions/d66f086b258_user_information.py"
+      ],
+      "label": {
+        "name": "Database Version History",
+        "summary": "Stores incremental schema change scripts that define the evolution of the database structure over time.",
+        "source": "llm"
+      },
+      "is_other_merge": false
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "root",
+      "target_id": "app",
+      "import_count": 2,
+      "evidence": [
+        "flasky.py:17",
+        "flasky.py:18"
+      ]
+    },
+    {
+      "source_id": "app",
+      "target_id": "root",
+      "import_count": 1,
+      "evidence": [
+        "app/__init__.py:8"
+      ]
+    },
+    {
+      "source_id": "app",
+      "target_id": "app_main",
+      "import_count": 1,
+      "evidence": [
+        "app/__init__.py:36"
+      ]
+    },
+    {
+      "source_id": "app",
+      "target_id": "app_auth",
+      "import_count": 1,
+      "evidence": [
+        "app/__init__.py:39"
+      ]
+    },
+    {
+      "source_id": "app",
+      "target_id": "app_api",
+      "import_count": 1,
+      "evidence": [
+        "app/__init__.py:42"
+      ]
+    },
+    {
+      "source_id": "app_main",
+      "target_id": "app",
+      "import_count": 5,
+      "evidence": [
+        "app/main/__init__.py:6",
+        "app/main/forms.py:7",
+        "app/main/views.py:8",
+        "app/main/views.py:9",
+        "app/main/views.py:10"
+      ]
+    },
+    {
+      "source_id": "app_api",
+      "target_id": "app",
+      "import_count": 7,
+      "evidence": [
+        "app/api/errors.py:2",
+        "app/api/comments.py:2",
+        "app/api/comments.py:3",
+        "app/api/authentication.py:3",
+        "app/api/posts.py:2",
+        "app/api/posts.py:3",
+        "app/api/users.py:3"
+      ]
+    },
+    {
+      "source_id": "app_auth",
+      "target_id": "app",
+      "import_count": 4,
+      "evidence": [
+        "app/auth/forms.py:5",
+        "app/auth/views.py:5",
+        "app/auth/views.py:6",
+        "app/auth/views.py:7"
+      ]
+    }
+  ],
+  "unresolved": {
+    "imports": []
+  },
+  "mermaid": {
+    "diagram_type": "graph TD",
+    "source": "graph TD\n    root[\"Application Entry Point (2 files)\"]\n    app[\"Core Application Logic (6 files)\"]\n    migrations[\"Database Migration Environment (1 file)\"]\n    app_main[\"Main Application Routes (4 files)\"]\n    app_api[\"REST API Layer (7 files)\"]\n    app_auth[\"Authentication Module (3 files)\"]\n    migrations_versions[\"Database Version History (10 files)\"]\n\n    root -->|2| app\n    app --> root\n    app --> app_main\n    app --> app_auth\n    app --> app_api\n    app_main -->|5| app\n    app_api -->|7| app\n    app_auth -->|4| app\n\n    classDef otherNode fill:#eee,stroke:#999,stroke-dasharray: 4 3\n"
+  },
+  "llm_model": "gemini-3-flash-preview",
+  "llm_call_count": 1
+}

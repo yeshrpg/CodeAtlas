@@ -1,0 +1,233 @@
+{
+  "analysis_id": "demo-analysis-0001",
+  "status": "done",
+  "repo": {
+    "owner": "your-org",
+    "name": "codeatlas",
+    "default_branch": "main",
+    "commit_sha": "abc123def4567890abc123def4567890abc123d",
+    "is_public": true,
+    "total_files_scanned": 4,
+    "total_files_skipped": 0,
+    "total_size_bytes": 15234,
+    "is_flat_repo": false
+  },
+  "created_at": "2026-09-25T10:00:00Z",
+  "completed_at": "2026-09-25T10:00:00Z",
+  "error": null,
+  "parsed_files": [
+    {
+      "path": "backend/app/main.py",
+      "language": "python",
+      "line_count": 42,
+      "docstring": "FastAPI entrypoint for CodeAtlas backend.",
+      "imports": [
+        {
+          "raw": "from app.routes import analysis",
+          "module": "app.routes",
+          "line": 3,
+          "status": "resolved",
+          "resolved_path": "backend/app/routes.py"
+        },
+        {
+          "raw": "import fastapi",
+          "module": "fastapi",
+          "line": 1,
+          "status": "external",
+          "resolved_path": null
+        }
+      ],
+      "symbols": [
+        {
+          "name": "health",
+          "kind": "route",
+          "line": 15,
+          "docstring": "Liveness check.",
+          "route_path": "/health",
+          "route_methods": [
+            "GET"
+          ]
+        }
+      ],
+      "parse_error": null
+    },
+    {
+      "path": "backend/app/routes.py",
+      "language": "python",
+      "line_count": 88,
+      "docstring": null,
+      "imports": [
+        {
+          "raw": "from app.services.fetch import fetch_repo",
+          "module": "app.services.fetch",
+          "line": 2,
+          "status": "resolved",
+          "resolved_path": "backend/app/services/fetch.py"
+        },
+        {
+          "raw": "import some_unpublished_internal_tool",
+          "module": "some_unpublished_internal_tool",
+          "line": 5,
+          "status": "unresolved",
+          "resolved_path": null
+        }
+      ],
+      "symbols": [
+        {
+          "name": "analyze",
+          "kind": "route",
+          "line": 20,
+          "docstring": "Kick off a repo analysis.",
+          "route_path": "/analyze",
+          "route_methods": [
+            "POST"
+          ]
+        }
+      ],
+      "parse_error": null
+    },
+    {
+      "path": "backend/app/services/fetch.py",
+      "language": "python",
+      "line_count": 60,
+      "docstring": "GitHub zipball fetch + safe extraction.",
+      "imports": [
+        {
+          "raw": "import requests",
+          "module": "requests",
+          "line": 1,
+          "status": "external",
+          "resolved_path": null
+        }
+      ],
+      "symbols": [
+        {
+          "name": "fetch_repo_zip",
+          "kind": "function",
+          "line": 10,
+          "docstring": "Download and safely extract a public repo zipball.",
+          "route_path": null,
+          "route_methods": []
+        }
+      ],
+      "parse_error": null
+    },
+    {
+      "path": "frontend/src/App.jsx",
+      "language": "javascript",
+      "line_count": 120,
+      "docstring": null,
+      "imports": [
+        {
+          "raw": "import React from 'react'",
+          "module": "react",
+          "line": 1,
+          "status": "external",
+          "resolved_path": null
+        }
+      ],
+      "symbols": [
+        {
+          "name": "App",
+          "kind": "function",
+          "line": 8,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        }
+      ],
+      "parse_error": null
+    }
+  ],
+  "components": [
+    {
+      "id": "backend-app",
+      "folder_path": "backend/app",
+      "files": [
+        "backend/app/main.py",
+        "backend/app/routes.py"
+      ],
+      "label": {
+        "name": "API Layer",
+        "summary": "FastAPI entrypoint and route definitions.",
+        "source": "llm"
+      },
+      "is_other_merge": false
+    },
+    {
+      "id": "backend-services",
+      "folder_path": "backend/app/services",
+      "files": [
+        "backend/app/services/fetch.py"
+      ],
+      "label": {
+        "name": "Core Services",
+        "summary": "Repo fetching, scanning, parsing and analysis logic.",
+        "source": "llm"
+      },
+      "is_other_merge": false
+    },
+    {
+      "id": "frontend-src",
+      "folder_path": "frontend/src",
+      "files": [
+        "frontend/src/App.jsx"
+      ],
+      "label": {
+        "name": "Frontend UI",
+        "summary": "React application shell and views.",
+        "source": "llm"
+      },
+      "is_other_merge": false
+    },
+    {
+      "id": "demo-data",
+      "folder_path": "demo_data",
+      "files": [],
+      "label": {
+        "name": "Demo Data",
+        "summary": "Committed sample analysis output for offline demoing.",
+        "source": "heuristic"
+      },
+      "is_other_merge": false
+    },
+    {
+      "id": "docs",
+      "folder_path": "docs",
+      "files": [],
+      "label": {
+        "name": "Docs",
+        "summary": "Locked spec: PRD, architecture, API spec, schema, rules, security.",
+        "source": "heuristic"
+      },
+      "is_other_merge": false
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "backend-app",
+      "target_id": "backend-services",
+      "import_count": 1,
+      "evidence": [
+        "backend/app/routes.py:2"
+      ]
+    }
+  ],
+  "unresolved": {
+    "imports": [
+      {
+        "raw": "import some_unpublished_internal_tool",
+        "module": "some_unpublished_internal_tool",
+        "line": 5,
+        "status": "unresolved",
+        "resolved_path": null
+      }
+    ]
+  },
+  "mermaid": {
+    "diagram_type": "graph TD",
+    "source": "graph TD\n  backend_app[API Layer]\n  backend_services[Core Services]\n  frontend_src[Frontend UI]\n  demo_data[Demo Data]\n  docs[Docs]\n  backend_app --> backend_services\n"
+  },
+  "llm_model": "gemini-3-flash-preview",
+  "llm_call_count": 1
+}
