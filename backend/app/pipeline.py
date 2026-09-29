@@ -1,7 +1,8 @@
 """
-CodeAtlas — analysis pipeline (Y7).
+CodeAtlas - analysis pipeline (Y7).
 
-fetch -> scan -> parse (.py) -> resolve -> group -> edges -> ONE LLM call -> mermaid
+fetch -> scan -> parse (.py, optionally .js/.ts) -> resolve -> group -> edges
+-> ONE LLM call -> mermaid
 
 `run_analysis` NEVER raises. Every failure comes back as an AnalysisResult
 with status=failed and a user-safe `error` message, so the API layer can
@@ -12,6 +13,11 @@ Locked constraints reflected here:
   heuristic labels on its own, so a dead LLM never fails the analysis).
 - LLM never decides edges or Mermaid; both are built by our own code.
 - Plain functions, no async. POSIX paths only.
+
+JS/TS support (Satvik's parser) is OFF unless ENABLE_JS_PARSER=1 is set in
+the environment. The import is guarded and the call is wrapped, so a missing
+or crashing JS parser can never fail an analysis - it silently degrades to
+Python-only. To roll back on Render: set ENABLE_JS_PARSER=0 (or delete it).
 """
 
 from __future__ import annotations
@@ -32,6 +38,7 @@ from app.schema import (
     AnalysisStatus,
     LabelSource,
     RepoMeta,
+    UnresolvedBucket,
 )
 from app.services.fetch import FetchError, FetchResult, fetch_repo
 from app.services.group import build_components, build_edges
@@ -41,7 +48,14 @@ from app.services.parse_py import parse_python_file
 from app.services.resolve import resolve_all
 from app.services.scan import ScanError, ScanResult, scan_repo
 
+try:  # optional: only present once Satvik's parser is committed
+    from app.services.parse_js import parse_js_files
+except Exception:  # ImportError or anything raised while importing it
+    parse_js_files = None  # type: ignore[assignment]
+
 log = logging.getLogger("codeatlas.pipeline")
+
+_JS_LANGUAGES = ("javascript", "typescript")
 
 
 class PipelineError(Exception):
@@ -50,6 +64,15 @@ class PipelineError(Exception):
 
 def _now() -> datetime:
     return datetime.now(timezone.utc)
+
+
+def _js_enabled() -> bool:
+    return parse_js_files is not None and os.environ.get("ENABLE_JS_PARSER", "").strip() == "1"
+
+
+def _status_value(imp) -> str:
+    status = getattr(imp, "status", None)
+    return str(getattr(status, "value", status))
 
 
 def _failed(
@@ -102,8 +125,7 @@ def run_analysis(
         scan = scan_repo(fetched.extract_root)
         repo_root = Path(fetched.extract_root)
 
-        # Python only for now. JS/TS files are scanned/counted but not parsed
-        # until Satvik's extractor is wired in.
+        # --- Python ---------------------------------------------------------
         raw_files = []
         for f in scan.files:
             if f.language != "python":
@@ -113,12 +135,42 @@ def run_analysis(
             except Exception:  # one bad file must not sink the analysis
                 log.exception("parse_python_file crashed on %s; skipping", f.path)
 
-        if not raw_files:
+        # --- JS/TS (optional, flag-gated, never fatal) ----------------------
+        js_parsed = []
+        if _js_enabled():
+            js_scanned = [f for f in scan.files if f.language in _JS_LANGUAGES]
+            if js_scanned:
+                try:
+                    js_parsed = list(parse_js_files(js_scanned))
+                except Exception:
+                    log.exception("parse_js_files crashed; continuing Python-only")
+                    js_parsed = []
+
+        if not raw_files and not js_parsed:
+            if _js_enabled():
+                raise PipelineError("No parseable Python or JS/TS files found in this repository.")
             raise PipelineError(
                 "No parseable Python files found (JS/TS analysis is not enabled yet)."
             )
 
-        parsed_files, unresolved = resolve_all(raw_files)
+        # --- Resolve / merge ------------------------------------------------
+        if raw_files:
+            parsed_files, unresolved = resolve_all(raw_files)
+        else:
+            parsed_files, unresolved = [], UnresolvedBucket(imports=[])
+
+        if js_parsed:
+            # JS imports arrive pre-resolved from the JS parser; only merge
+            # their unresolved ones into the bucket.
+            js_unresolved = [
+                imp for pf in js_parsed for imp in pf.imports if _status_value(imp) == "unresolved"
+            ]
+            parsed_files = list(parsed_files) + js_parsed
+            if js_unresolved:
+                unresolved = unresolved.model_copy(
+                    update={"imports": list(unresolved.imports) + js_unresolved}
+                )
+
         components = build_components(parsed_files, scan.is_flat_repo)
         edges = build_edges(components, parsed_files)
 
