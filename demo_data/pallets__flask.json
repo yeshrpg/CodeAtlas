@@ -1,0 +1,4934 @@
+{
+  "analysis_id": "c68b191aeb11466797de5c5cd7514305",
+  "status": "done",
+  "repo": {
+    "owner": "pallets",
+    "name": "flask",
+    "default_branch": "main",
+    "commit_sha": "d73fa1cdcbd8b1465c151db8924ba58b1dd14e35",
+    "is_public": true,
+    "total_files_scanned": 35,
+    "total_files_skipped": 201,
+    "total_size_bytes": 858431,
+    "is_flat_repo": false
+  },
+  "created_at": "2026-09-29T03:37:22.400907Z",
+  "completed_at": "2026-09-29T03:38:01.663972Z",
+  "error": null,
+  "parsed_files": [
+    {
+      "path": "docs/conf.py",
+      "language": "python",
+      "line_count": 101,
+      "docstring": null,
+      "imports": [
+        {
+          "raw": "import packaging.version",
+          "module": "packaging.version",
+          "line": 1,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from pallets_sphinx_themes import get_version",
+          "module": "pallets_sphinx_themes",
+          "line": 2,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from pallets_sphinx_themes import ProjectLink",
+          "module": "pallets_sphinx_themes",
+          "line": 3,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from docutils.nodes import reference",
+          "module": "docutils.nodes",
+          "line": 91,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from docutils.parsers.rst.roles import set_classes",
+          "module": "docutils.parsers.rst.roles",
+          "line": 92,
+          "status": "external",
+          "resolved_path": null
+        }
+      ],
+      "symbols": [
+        {
+          "name": "github_link",
+          "kind": "function",
+          "line": 72,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "setup",
+          "kind": "function",
+          "line": 100,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        }
+      ],
+      "parse_error": null
+    },
+    {
+      "path": "examples/celery/make_celery.py",
+      "language": "python",
+      "line_count": 4,
+      "docstring": null,
+      "imports": [
+        {
+          "raw": "from task_app import create_app",
+          "module": "task_app",
+          "line": 1,
+          "status": "external",
+          "resolved_path": null
+        }
+      ],
+      "symbols": [],
+      "parse_error": null
+    },
+    {
+      "path": "examples/celery/src/task_app/__init__.py",
+      "language": "python",
+      "line_count": 39,
+      "docstring": null,
+      "imports": [
+        {
+          "raw": "from celery import Celery",
+          "module": "celery",
+          "line": 1,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from celery import Task",
+          "module": "celery",
+          "line": 2,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from flask import Flask",
+          "module": "flask",
+          "line": 3,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from flask import render_template",
+          "module": "flask",
+          "line": 4,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from . import views",
+          "module": ".",
+          "line": 23,
+          "status": "resolved",
+          "resolved_path": "examples/celery/src/task_app/__init__.py"
+        }
+      ],
+      "symbols": [
+        {
+          "name": "create_app",
+          "kind": "function",
+          "line": 7,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "celery_init_app",
+          "kind": "function",
+          "line": 29,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        }
+      ],
+      "parse_error": null
+    },
+    {
+      "path": "examples/celery/src/task_app/tasks.py",
+      "language": "python",
+      "line_count": 23,
+      "docstring": null,
+      "imports": [
+        {
+          "raw": "import time",
+          "module": "time",
+          "line": 1,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from celery import shared_task",
+          "module": "celery",
+          "line": 3,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from celery import Task",
+          "module": "celery",
+          "line": 4,
+          "status": "external",
+          "resolved_path": null
+        }
+      ],
+      "symbols": [
+        {
+          "name": "add",
+          "kind": "function",
+          "line": 8,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "block",
+          "kind": "function",
+          "line": 13,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "process",
+          "kind": "function",
+          "line": 18,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        }
+      ],
+      "parse_error": null
+    },
+    {
+      "path": "examples/celery/src/task_app/views.py",
+      "language": "python",
+      "line_count": 38,
+      "docstring": null,
+      "imports": [
+        {
+          "raw": "from celery.result import AsyncResult",
+          "module": "celery.result",
+          "line": 1,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from flask import Blueprint",
+          "module": "flask",
+          "line": 2,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from flask import request",
+          "module": "flask",
+          "line": 3,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from . import tasks",
+          "module": ".",
+          "line": 5,
+          "status": "resolved",
+          "resolved_path": "examples/celery/src/task_app/__init__.py"
+        }
+      ],
+      "symbols": [
+        {
+          "name": "result",
+          "kind": "function",
+          "line": 11,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "result",
+          "kind": "route",
+          "line": 11,
+          "docstring": null,
+          "route_path": "/result/<id>",
+          "route_methods": [
+            "GET"
+          ]
+        },
+        {
+          "name": "add",
+          "kind": "function",
+          "line": 22,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "add",
+          "kind": "route",
+          "line": 22,
+          "docstring": null,
+          "route_path": "/add",
+          "route_methods": [
+            "POST"
+          ]
+        },
+        {
+          "name": "block",
+          "kind": "function",
+          "line": 30,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "block",
+          "kind": "route",
+          "line": 30,
+          "docstring": null,
+          "route_path": "/block",
+          "route_methods": [
+            "POST"
+          ]
+        },
+        {
+          "name": "process",
+          "kind": "function",
+          "line": 36,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "process",
+          "kind": "route",
+          "line": 36,
+          "docstring": null,
+          "route_path": "/process",
+          "route_methods": [
+            "POST"
+          ]
+        }
+      ],
+      "parse_error": null
+    },
+    {
+      "path": "examples/tutorial/flaskr/auth.py",
+      "language": "python",
+      "line_count": 116,
+      "docstring": null,
+      "imports": [
+        {
+          "raw": "import functools",
+          "module": "functools",
+          "line": 1,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from flask import Blueprint",
+          "module": "flask",
+          "line": 3,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from flask import flash",
+          "module": "flask",
+          "line": 4,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from flask import g",
+          "module": "flask",
+          "line": 5,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from flask import redirect",
+          "module": "flask",
+          "line": 6,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from flask import render_template",
+          "module": "flask",
+          "line": 7,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from flask import request",
+          "module": "flask",
+          "line": 8,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from flask import session",
+          "module": "flask",
+          "line": 9,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from flask import url_for",
+          "module": "flask",
+          "line": 10,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from werkzeug.security import check_password_hash",
+          "module": "werkzeug.security",
+          "line": 11,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from werkzeug.security import generate_password_hash",
+          "module": "werkzeug.security",
+          "line": 12,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from .db import get_db",
+          "module": "db",
+          "line": 14,
+          "status": "resolved",
+          "resolved_path": "examples/tutorial/flaskr/db.py"
+        }
+      ],
+      "symbols": [
+        {
+          "name": "login_required",
+          "kind": "function",
+          "line": 19,
+          "docstring": "View decorator that redirects anonymous users to the login page.",
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "load_logged_in_user",
+          "kind": "function",
+          "line": 33,
+          "docstring": "If a user id is stored in the session, load the user object from\nthe database into ``g.user``.",
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "register",
+          "kind": "function",
+          "line": 47,
+          "docstring": "Register a new user.\n\nValidates that the username is not already taken. Hashes the\npassword for security.",
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "register",
+          "kind": "route",
+          "line": 47,
+          "docstring": "Register a new user.\n\nValidates that the username is not already taken. Hashes the\npassword for security.",
+          "route_path": "/register",
+          "route_methods": [
+            "GET",
+            "POST"
+          ]
+        },
+        {
+          "name": "login",
+          "kind": "function",
+          "line": 85,
+          "docstring": "Log in a registered user by adding the user id to the session.",
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "login",
+          "kind": "route",
+          "line": 85,
+          "docstring": "Log in a registered user by adding the user id to the session.",
+          "route_path": "/login",
+          "route_methods": [
+            "GET",
+            "POST"
+          ]
+        },
+        {
+          "name": "logout",
+          "kind": "function",
+          "line": 113,
+          "docstring": "Clear the current session, including the stored user id.",
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "logout",
+          "kind": "route",
+          "line": 113,
+          "docstring": "Clear the current session, including the stored user id.",
+          "route_path": "/logout",
+          "route_methods": [
+            "GET"
+          ]
+        }
+      ],
+      "parse_error": null
+    },
+    {
+      "path": "examples/tutorial/flaskr/blog.py",
+      "language": "python",
+      "line_count": 125,
+      "docstring": null,
+      "imports": [
+        {
+          "raw": "from flask import Blueprint",
+          "module": "flask",
+          "line": 1,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from flask import flash",
+          "module": "flask",
+          "line": 2,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from flask import g",
+          "module": "flask",
+          "line": 3,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from flask import redirect",
+          "module": "flask",
+          "line": 4,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from flask import render_template",
+          "module": "flask",
+          "line": 5,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from flask import request",
+          "module": "flask",
+          "line": 6,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from flask import url_for",
+          "module": "flask",
+          "line": 7,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from werkzeug.exceptions import abort",
+          "module": "werkzeug.exceptions",
+          "line": 8,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from .auth import login_required",
+          "module": "auth",
+          "line": 10,
+          "status": "resolved",
+          "resolved_path": "examples/tutorial/flaskr/auth.py"
+        },
+        {
+          "raw": "from .db import get_db",
+          "module": "db",
+          "line": 11,
+          "status": "resolved",
+          "resolved_path": "examples/tutorial/flaskr/db.py"
+        }
+      ],
+      "symbols": [
+        {
+          "name": "index",
+          "kind": "function",
+          "line": 17,
+          "docstring": "Show all the posts, most recent first.",
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "index",
+          "kind": "route",
+          "line": 17,
+          "docstring": "Show all the posts, most recent first.",
+          "route_path": "/",
+          "route_methods": [
+            "GET"
+          ]
+        },
+        {
+          "name": "get_post",
+          "kind": "function",
+          "line": 28,
+          "docstring": "Get a post and its author by id.\n\nChecks that the id exists and optionally that the current user is\nthe author.\n\n:param id: id of post to get\n:param check_author: require the current user to be the author\n:return: the post with author information\n:raise 404: if a post with the given id doesn't exist\n:raise 403: if the current user isn't the author",
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "create",
+          "kind": "function",
+          "line": 62,
+          "docstring": "Create a new post for the current user.",
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "create",
+          "kind": "route",
+          "line": 62,
+          "docstring": "Create a new post for the current user.",
+          "route_path": "/create",
+          "route_methods": [
+            "GET",
+            "POST"
+          ]
+        },
+        {
+          "name": "update",
+          "kind": "function",
+          "line": 88,
+          "docstring": "Update a post if the current user is the author.",
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "update",
+          "kind": "route",
+          "line": 88,
+          "docstring": "Update a post if the current user is the author.",
+          "route_path": "/<int:id>/update",
+          "route_methods": [
+            "GET",
+            "POST"
+          ]
+        },
+        {
+          "name": "delete",
+          "kind": "function",
+          "line": 115,
+          "docstring": "Delete a post.\n\nEnsures that the post exists and that the logged in user is the\nauthor of the post.",
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "delete",
+          "kind": "route",
+          "line": 115,
+          "docstring": "Delete a post.\n\nEnsures that the post exists and that the logged in user is the\nauthor of the post.",
+          "route_path": "/<int:id>/delete",
+          "route_methods": [
+            "POST"
+          ]
+        }
+      ],
+      "parse_error": null
+    },
+    {
+      "path": "examples/tutorial/flaskr/__init__.py",
+      "language": "python",
+      "line_count": 48,
+      "docstring": null,
+      "imports": [
+        {
+          "raw": "import os",
+          "module": "os",
+          "line": 1,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from flask import Flask",
+          "module": "flask",
+          "line": 3,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from . import db",
+          "module": ".",
+          "line": 31,
+          "status": "resolved",
+          "resolved_path": "examples/tutorial/flaskr/__init__.py"
+        },
+        {
+          "raw": "from . import auth",
+          "module": ".",
+          "line": 36,
+          "status": "resolved",
+          "resolved_path": "examples/tutorial/flaskr/__init__.py"
+        },
+        {
+          "raw": "from . import blog",
+          "module": ".",
+          "line": 37,
+          "status": "resolved",
+          "resolved_path": "examples/tutorial/flaskr/__init__.py"
+        }
+      ],
+      "symbols": [
+        {
+          "name": "create_app",
+          "kind": "function",
+          "line": 6,
+          "docstring": "Create and configure an instance of the Flask application.",
+          "route_path": null,
+          "route_methods": []
+        }
+      ],
+      "parse_error": null
+    },
+    {
+      "path": "examples/tutorial/flaskr/db.py",
+      "language": "python",
+      "line_count": 56,
+      "docstring": null,
+      "imports": [
+        {
+          "raw": "import sqlite3",
+          "module": "sqlite3",
+          "line": 1,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from datetime import datetime",
+          "module": "datetime",
+          "line": 2,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import click",
+          "module": "click",
+          "line": 4,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from flask import current_app",
+          "module": "flask",
+          "line": 5,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from flask import g",
+          "module": "flask",
+          "line": 6,
+          "status": "external",
+          "resolved_path": null
+        }
+      ],
+      "symbols": [
+        {
+          "name": "get_db",
+          "kind": "function",
+          "line": 9,
+          "docstring": "Connect to the application's configured database. The connection\nis unique for each request and will be reused if this is called\nagain.",
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "close_db",
+          "kind": "function",
+          "line": 23,
+          "docstring": "If this request connected to the database, close the\nconnection.",
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "init_db",
+          "kind": "function",
+          "line": 33,
+          "docstring": "Clear existing data and create new tables.",
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "init_db_command",
+          "kind": "function",
+          "line": 42,
+          "docstring": "Clear existing data and create new tables.",
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "init_app",
+          "kind": "function",
+          "line": 51,
+          "docstring": "Register database functions with the Flask app. This is called by\nthe application factory.",
+          "route_path": null,
+          "route_methods": []
+        }
+      ],
+      "parse_error": null
+    },
+    {
+      "path": "examples/javascript/js_example/__init__.py",
+      "language": "python",
+      "line_count": 5,
+      "docstring": null,
+      "imports": [
+        {
+          "raw": "from flask import Flask",
+          "module": "flask",
+          "line": 1,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from js_example import views",
+          "module": "js_example",
+          "line": 5,
+          "status": "external",
+          "resolved_path": null
+        }
+      ],
+      "symbols": [],
+      "parse_error": null
+    },
+    {
+      "path": "examples/javascript/js_example/views.py",
+      "language": "python",
+      "line_count": 18,
+      "docstring": null,
+      "imports": [
+        {
+          "raw": "from flask import jsonify",
+          "module": "flask",
+          "line": 1,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from flask import render_template",
+          "module": "flask",
+          "line": 2,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from flask import request",
+          "module": "flask",
+          "line": 3,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from . import app",
+          "module": ".",
+          "line": 5,
+          "status": "resolved",
+          "resolved_path": "examples/javascript/js_example/__init__.py"
+        }
+      ],
+      "symbols": [
+        {
+          "name": "index",
+          "kind": "function",
+          "line": 10,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "index",
+          "kind": "route",
+          "line": 10,
+          "docstring": null,
+          "route_path": "/",
+          "route_methods": [
+            "GET"
+          ]
+        },
+        {
+          "name": "index",
+          "kind": "route",
+          "line": 10,
+          "docstring": null,
+          "route_path": "/<any(xhr, jquery, fetch):js>",
+          "route_methods": [
+            "GET"
+          ]
+        },
+        {
+          "name": "add",
+          "kind": "function",
+          "line": 15,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "add",
+          "kind": "route",
+          "line": 15,
+          "docstring": null,
+          "route_path": "/add",
+          "route_methods": [
+            "POST"
+          ]
+        }
+      ],
+      "parse_error": null
+    },
+    {
+      "path": "src/flask/logging.py",
+      "language": "python",
+      "line_count": 79,
+      "docstring": null,
+      "imports": [
+        {
+          "raw": "from __future__ import annotations",
+          "module": "__future__",
+          "line": 1,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import logging",
+          "module": "logging",
+          "line": 3,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import sys",
+          "module": "sys",
+          "line": 4,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import typing as t",
+          "module": "typing",
+          "line": 5,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from werkzeug.local import LocalProxy",
+          "module": "werkzeug.local",
+          "line": 7,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from .globals import request",
+          "module": "globals",
+          "line": 9,
+          "status": "resolved",
+          "resolved_path": "src/flask/globals.py"
+        },
+        {
+          "raw": "from .sansio.app import App",
+          "module": "sansio.app",
+          "line": 12,
+          "status": "resolved",
+          "resolved_path": "src/flask/sansio/app.py"
+        }
+      ],
+      "symbols": [
+        {
+          "name": "wsgi_errors_stream",
+          "kind": "function",
+          "line": 16,
+          "docstring": "Find the most appropriate error stream for the application. If a request\nis active, log to ``wsgi.errors``, otherwise use ``sys.stderr``.\n\nIf you configure your own :class:`logging.StreamHandler`, you may want to\nuse this for the stream. If you are using file or dict configuration and\ncan't import this directly, you can refer to it as\n``ext://flask.logging.wsgi_errors_stream``.",
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "has_level_handler",
+          "kind": "function",
+          "line": 31,
+          "docstring": "Check if there is a handler in the logging chain that will handle the\ngiven logger's :meth:`effective level <~logging.Logger.getEffectiveLevel>`.",
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "create_logger",
+          "kind": "function",
+          "line": 58,
+          "docstring": "Get the Flask app's logger and configure it if needed.\n\nThe logger name will be the same as\n:attr:`app.import_name <flask.Flask.name>`.\n\nWhen :attr:`~flask.Flask.debug` is enabled, set the logger level to\n:data:`logging.DEBUG` if it is not set.\n\nIf there is no handler for the logger's effective level, add a\n:class:`~logging.StreamHandler` for\n:func:`~flask.logging.wsgi_errors_stream` with a basic format.",
+          "route_path": null,
+          "route_methods": []
+        }
+      ],
+      "parse_error": null
+    },
+    {
+      "path": "src/flask/__main__.py",
+      "language": "python",
+      "line_count": 3,
+      "docstring": null,
+      "imports": [
+        {
+          "raw": "from .cli import main",
+          "module": "cli",
+          "line": 1,
+          "status": "resolved",
+          "resolved_path": "src/flask/cli.py"
+        }
+      ],
+      "symbols": [],
+      "parse_error": null
+    },
+    {
+      "path": "src/flask/app.py",
+      "language": "python",
+      "line_count": 1628,
+      "docstring": null,
+      "imports": [
+        {
+          "raw": "from __future__ import annotations",
+          "module": "__future__",
+          "line": 1,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import collections.abc as cabc",
+          "module": "collections.abc",
+          "line": 3,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import inspect",
+          "module": "inspect",
+          "line": 4,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import os",
+          "module": "os",
+          "line": 5,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import sys",
+          "module": "sys",
+          "line": 6,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import typing as t",
+          "module": "typing",
+          "line": 7,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import weakref",
+          "module": "weakref",
+          "line": 8,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from datetime import timedelta",
+          "module": "datetime",
+          "line": 9,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from functools import update_wrapper",
+          "module": "functools",
+          "line": 10,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from inspect import iscoroutinefunction",
+          "module": "inspect",
+          "line": 11,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from itertools import chain",
+          "module": "itertools",
+          "line": 12,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from types import TracebackType",
+          "module": "types",
+          "line": 13,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from urllib.parse import quote as _url_quote",
+          "module": "urllib.parse",
+          "line": 14,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from urllib.parse import urlsplit",
+          "module": "urllib.parse",
+          "line": 15,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import click",
+          "module": "click",
+          "line": 17,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from werkzeug.datastructures import Headers",
+          "module": "werkzeug.datastructures",
+          "line": 18,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from werkzeug.datastructures import ImmutableDict",
+          "module": "werkzeug.datastructures",
+          "line": 19,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from werkzeug.exceptions import BadRequestKeyError",
+          "module": "werkzeug.exceptions",
+          "line": 20,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from werkzeug.exceptions import HTTPException",
+          "module": "werkzeug.exceptions",
+          "line": 21,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from werkzeug.exceptions import InternalServerError",
+          "module": "werkzeug.exceptions",
+          "line": 22,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from werkzeug.routing import BuildError",
+          "module": "werkzeug.routing",
+          "line": 23,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from werkzeug.routing import MapAdapter",
+          "module": "werkzeug.routing",
+          "line": 24,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from werkzeug.routing import RequestRedirect",
+          "module": "werkzeug.routing",
+          "line": 25,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from werkzeug.routing import RoutingException",
+          "module": "werkzeug.routing",
+          "line": 26,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from werkzeug.routing import Rule",
+          "module": "werkzeug.routing",
+          "line": 27,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from werkzeug.serving import is_running_from_reloader",
+          "module": "werkzeug.serving",
+          "line": 28,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from werkzeug.wrappers import Response as BaseResponse",
+          "module": "werkzeug.wrappers",
+          "line": 29,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from werkzeug.wsgi import get_host",
+          "module": "werkzeug.wsgi",
+          "line": 30,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from . import cli",
+          "module": ".",
+          "line": 32,
+          "status": "resolved",
+          "resolved_path": "src/flask/__init__.py"
+        },
+        {
+          "raw": "from . import typing as ft",
+          "module": ".",
+          "line": 33,
+          "status": "resolved",
+          "resolved_path": "src/flask/__init__.py"
+        },
+        {
+          "raw": "from .ctx import AppContext",
+          "module": "ctx",
+          "line": 34,
+          "status": "resolved",
+          "resolved_path": "src/flask/ctx.py"
+        },
+        {
+          "raw": "from .globals import _cv_app",
+          "module": "globals",
+          "line": 35,
+          "status": "resolved",
+          "resolved_path": "src/flask/globals.py"
+        },
+        {
+          "raw": "from .globals import app_ctx",
+          "module": "globals",
+          "line": 36,
+          "status": "resolved",
+          "resolved_path": "src/flask/globals.py"
+        },
+        {
+          "raw": "from .globals import g",
+          "module": "globals",
+          "line": 37,
+          "status": "resolved",
+          "resolved_path": "src/flask/globals.py"
+        },
+        {
+          "raw": "from .globals import request",
+          "module": "globals",
+          "line": 38,
+          "status": "resolved",
+          "resolved_path": "src/flask/globals.py"
+        },
+        {
+          "raw": "from .globals import session",
+          "module": "globals",
+          "line": 39,
+          "status": "resolved",
+          "resolved_path": "src/flask/globals.py"
+        },
+        {
+          "raw": "from .helpers import _CollectErrors",
+          "module": "helpers",
+          "line": 40,
+          "status": "resolved",
+          "resolved_path": "src/flask/helpers.py"
+        },
+        {
+          "raw": "from .helpers import get_debug_flag",
+          "module": "helpers",
+          "line": 41,
+          "status": "resolved",
+          "resolved_path": "src/flask/helpers.py"
+        },
+        {
+          "raw": "from .helpers import get_flashed_messages",
+          "module": "helpers",
+          "line": 42,
+          "status": "resolved",
+          "resolved_path": "src/flask/helpers.py"
+        },
+        {
+          "raw": "from .helpers import get_load_dotenv",
+          "module": "helpers",
+          "line": 43,
+          "status": "resolved",
+          "resolved_path": "src/flask/helpers.py"
+        },
+        {
+          "raw": "from .helpers import send_from_directory",
+          "module": "helpers",
+          "line": 44,
+          "status": "resolved",
+          "resolved_path": "src/flask/helpers.py"
+        },
+        {
+          "raw": "from .sansio.app import App",
+          "module": "sansio.app",
+          "line": 45,
+          "status": "resolved",
+          "resolved_path": "src/flask/sansio/app.py"
+        },
+        {
+          "raw": "from .sessions import SecureCookieSessionInterface",
+          "module": "sessions",
+          "line": 46,
+          "status": "resolved",
+          "resolved_path": "src/flask/sessions.py"
+        },
+        {
+          "raw": "from .sessions import SessionInterface",
+          "module": "sessions",
+          "line": 47,
+          "status": "resolved",
+          "resolved_path": "src/flask/sessions.py"
+        },
+        {
+          "raw": "from .signals import appcontext_tearing_down",
+          "module": "signals",
+          "line": 48,
+          "status": "resolved",
+          "resolved_path": "src/flask/signals.py"
+        },
+        {
+          "raw": "from .signals import got_request_exception",
+          "module": "signals",
+          "line": 49,
+          "status": "resolved",
+          "resolved_path": "src/flask/signals.py"
+        },
+        {
+          "raw": "from .signals import request_finished",
+          "module": "signals",
+          "line": 50,
+          "status": "resolved",
+          "resolved_path": "src/flask/signals.py"
+        },
+        {
+          "raw": "from .signals import request_started",
+          "module": "signals",
+          "line": 51,
+          "status": "resolved",
+          "resolved_path": "src/flask/signals.py"
+        },
+        {
+          "raw": "from .signals import request_tearing_down",
+          "module": "signals",
+          "line": 52,
+          "status": "resolved",
+          "resolved_path": "src/flask/signals.py"
+        },
+        {
+          "raw": "from .templating import Environment",
+          "module": "templating",
+          "line": 53,
+          "status": "resolved",
+          "resolved_path": "src/flask/templating.py"
+        },
+        {
+          "raw": "from .wrappers import Request",
+          "module": "wrappers",
+          "line": 54,
+          "status": "resolved",
+          "resolved_path": "src/flask/wrappers.py"
+        },
+        {
+          "raw": "from .wrappers import Response",
+          "module": "wrappers",
+          "line": 55,
+          "status": "resolved",
+          "resolved_path": "src/flask/wrappers.py"
+        },
+        {
+          "raw": "from _typeshed.wsgi import StartResponse",
+          "module": "_typeshed.wsgi",
+          "line": 58,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from _typeshed.wsgi import WSGIEnvironment",
+          "module": "_typeshed.wsgi",
+          "line": 59,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from .testing import FlaskClient",
+          "module": "testing",
+          "line": 61,
+          "status": "resolved",
+          "resolved_path": "src/flask/testing.py"
+        },
+        {
+          "raw": "from .testing import FlaskCliRunner",
+          "module": "testing",
+          "line": 62,
+          "status": "resolved",
+          "resolved_path": "src/flask/testing.py"
+        },
+        {
+          "raw": "from .typing import HeadersValue",
+          "module": "typing",
+          "line": 63,
+          "status": "resolved",
+          "resolved_path": "src/flask/typing.py"
+        },
+        {
+          "raw": "import warnings",
+          "module": "warnings",
+          "line": 256,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from .debughelpers import FormDataRoutingRedirect",
+          "module": "debughelpers",
+          "line": 587,
+          "status": "resolved",
+          "resolved_path": "src/flask/debughelpers.py"
+        },
+        {
+          "raw": "from werkzeug.serving import run_simple",
+          "module": "werkzeug.serving",
+          "line": 748,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from .testing import EnvironBuilder",
+          "module": "testing",
+          "line": 1558,
+          "status": "resolved",
+          "resolved_path": "src/flask/testing.py"
+        },
+        {
+          "raw": "from .testing import FlaskClient as cls",
+          "module": "testing",
+          "line": 811,
+          "status": "resolved",
+          "resolved_path": "src/flask/testing.py"
+        },
+        {
+          "raw": "from .testing import FlaskCliRunner as cls",
+          "module": "testing",
+          "line": 829,
+          "status": "resolved",
+          "resolved_path": "src/flask/testing.py"
+        },
+        {
+          "raw": "import warnings",
+          "module": "warnings",
+          "line": 1003,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from asgiref.sync import async_to_sync as asgiref_async_to_sync",
+          "module": "asgiref.sync",
+          "line": 1097,
+          "status": "external",
+          "resolved_path": null
+        }
+      ],
+      "symbols": [
+        {
+          "name": "_make_timedelta",
+          "kind": "function",
+          "line": 74,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "remove_ctx",
+          "kind": "function",
+          "line": 86,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "add_ctx",
+          "kind": "function",
+          "line": 98,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "Flask",
+          "kind": "class",
+          "line": 110,
+          "docstring": "The flask object implements a WSGI application and acts as the central\nobject.  It is passed the name of the module or package of the\napplication.  Once it is created it will act as a central registry for\nthe view functions, the URL rules, template configuration and much more.\n\nThe name of the package is used to resolve resources from inside the\npackage or the folder the module is contained in depending on if the\npackage parameter resolves to an actual python package (a folder with\nan :file:`__init__.py` file inside) or a standard module (just a ``.py`` file).\n\nFor more information about resource loading, see :func:`open_resource`.\n\nUsually you create a :class:`Flask` instance in your main module or\nin the :file:`__init__.py` file of your package like this::\n\n    from flask import Flask\n    app = Flask(__name__)\n\n.. admonition:: About the First Parameter\n\n    The idea of the first parameter is to give Flask an idea of what\n    belongs to your application.  This name is used to find resources\n    on the filesystem, can be used by extensions to improve debugging\n    information and a lot more.\n\n    So it's important what you provide there.  If you are using a single\n    module, `__name__` is always the correct value.  If you however are\n    using a package, it's usually recommended to hardcode the name of\n    your package there.\n\n    For example if your application is defined in :file:`yourapplication/app.py`\n    you should create it with one of the two versions below::\n\n        app = Flask('yourapplication')\n        app = Flask(__name__.split('.')[0])\n\n    Why is that?  The application will work even with `__name__`, thanks\n    to how resources are looked up.  However it will make debugging more\n    painful.  Certain extensions can make assumptions based on the\n    import name of your application.  For example the Flask-SQLAlchemy\n    extension will look for the code in your application that triggered\n    an SQL query in debug mode.  If the import name is not properly set\n    up, that debugging information is lost.  (For example it would only\n    pick up SQL queries in `yourapplication.app` and not\n    `yourapplication.views.frontend`)\n\n.. versionadded:: 0.7\n   The `static_url_path`, `static_folder`, and `template_folder`\n   parameters were added.\n\n.. versionadded:: 0.8\n   The `instance_path` and `instance_relative_config` parameters were\n   added.\n\n.. versionadded:: 0.11\n   The `root_path` parameter was added.\n\n.. versionadded:: 1.0\n   The ``host_matching`` and ``static_host`` parameters were added.\n\n.. versionadded:: 1.0\n   The ``subdomain_matching`` parameter was added. Subdomain\n   matching needs to be enabled manually now. Setting\n   :data:`SERVER_NAME` does not implicitly enable it.\n\n:param import_name: the name of the application package\n:param static_url_path: can be used to specify a different path for the\n                        static files on the web.  Defaults to the name\n                        of the `static_folder` folder.\n:param static_folder: The folder with static files that is served at\n    ``static_url_path``. Relative to the application ``root_path``\n    or an absolute path. Defaults to ``'static'``.\n:param static_host: the host to use when adding the static route.\n    Defaults to None. Required when using ``host_matching=True``\n    with a ``static_folder`` configured.\n:param host_matching: set ``url_map.host_matching`` attribute.\n    Defaults to False.\n:param subdomain_matching: consider the subdomain relative to\n    :data:`SERVER_NAME` when matching routes. Defaults to False.\n:param template_folder: the folder that contains the templates that should\n                        be used by the application.  Defaults to\n                        ``'templates'`` folder in the root path of the\n                        application.\n:param instance_path: An alternative instance path for the application.\n                      By default the folder ``'instance'`` next to the\n                      package or module is assumed to be the instance\n                      path.\n:param instance_relative_config: if set to ``True`` relative filenames\n                                 for loading the config are assumed to\n                                 be relative to the instance path instead\n                                 of the application root.\n:param root_path: The path to the root of the application files.\n    This should only be set manually when it can't be detected\n    automatically, such as for namespace packages.",
+          "route_path": null,
+          "route_methods": []
+        }
+      ],
+      "parse_error": null
+    },
+    {
+      "path": "src/flask/globals.py",
+      "language": "python",
+      "line_count": 77,
+      "docstring": null,
+      "imports": [
+        {
+          "raw": "from __future__ import annotations",
+          "module": "__future__",
+          "line": 1,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import typing as t",
+          "module": "typing",
+          "line": 3,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from contextvars import ContextVar",
+          "module": "contextvars",
+          "line": 4,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from werkzeug.local import LocalProxy",
+          "module": "werkzeug.local",
+          "line": 6,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from .app import Flask",
+          "module": "app",
+          "line": 9,
+          "status": "resolved",
+          "resolved_path": "src/flask/app.py"
+        },
+        {
+          "raw": "from .ctx import _AppCtxGlobals",
+          "module": "ctx",
+          "line": 10,
+          "status": "resolved",
+          "resolved_path": "src/flask/ctx.py"
+        },
+        {
+          "raw": "from .ctx import AppContext",
+          "module": "ctx",
+          "line": 11,
+          "status": "resolved",
+          "resolved_path": "src/flask/ctx.py"
+        },
+        {
+          "raw": "from .sessions import SessionMixin",
+          "module": "sessions",
+          "line": 12,
+          "status": "resolved",
+          "resolved_path": "src/flask/sessions.py"
+        },
+        {
+          "raw": "from .wrappers import Request",
+          "module": "wrappers",
+          "line": 13,
+          "status": "resolved",
+          "resolved_path": "src/flask/wrappers.py"
+        },
+        {
+          "raw": "import warnings",
+          "module": "warnings",
+          "line": 66,
+          "status": "external",
+          "resolved_path": null
+        }
+      ],
+      "symbols": [
+        {
+          "name": "__getattr__",
+          "kind": "function",
+          "line": 65,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        }
+      ],
+      "parse_error": null
+    },
+    {
+      "path": "src/flask/__init__.py",
+      "language": "python",
+      "line_count": 39,
+      "docstring": null,
+      "imports": [
+        {
+          "raw": "from . import json as json",
+          "module": ".",
+          "line": 1,
+          "status": "resolved",
+          "resolved_path": "src/flask/__init__.py"
+        },
+        {
+          "raw": "from .app import Flask as Flask",
+          "module": "app",
+          "line": 2,
+          "status": "resolved",
+          "resolved_path": "src/flask/app.py"
+        },
+        {
+          "raw": "from .blueprints import Blueprint as Blueprint",
+          "module": "blueprints",
+          "line": 3,
+          "status": "resolved",
+          "resolved_path": "src/flask/blueprints.py"
+        },
+        {
+          "raw": "from .config import Config as Config",
+          "module": "config",
+          "line": 4,
+          "status": "resolved",
+          "resolved_path": "src/flask/config.py"
+        },
+        {
+          "raw": "from .ctx import after_this_request as after_this_request",
+          "module": "ctx",
+          "line": 5,
+          "status": "resolved",
+          "resolved_path": "src/flask/ctx.py"
+        },
+        {
+          "raw": "from .ctx import copy_current_request_context as copy_current_request_context",
+          "module": "ctx",
+          "line": 6,
+          "status": "resolved",
+          "resolved_path": "src/flask/ctx.py"
+        },
+        {
+          "raw": "from .ctx import has_app_context as has_app_context",
+          "module": "ctx",
+          "line": 7,
+          "status": "resolved",
+          "resolved_path": "src/flask/ctx.py"
+        },
+        {
+          "raw": "from .ctx import has_request_context as has_request_context",
+          "module": "ctx",
+          "line": 8,
+          "status": "resolved",
+          "resolved_path": "src/flask/ctx.py"
+        },
+        {
+          "raw": "from .globals import current_app as current_app",
+          "module": "globals",
+          "line": 9,
+          "status": "resolved",
+          "resolved_path": "src/flask/globals.py"
+        },
+        {
+          "raw": "from .globals import g as g",
+          "module": "globals",
+          "line": 10,
+          "status": "resolved",
+          "resolved_path": "src/flask/globals.py"
+        },
+        {
+          "raw": "from .globals import request as request",
+          "module": "globals",
+          "line": 11,
+          "status": "resolved",
+          "resolved_path": "src/flask/globals.py"
+        },
+        {
+          "raw": "from .globals import session as session",
+          "module": "globals",
+          "line": 12,
+          "status": "resolved",
+          "resolved_path": "src/flask/globals.py"
+        },
+        {
+          "raw": "from .helpers import abort as abort",
+          "module": "helpers",
+          "line": 13,
+          "status": "resolved",
+          "resolved_path": "src/flask/helpers.py"
+        },
+        {
+          "raw": "from .helpers import flash as flash",
+          "module": "helpers",
+          "line": 14,
+          "status": "resolved",
+          "resolved_path": "src/flask/helpers.py"
+        },
+        {
+          "raw": "from .helpers import get_flashed_messages as get_flashed_messages",
+          "module": "helpers",
+          "line": 15,
+          "status": "resolved",
+          "resolved_path": "src/flask/helpers.py"
+        },
+        {
+          "raw": "from .helpers import get_template_attribute as get_template_attribute",
+          "module": "helpers",
+          "line": 16,
+          "status": "resolved",
+          "resolved_path": "src/flask/helpers.py"
+        },
+        {
+          "raw": "from .helpers import make_response as make_response",
+          "module": "helpers",
+          "line": 17,
+          "status": "resolved",
+          "resolved_path": "src/flask/helpers.py"
+        },
+        {
+          "raw": "from .helpers import redirect as redirect",
+          "module": "helpers",
+          "line": 18,
+          "status": "resolved",
+          "resolved_path": "src/flask/helpers.py"
+        },
+        {
+          "raw": "from .helpers import send_file as send_file",
+          "module": "helpers",
+          "line": 19,
+          "status": "resolved",
+          "resolved_path": "src/flask/helpers.py"
+        },
+        {
+          "raw": "from .helpers import send_from_directory as send_from_directory",
+          "module": "helpers",
+          "line": 20,
+          "status": "resolved",
+          "resolved_path": "src/flask/helpers.py"
+        },
+        {
+          "raw": "from .helpers import stream_with_context as stream_with_context",
+          "module": "helpers",
+          "line": 21,
+          "status": "resolved",
+          "resolved_path": "src/flask/helpers.py"
+        },
+        {
+          "raw": "from .helpers import url_for as url_for",
+          "module": "helpers",
+          "line": 22,
+          "status": "resolved",
+          "resolved_path": "src/flask/helpers.py"
+        },
+        {
+          "raw": "from .json import jsonify as jsonify",
+          "module": "json",
+          "line": 23,
+          "status": "resolved",
+          "resolved_path": "src/flask/json/__init__.py"
+        },
+        {
+          "raw": "from .signals import appcontext_popped as appcontext_popped",
+          "module": "signals",
+          "line": 24,
+          "status": "resolved",
+          "resolved_path": "src/flask/signals.py"
+        },
+        {
+          "raw": "from .signals import appcontext_pushed as appcontext_pushed",
+          "module": "signals",
+          "line": 25,
+          "status": "resolved",
+          "resolved_path": "src/flask/signals.py"
+        },
+        {
+          "raw": "from .signals import appcontext_tearing_down as appcontext_tearing_down",
+          "module": "signals",
+          "line": 26,
+          "status": "resolved",
+          "resolved_path": "src/flask/signals.py"
+        },
+        {
+          "raw": "from .signals import before_render_template as before_render_template",
+          "module": "signals",
+          "line": 27,
+          "status": "resolved",
+          "resolved_path": "src/flask/signals.py"
+        },
+        {
+          "raw": "from .signals import got_request_exception as got_request_exception",
+          "module": "signals",
+          "line": 28,
+          "status": "resolved",
+          "resolved_path": "src/flask/signals.py"
+        },
+        {
+          "raw": "from .signals import message_flashed as message_flashed",
+          "module": "signals",
+          "line": 29,
+          "status": "resolved",
+          "resolved_path": "src/flask/signals.py"
+        },
+        {
+          "raw": "from .signals import request_finished as request_finished",
+          "module": "signals",
+          "line": 30,
+          "status": "resolved",
+          "resolved_path": "src/flask/signals.py"
+        },
+        {
+          "raw": "from .signals import request_started as request_started",
+          "module": "signals",
+          "line": 31,
+          "status": "resolved",
+          "resolved_path": "src/flask/signals.py"
+        },
+        {
+          "raw": "from .signals import request_tearing_down as request_tearing_down",
+          "module": "signals",
+          "line": 32,
+          "status": "resolved",
+          "resolved_path": "src/flask/signals.py"
+        },
+        {
+          "raw": "from .signals import template_rendered as template_rendered",
+          "module": "signals",
+          "line": 33,
+          "status": "resolved",
+          "resolved_path": "src/flask/signals.py"
+        },
+        {
+          "raw": "from .templating import render_template as render_template",
+          "module": "templating",
+          "line": 34,
+          "status": "resolved",
+          "resolved_path": "src/flask/templating.py"
+        },
+        {
+          "raw": "from .templating import render_template_string as render_template_string",
+          "module": "templating",
+          "line": 35,
+          "status": "resolved",
+          "resolved_path": "src/flask/templating.py"
+        },
+        {
+          "raw": "from .templating import stream_template as stream_template",
+          "module": "templating",
+          "line": 36,
+          "status": "resolved",
+          "resolved_path": "src/flask/templating.py"
+        },
+        {
+          "raw": "from .templating import stream_template_string as stream_template_string",
+          "module": "templating",
+          "line": 37,
+          "status": "resolved",
+          "resolved_path": "src/flask/templating.py"
+        },
+        {
+          "raw": "from .wrappers import Request as Request",
+          "module": "wrappers",
+          "line": 38,
+          "status": "resolved",
+          "resolved_path": "src/flask/wrappers.py"
+        },
+        {
+          "raw": "from .wrappers import Response as Response",
+          "module": "wrappers",
+          "line": 39,
+          "status": "resolved",
+          "resolved_path": "src/flask/wrappers.py"
+        }
+      ],
+      "symbols": [],
+      "parse_error": null
+    },
+    {
+      "path": "src/flask/debughelpers.py",
+      "language": "python",
+      "line_count": 179,
+      "docstring": null,
+      "imports": [
+        {
+          "raw": "from __future__ import annotations",
+          "module": "__future__",
+          "line": 1,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import typing as t",
+          "module": "typing",
+          "line": 3,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from jinja2.loaders import BaseLoader",
+          "module": "jinja2.loaders",
+          "line": 5,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from werkzeug.routing import RequestRedirect",
+          "module": "werkzeug.routing",
+          "line": 6,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from .blueprints import Blueprint",
+          "module": "blueprints",
+          "line": 8,
+          "status": "resolved",
+          "resolved_path": "src/flask/blueprints.py"
+        },
+        {
+          "raw": "from .globals import _cv_app",
+          "module": "globals",
+          "line": 9,
+          "status": "resolved",
+          "resolved_path": "src/flask/globals.py"
+        },
+        {
+          "raw": "from .sansio.app import App",
+          "module": "sansio.app",
+          "line": 10,
+          "status": "resolved",
+          "resolved_path": "src/flask/sansio/app.py"
+        },
+        {
+          "raw": "from .sansio.scaffold import Scaffold",
+          "module": "sansio.scaffold",
+          "line": 13,
+          "status": "resolved",
+          "resolved_path": "src/flask/sansio/scaffold.py"
+        },
+        {
+          "raw": "from .wrappers import Request",
+          "module": "wrappers",
+          "line": 14,
+          "status": "resolved",
+          "resolved_path": "src/flask/wrappers.py"
+        }
+      ],
+      "symbols": [
+        {
+          "name": "UnexpectedUnicodeError",
+          "kind": "class",
+          "line": 17,
+          "docstring": "Raised in places where we want some better error reporting for\nunexpected unicode or binary data.",
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "DebugFilesKeyError",
+          "kind": "class",
+          "line": 23,
+          "docstring": "Raised from request.files during debugging.  The idea is that it can\nprovide a better error message than just a generic KeyError/BadRequest.",
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "FormDataRoutingRedirect",
+          "kind": "class",
+          "line": 50,
+          "docstring": "This exception is raised in debug mode if a routing redirect\nwould cause the browser to drop the method or body. This happens\nwhen method is not GET, HEAD or OPTIONS and the status code is not\n307 or 308.",
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "attach_enctype_error_multidict",
+          "kind": "function",
+          "line": 81,
+          "docstring": "Patch ``request.files.__getitem__`` to raise a descriptive error\nabout ``enctype=multipart/form-data``.\n\n:param request: The request to patch.\n:meta private:",
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "_dump_loader_info",
+          "kind": "function",
+          "line": 107,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "explain_template_loading_attempts",
+          "kind": "function",
+          "line": 124,
+          "docstring": "This should help developers understand what failed",
+          "route_path": null,
+          "route_methods": []
+        }
+      ],
+      "parse_error": null
+    },
+    {
+      "path": "src/flask/testing.py",
+      "language": "python",
+      "line_count": 298,
+      "docstring": null,
+      "imports": [
+        {
+          "raw": "from __future__ import annotations",
+          "module": "__future__",
+          "line": 1,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import importlib.metadata",
+          "module": "importlib.metadata",
+          "line": 3,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import typing as t",
+          "module": "typing",
+          "line": 4,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from contextlib import contextmanager",
+          "module": "contextlib",
+          "line": 5,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from contextlib import ExitStack",
+          "module": "contextlib",
+          "line": 6,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from copy import copy",
+          "module": "copy",
+          "line": 7,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from types import TracebackType",
+          "module": "types",
+          "line": 8,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from urllib.parse import urlsplit",
+          "module": "urllib.parse",
+          "line": 9,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import werkzeug.test",
+          "module": "werkzeug.test",
+          "line": 11,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from click.testing import CliRunner",
+          "module": "click.testing",
+          "line": 12,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from click.testing import Result",
+          "module": "click.testing",
+          "line": 13,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from werkzeug.test import Client",
+          "module": "werkzeug.test",
+          "line": 14,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from werkzeug.wrappers import Request as BaseRequest",
+          "module": "werkzeug.wrappers",
+          "line": 15,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from .cli import ScriptInfo",
+          "module": "cli",
+          "line": 17,
+          "status": "resolved",
+          "resolved_path": "src/flask/cli.py"
+        },
+        {
+          "raw": "from .sessions import SessionMixin",
+          "module": "sessions",
+          "line": 18,
+          "status": "resolved",
+          "resolved_path": "src/flask/sessions.py"
+        },
+        {
+          "raw": "from _typeshed.wsgi import WSGIEnvironment",
+          "module": "_typeshed.wsgi",
+          "line": 21,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from werkzeug.test import TestResponse",
+          "module": "werkzeug.test",
+          "line": 22,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from .app import Flask",
+          "module": "app",
+          "line": 24,
+          "status": "resolved",
+          "resolved_path": "src/flask/app.py"
+        }
+      ],
+      "symbols": [
+        {
+          "name": "EnvironBuilder",
+          "kind": "class",
+          "line": 27,
+          "docstring": "An :class:`~werkzeug.test.EnvironBuilder`, that takes defaults from the\napplication.\n\n:param app: The Flask application to configure the environment from.\n:param path: URL path being requested.\n:param base_url: Base URL where the app is being served, which\n    ``path`` is relative to. If not given, built from\n    :data:`PREFERRED_URL_SCHEME`, ``subdomain``,\n    :data:`SERVER_NAME`, and :data:`APPLICATION_ROOT`.\n:param subdomain: Subdomain name to append to :data:`SERVER_NAME`.\n:param url_scheme: Scheme to use instead of\n    :data:`PREFERRED_URL_SCHEME`.\n:param json: If given, this is serialized as JSON and passed as\n    ``data``. Also defaults ``content_type`` to\n    ``application/json``.\n:param args: other positional arguments passed to\n    :class:`~werkzeug.test.EnvironBuilder`.\n:param kwargs: other keyword arguments passed to\n    :class:`~werkzeug.test.EnvironBuilder`.",
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "_get_werkzeug_version",
+          "kind": "function",
+          "line": 100,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "FlaskClient",
+          "kind": "class",
+          "line": 109,
+          "docstring": "Works like a regular Werkzeug test client, with additional behavior for\nFlask. Can defer the cleanup of the request context until the end of a\n``with`` block. For general information about how to use this class refer to\n:class:`werkzeug.test.Client`.\n\n.. versionchanged:: 0.12\n   `app.test_client()` includes preset default environment, which can be\n   set after instantiation of the `app.test_client()` object in\n   `client.environ_base`.\n\nBasic usage is outlined in the :doc:`/testing` chapter.",
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "FlaskCliRunner",
+          "kind": "class",
+          "line": 265,
+          "docstring": "A :class:`~click.testing.CliRunner` for testing a Flask app's\nCLI commands. Typically created using\n:meth:`~flask.Flask.test_cli_runner`. See :ref:`testing-cli`.",
+          "route_path": null,
+          "route_methods": []
+        }
+      ],
+      "parse_error": null
+    },
+    {
+      "path": "src/flask/cli.py",
+      "language": "python",
+      "line_count": 1127,
+      "docstring": null,
+      "imports": [
+        {
+          "raw": "from __future__ import annotations",
+          "module": "__future__",
+          "line": 1,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import ast",
+          "module": "ast",
+          "line": 3,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import collections.abc as cabc",
+          "module": "collections.abc",
+          "line": 4,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import importlib.metadata",
+          "module": "importlib.metadata",
+          "line": 5,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import inspect",
+          "module": "inspect",
+          "line": 6,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import os",
+          "module": "os",
+          "line": 7,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import platform",
+          "module": "platform",
+          "line": 8,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import re",
+          "module": "re",
+          "line": 9,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import sys",
+          "module": "sys",
+          "line": 10,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import traceback",
+          "module": "traceback",
+          "line": 11,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import typing as t",
+          "module": "typing",
+          "line": 12,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from functools import update_wrapper",
+          "module": "functools",
+          "line": 13,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from operator import itemgetter",
+          "module": "operator",
+          "line": 14,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from types import ModuleType",
+          "module": "types",
+          "line": 15,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import click",
+          "module": "click",
+          "line": 17,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from click.core import ParameterSource",
+          "module": "click.core",
+          "line": 18,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from werkzeug import run_simple",
+          "module": "werkzeug",
+          "line": 19,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from werkzeug.serving import is_running_from_reloader",
+          "module": "werkzeug.serving",
+          "line": 20,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from werkzeug.utils import import_string",
+          "module": "werkzeug.utils",
+          "line": 21,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from .globals import current_app",
+          "module": "globals",
+          "line": 23,
+          "status": "resolved",
+          "resolved_path": "src/flask/globals.py"
+        },
+        {
+          "raw": "from .helpers import get_debug_flag",
+          "module": "helpers",
+          "line": 24,
+          "status": "resolved",
+          "resolved_path": "src/flask/helpers.py"
+        },
+        {
+          "raw": "from .helpers import get_load_dotenv",
+          "module": "helpers",
+          "line": 25,
+          "status": "resolved",
+          "resolved_path": "src/flask/helpers.py"
+        },
+        {
+          "raw": "import ssl",
+          "module": "ssl",
+          "line": 28,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from _typeshed.wsgi import StartResponse",
+          "module": "_typeshed.wsgi",
+          "line": 30,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from _typeshed.wsgi import WSGIApplication",
+          "module": "_typeshed.wsgi",
+          "line": 31,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from _typeshed.wsgi import WSGIEnvironment",
+          "module": "_typeshed.wsgi",
+          "line": 32,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from .app import Flask",
+          "module": "app",
+          "line": 34,
+          "status": "resolved",
+          "resolved_path": "src/flask/app.py"
+        },
+        {
+          "raw": "from . import Flask",
+          "module": ".",
+          "line": 45,
+          "status": "resolved",
+          "resolved_path": "src/flask/__init__.py"
+        },
+        {
+          "raw": "from . import Flask",
+          "module": ".",
+          "line": 124,
+          "status": "resolved",
+          "resolved_path": "src/flask/__init__.py"
+        },
+        {
+          "raw": "import code",
+          "module": "code",
+          "line": 1009,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import dotenv",
+          "module": "dotenv",
+          "line": 497,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import dotenv",
+          "module": "dotenv",
+          "line": 733,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import ssl",
+          "module": "ssl",
+          "line": 836,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import ssl",
+          "module": "ssl",
+          "line": 795,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import readline",
+          "module": "readline",
+          "line": 1034,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from rlcompleter import Completer",
+          "module": "rlcompleter",
+          "line": 1035,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import cryptography",
+          "module": "cryptography",
+          "line": 810,
+          "status": "external",
+          "resolved_path": null
+        }
+      ],
+      "symbols": [
+        {
+          "name": "NoAppException",
+          "kind": "class",
+          "line": 37,
+          "docstring": "Raised if an application cannot be found or loaded.",
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "find_best_app",
+          "kind": "function",
+          "line": 41,
+          "docstring": "Given a module instance this tries to find the best possible\napplication in the module or raises an exception.",
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "_called_with_wrong_args",
+          "kind": "function",
+          "line": 94,
+          "docstring": "Check whether calling a function raised a ``TypeError`` because\nthe call failed or because something in the factory raised the\nerror.\n\n:param f: The function that was called.\n:return: ``True`` if the call failed.",
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "find_app_by_string",
+          "kind": "function",
+          "line": 120,
+          "docstring": "Check if the given string is a variable name or a function. Call\na function to get the app instance, or return the variable directly.",
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "prepare_import",
+          "kind": "function",
+          "line": 200,
+          "docstring": "Given a filename this will try to calculate the python path, add it\nto the search path and return the actual module name that is expected.",
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "locate_app",
+          "kind": "function",
+          "line": 230,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "locate_app",
+          "kind": "function",
+          "line": 236,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "locate_app",
+          "kind": "function",
+          "line": 241,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "get_version",
+          "kind": "function",
+          "line": 267,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "ScriptInfo",
+          "kind": "class",
+          "line": 293,
+          "docstring": "Helper object to deal with Flask applications.  This is usually not\nnecessary to interface with as it's used internally in the dispatching\nto click.  In future versions of Flask this object will most likely play\na bigger role.  Typically it's created automatically by the\n:class:`FlaskGroup` but you can also manually create it and pass it\nonwards as click object.\n\n.. versionchanged:: 3.1\n    Added the ``load_dotenv_defaults`` parameter and attribute.",
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "with_appcontext",
+          "kind": "function",
+          "line": 380,
+          "docstring": "Wraps a callback so that it's guaranteed to be executed with the\nscript's application context.\n\nCustom commands (and their options) registered under ``app.cli`` or\n``blueprint.cli`` will always have an app context available, this\ndecorator is not required in that case.\n\n.. versionchanged:: 2.2\n    The app context is active for subcommands as well as the\n    decorated callback. The app context is always available to\n    ``app.cli`` command and parameter callbacks.",
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "AppGroup",
+          "kind": "class",
+          "line": 405,
+          "docstring": "This works similar to a regular click :class:`~click.Group` but it\nchanges the behavior of the :meth:`command` decorator so that it\nautomatically wraps the functions in :func:`with_appcontext`.\n\nNot to be confused with :class:`FlaskGroup`.",
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "_set_app",
+          "kind": "function",
+          "line": 440,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "_set_debug",
+          "kind": "function",
+          "line": 468,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "_env_file_callback",
+          "kind": "function",
+          "line": 493,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "FlaskGroup",
+          "kind": "class",
+          "line": 531,
+          "docstring": "Special subclass of the :class:`AppGroup` group that supports\nloading more commands from the configured Flask app.  Normally a\ndeveloper does not have to interface with this class but there are\nsome very advanced use cases for which it makes sense to create an\ninstance of this. see :ref:`custom-scripts`.\n\n:param add_default_commands: if this is True then the default run and\n    shell commands will be added.\n:param add_version_option: adds the ``--version`` option.\n:param create_app: an optional callback that is passed the script info and\n    returns the loaded app.\n:param load_dotenv: Load the nearest :file:`.env` and :file:`.flaskenv`\n    files to set environment variables. Will also change the working\n    directory to the directory containing the first file found.\n:param set_debug_flag: Set the app's debug flag.\n\n.. versionchanged:: 3.1\n    ``-e path`` takes precedence over default ``.env`` and ``.flaskenv`` files.\n\n.. versionchanged:: 2.2\n    Added the ``-A/--app``, ``--debug/--no-debug``, ``-e/--env-file`` options.\n\n.. versionchanged:: 2.2\n    An app context is pushed when running ``app.cli`` commands, so\n    ``@with_appcontext`` is no longer required for those commands.\n\n.. versionchanged:: 1.0\n    If installed, python-dotenv will be used to load environment variables\n    from :file:`.env` and :file:`.flaskenv` files.",
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "_path_is_ancestor",
+          "kind": "function",
+          "line": 691,
+          "docstring": "Take ``other`` and remove the length of ``path`` from it. Then join it\nto ``path``. If it is the original value, ``path`` is an ancestor of\n``other``.",
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "load_dotenv",
+          "kind": "function",
+          "line": 698,
+          "docstring": "Load \"dotenv\" files to set environment variables. A given path takes\nprecedence over ``.env``, which takes precedence over ``.flaskenv``. After\nloading and combining these files, values are only set if the key is not\nalready set in ``os.environ``.\n\nThis is a no-op if `python-dotenv`_ is not installed.\n\n.. _python-dotenv: https://github.com/theskumar/python-dotenv#readme\n\n:param path: Load the file at this location.\n:param load_defaults: Search for and load the default ``.flaskenv`` and\n    ``.env`` files.\n:return: ``True`` if at least one env var was loaded.\n\n.. versionchanged:: 3.1\n    Added the ``load_defaults`` parameter. A given path takes precedence\n    over default files.\n\n.. versionchanged:: 2.0\n    The current directory is not changed to the location of the\n    loaded file.\n\n.. versionchanged:: 2.0\n    When loading the env files, set the default encoding to UTF-8.\n\n.. versionchanged:: 1.1.0\n    Returns ``False`` when python-dotenv is not installed, or when\n    the given path isn't a file.\n\n.. versionadded:: 1.0",
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "show_server_banner",
+          "kind": "function",
+          "line": 766,
+          "docstring": "Show extra startup messages the first time the server is run,\nignoring the reloader.",
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "CertParamType",
+          "kind": "class",
+          "line": 780,
+          "docstring": "Click option type for the ``--cert`` option. Allows either an\nexisting file, the string ``'adhoc'``, or an import for a\n:class:`~ssl.SSLContext` object.",
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "_validate_key",
+          "kind": "function",
+          "line": 828,
+          "docstring": "The ``--key`` option must be specified when ``--cert`` is a file.\nModifies the ``cert`` param to be a ``(cert, key)`` pair if needed.",
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "SeparatedPathType",
+          "kind": "class",
+          "line": 867,
+          "docstring": "Click option type that accepts a list of values separated by the\nOS's path separator (``:``, ``;`` on Windows). Each value is\nvalidated as a :class:`click.Path` type.",
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "run_command",
+          "kind": "function",
+          "line": 935,
+          "docstring": "Run a local development server.\n\nThis server is for development purposes only. It does not provide\nthe stability, security, or performance of production WSGI servers.\n\nThe reloader and debugger are enabled by default with the '--debug'\noption.",
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "shell_command",
+          "kind": "function",
+          "line": 1001,
+          "docstring": "Run an interactive Python shell in the context of a given\nFlask application.  The application will populate the default\nnamespace of this shell according to its configuration.\n\nThis is useful for executing small snippets of management code\nwithout having to manually configure the application.",
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "routes_command",
+          "kind": "function",
+          "line": 1061,
+          "docstring": "Show all registered routes with endpoints and methods.",
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "main",
+          "kind": "function",
+          "line": 1122,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        }
+      ],
+      "parse_error": null
+    },
+    {
+      "path": "src/flask/sessions.py",
+      "language": "python",
+      "line_count": 385,
+      "docstring": null,
+      "imports": [
+        {
+          "raw": "from __future__ import annotations",
+          "module": "__future__",
+          "line": 1,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import collections.abc as c",
+          "module": "collections.abc",
+          "line": 3,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import hashlib",
+          "module": "hashlib",
+          "line": 4,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import typing as t",
+          "module": "typing",
+          "line": 5,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from collections.abc import MutableMapping",
+          "module": "collections.abc",
+          "line": 6,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from datetime import datetime",
+          "module": "datetime",
+          "line": 7,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from datetime import timezone",
+          "module": "datetime",
+          "line": 8,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from itsdangerous import BadSignature",
+          "module": "itsdangerous",
+          "line": 10,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from itsdangerous import URLSafeTimedSerializer",
+          "module": "itsdangerous",
+          "line": 11,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from werkzeug.datastructures import CallbackDict",
+          "module": "werkzeug.datastructures",
+          "line": 12,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from .json.tag import TaggedJSONSerializer",
+          "module": "json.tag",
+          "line": 14,
+          "status": "resolved",
+          "resolved_path": "src/flask/json/tag.py"
+        },
+        {
+          "raw": "import typing_extensions as te",
+          "module": "typing_extensions",
+          "line": 17,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from .app import Flask",
+          "module": "app",
+          "line": 19,
+          "status": "resolved",
+          "resolved_path": "src/flask/app.py"
+        },
+        {
+          "raw": "from .wrappers import Request",
+          "module": "wrappers",
+          "line": 20,
+          "status": "resolved",
+          "resolved_path": "src/flask/wrappers.py"
+        },
+        {
+          "raw": "from .wrappers import Response",
+          "module": "wrappers",
+          "line": 21,
+          "status": "resolved",
+          "resolved_path": "src/flask/wrappers.py"
+        }
+      ],
+      "symbols": [
+        {
+          "name": "SessionMixin",
+          "kind": "class",
+          "line": 24,
+          "docstring": "Expands a basic dictionary with session attributes.",
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "SecureCookieSession",
+          "kind": "class",
+          "line": 57,
+          "docstring": "Base class for sessions based on signed cookies.\n\nThis session backend will set the :attr:`modified` and\n:attr:`accessed` attributes. It cannot reliably track whether a\nsession is new (vs. empty), so :attr:`new` remains hard coded to\n``False``.",
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "NullSession",
+          "kind": "class",
+          "line": 83,
+          "docstring": "Class used to generate nicer error messages if sessions are not\navailable.  Will still allow read-only access to the empty session\nbut fail on setting.",
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "SessionInterface",
+          "kind": "class",
+          "line": 100,
+          "docstring": "The basic interface you have to implement in order to replace the\ndefault session interface which uses werkzeug's securecookie\nimplementation.  The only methods you have to implement are\n:meth:`open_session` and :meth:`save_session`, the others have\nuseful defaults which you don't need to change.\n\nThe session object returned by the :meth:`open_session` method has to\nprovide a dictionary like interface plus the properties and methods\nfrom the :class:`SessionMixin`.  We recommend just subclassing a dict\nand adding that mixin::\n\n    class Session(dict, SessionMixin):\n        pass\n\nIf :meth:`open_session` returns ``None`` Flask will call into\n:meth:`make_null_session` to create a session that acts as replacement\nif the session support cannot work because some requirement is not\nfulfilled.  The default :class:`NullSession` class that is created\nwill complain that the secret key was not set.\n\nTo replace the session interface on an application all you have to do\nis to assign :attr:`flask.Flask.session_interface`::\n\n    app = Flask(__name__)\n    app.session_interface = MySessionInterface()\n\nMultiple requests with the same session may be sent and handled\nconcurrently. When implementing a new session interface, consider\nwhether reads or writes to the backing store must be synchronized.\nThere is no guarantee on the order in which the session for each\nrequest is opened or saved, it will occur in the order that requests\nbegin and end processing.\n\n.. versionadded:: 0.8",
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "_lazy_sha1",
+          "kind": "function",
+          "line": 276,
+          "docstring": "Don't access ``hashlib.sha1`` until runtime. FIPS builds may not include\nSHA-1, in which case the import and use as a default would fail before the\ndeveloper can configure something else.",
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "SecureCookieSessionInterface",
+          "kind": "class",
+          "line": 284,
+          "docstring": "The default session interface that stores sessions in signed cookies\nthrough the :mod:`itsdangerous` module.",
+          "route_path": null,
+          "route_methods": []
+        }
+      ],
+      "parse_error": null
+    },
+    {
+      "path": "src/flask/config.py",
+      "language": "python",
+      "line_count": 367,
+      "docstring": null,
+      "imports": [
+        {
+          "raw": "from __future__ import annotations",
+          "module": "__future__",
+          "line": 1,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import errno",
+          "module": "errno",
+          "line": 3,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import json",
+          "module": "json",
+          "line": 4,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import os",
+          "module": "os",
+          "line": 5,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import types",
+          "module": "types",
+          "line": 6,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import typing as t",
+          "module": "typing",
+          "line": 7,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from werkzeug.utils import import_string",
+          "module": "werkzeug.utils",
+          "line": 9,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import typing_extensions as te",
+          "module": "typing_extensions",
+          "line": 12,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from .sansio.app import App",
+          "module": "sansio.app",
+          "line": 14,
+          "status": "resolved",
+          "resolved_path": "src/flask/sansio/app.py"
+        }
+      ],
+      "symbols": [
+        {
+          "name": "ConfigAttribute",
+          "kind": "class",
+          "line": 20,
+          "docstring": "Makes an attribute forward to the config",
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "Config",
+          "kind": "class",
+          "line": 50,
+          "docstring": "Works exactly like a dict but provides ways to fill it from files\nor special dictionaries.  There are two common patterns to populate the\nconfig.\n\nEither you can fill the config from a config file::\n\n    app.config.from_pyfile('yourconfig.cfg')\n\nOr alternatively you can define the configuration options in the\nmodule that calls :meth:`from_object` or provide an import path to\na module that should be loaded.  It is also possible to tell it to\nuse the same module and with that provide the configuration values\njust before the call::\n\n    DEBUG = True\n    SECRET_KEY = 'development key'\n    app.config.from_object(__name__)\n\nIn both cases (loading from any Python file or loading from modules),\nonly uppercase keys are added to the config.  This makes it possible to use\nlowercase values in the config file for temporary values that are not added\nto the config or to define the config keys in the same file that implements\nthe application.\n\nProbably the most interesting way to load configurations is from an\nenvironment variable pointing to a file::\n\n    app.config.from_envvar('YOURAPPLICATION_SETTINGS')\n\nIn this case before launching the application you have to set this\nenvironment variable to the file you want to use.  On Linux and OS X\nuse the export statement::\n\n    export YOURAPPLICATION_SETTINGS='/path/to/config/file'\n\nOn windows use `set` instead.\n\n:param root_path: path to which files are read relative from.  When the\n                  config object is created by the application, this is\n                  the application's :attr:`~flask.Flask.root_path`.\n:param defaults: an optional dictionary of default values",
+          "route_path": null,
+          "route_methods": []
+        }
+      ],
+      "parse_error": null
+    },
+    {
+      "path": "src/flask/views.py",
+      "language": "python",
+      "line_count": 191,
+      "docstring": null,
+      "imports": [
+        {
+          "raw": "from __future__ import annotations",
+          "module": "__future__",
+          "line": 1,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import typing as t",
+          "module": "typing",
+          "line": 3,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from . import typing as ft",
+          "module": ".",
+          "line": 5,
+          "status": "resolved",
+          "resolved_path": "src/flask/__init__.py"
+        },
+        {
+          "raw": "from .globals import current_app",
+          "module": "globals",
+          "line": 6,
+          "status": "resolved",
+          "resolved_path": "src/flask/globals.py"
+        },
+        {
+          "raw": "from .globals import request",
+          "module": "globals",
+          "line": 7,
+          "status": "resolved",
+          "resolved_path": "src/flask/globals.py"
+        }
+      ],
+      "symbols": [
+        {
+          "name": "View",
+          "kind": "class",
+          "line": 16,
+          "docstring": "Subclass this class and override :meth:`dispatch_request` to\ncreate a generic class-based view. Call :meth:`as_view` to create a\nview function that creates an instance of the class with the given\narguments and calls its ``dispatch_request`` method with any URL\nvariables.\n\nSee :doc:`views` for a detailed guide.\n\n.. code-block:: python\n\n    class Hello(View):\n        init_every_request = False\n\n        def dispatch_request(self, name):\n            return f\"Hello, {name}!\"\n\n    app.add_url_rule(\n        \"/hello/<name>\", view_func=Hello.as_view(\"hello\")\n    )\n\nSet :attr:`methods` on the class to change what methods the view\naccepts.\n\nSet :attr:`decorators` on the class to apply a list of decorators to\nthe generated view function. Decorators applied to the class itself\nwill not be applied to the generated view function!\n\nSet :attr:`init_every_request` to ``False`` for efficiency, unless\nyou need to store request-global data on ``self``.",
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "MethodView",
+          "kind": "class",
+          "line": 138,
+          "docstring": "Dispatches request methods to the corresponding instance methods.\nFor example, if you implement a ``get`` method, it will be used to\nhandle ``GET`` requests.\n\nThis can be useful for defining a REST API.\n\n:attr:`methods` is automatically set based on the methods defined on\nthe class.\n\nSee :doc:`views` for a detailed guide.\n\n.. code-block:: python\n\n    class CounterAPI(MethodView):\n        def get(self):\n            return str(session.get(\"counter\", 0))\n\n        def post(self):\n            session[\"counter\"] = session.get(\"counter\", 0) + 1\n            return redirect(url_for(\"counter\"))\n\n    app.add_url_rule(\n        \"/counter\", view_func=CounterAPI.as_view(\"counter\")\n    )",
+          "route_path": null,
+          "route_methods": []
+        }
+      ],
+      "parse_error": null
+    },
+    {
+      "path": "src/flask/wrappers.py",
+      "language": "python",
+      "line_count": 257,
+      "docstring": null,
+      "imports": [
+        {
+          "raw": "from __future__ import annotations",
+          "module": "__future__",
+          "line": 1,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import typing as t",
+          "module": "typing",
+          "line": 3,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from werkzeug.exceptions import BadRequest",
+          "module": "werkzeug.exceptions",
+          "line": 5,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from werkzeug.exceptions import HTTPException",
+          "module": "werkzeug.exceptions",
+          "line": 6,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from werkzeug.wrappers import Request as RequestBase",
+          "module": "werkzeug.wrappers",
+          "line": 7,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from werkzeug.wrappers import Response as ResponseBase",
+          "module": "werkzeug.wrappers",
+          "line": 8,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from . import json",
+          "module": ".",
+          "line": 10,
+          "status": "resolved",
+          "resolved_path": "src/flask/__init__.py"
+        },
+        {
+          "raw": "from .globals import current_app",
+          "module": "globals",
+          "line": 11,
+          "status": "resolved",
+          "resolved_path": "src/flask/globals.py"
+        },
+        {
+          "raw": "from .helpers import _split_blueprint_path",
+          "module": "helpers",
+          "line": 12,
+          "status": "resolved",
+          "resolved_path": "src/flask/helpers.py"
+        },
+        {
+          "raw": "from werkzeug.routing import Rule",
+          "module": "werkzeug.routing",
+          "line": 15,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from .debughelpers import attach_enctype_error_multidict",
+          "module": "debughelpers",
+          "line": 208,
+          "status": "resolved",
+          "resolved_path": "src/flask/debughelpers.py"
+        }
+      ],
+      "symbols": [
+        {
+          "name": "Request",
+          "kind": "class",
+          "line": 18,
+          "docstring": "The request object used by default in Flask.  Remembers the\nmatched endpoint and view arguments.\n\nIt is what ends up as :class:`~flask.request`.  If you want to replace\nthe request object used you can subclass this and set\n:attr:`~flask.Flask.request_class` to your subclass.\n\nThe request object is a :class:`~werkzeug.wrappers.Request` subclass and\nprovides all of the attributes Werkzeug defines plus a few Flask\nspecific ones.",
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "Response",
+          "kind": "class",
+          "line": 222,
+          "docstring": "The response object that is used by default in Flask.  Works like the\nresponse object from Werkzeug but is set to have an HTML mimetype by\ndefault.  Quite often you don't have to create this object yourself because\n:meth:`~flask.Flask.make_response` will take care of that for you.\n\nIf you want to replace the response object used you can subclass this and\nset :attr:`~flask.Flask.response_class` to your subclass.\n\n.. versionchanged:: 1.0\n    JSON support is added to the response, like the request. This is useful\n    when testing to get the test client response data as JSON.\n\n.. versionchanged:: 1.0\n\n    Added :attr:`max_cookie_size`.",
+          "route_path": null,
+          "route_methods": []
+        }
+      ],
+      "parse_error": null
+    },
+    {
+      "path": "src/flask/helpers.py",
+      "language": "python",
+      "line_count": 682,
+      "docstring": null,
+      "imports": [
+        {
+          "raw": "from __future__ import annotations",
+          "module": "__future__",
+          "line": 1,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import importlib.util",
+          "module": "importlib.util",
+          "line": 3,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import os",
+          "module": "os",
+          "line": 4,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import sys",
+          "module": "sys",
+          "line": 5,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import typing as t",
+          "module": "typing",
+          "line": 6,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from datetime import datetime",
+          "module": "datetime",
+          "line": 7,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from functools import cache",
+          "module": "functools",
+          "line": 8,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from functools import update_wrapper",
+          "module": "functools",
+          "line": 9,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from types import TracebackType",
+          "module": "types",
+          "line": 10,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import werkzeug.utils",
+          "module": "werkzeug.utils",
+          "line": 12,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from werkzeug.exceptions import abort as _wz_abort",
+          "module": "werkzeug.exceptions",
+          "line": 13,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from werkzeug.utils import redirect as _wz_redirect",
+          "module": "werkzeug.utils",
+          "line": 14,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from werkzeug.wrappers import Response as BaseResponse",
+          "module": "werkzeug.wrappers",
+          "line": 15,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from .globals import _cv_app",
+          "module": "globals",
+          "line": 17,
+          "status": "resolved",
+          "resolved_path": "src/flask/globals.py"
+        },
+        {
+          "raw": "from .globals import app_ctx",
+          "module": "globals",
+          "line": 18,
+          "status": "resolved",
+          "resolved_path": "src/flask/globals.py"
+        },
+        {
+          "raw": "from .globals import current_app",
+          "module": "globals",
+          "line": 19,
+          "status": "resolved",
+          "resolved_path": "src/flask/globals.py"
+        },
+        {
+          "raw": "from .globals import request",
+          "module": "globals",
+          "line": 20,
+          "status": "resolved",
+          "resolved_path": "src/flask/globals.py"
+        },
+        {
+          "raw": "from .globals import session",
+          "module": "globals",
+          "line": 21,
+          "status": "resolved",
+          "resolved_path": "src/flask/globals.py"
+        },
+        {
+          "raw": "from .signals import message_flashed",
+          "module": "signals",
+          "line": 22,
+          "status": "resolved",
+          "resolved_path": "src/flask/signals.py"
+        },
+        {
+          "raw": "from .wrappers import Response",
+          "module": "wrappers",
+          "line": 25,
+          "status": "resolved",
+          "resolved_path": "src/flask/wrappers.py"
+        }
+      ],
+      "symbols": [
+        {
+          "name": "get_debug_flag",
+          "kind": "function",
+          "line": 28,
+          "docstring": "Get whether debug mode should be enabled for the app, indicated by the\n:envvar:`FLASK_DEBUG` environment variable. The default is ``False``.",
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "get_load_dotenv",
+          "kind": "function",
+          "line": 36,
+          "docstring": "Get whether the user has disabled loading default dotenv files by\nsetting :envvar:`FLASK_SKIP_DOTENV`. The default is ``True``, load\nthe files.\n\n:param default: What to return if the env var isn't set.",
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "stream_with_context",
+          "kind": "function",
+          "line": 52,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "stream_with_context",
+          "kind": "function",
+          "line": 58,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "stream_with_context",
+          "kind": "function",
+          "line": 63,
+          "docstring": "Wrap a response generator function so that it runs inside the current\nrequest context. This keeps :data:`.request`, :data:`.session`, and :data:`.g`\navailable, even though at the point the generator runs the request context\nwill typically have ended.\n\n.. warning::\n\n    Due to the following caveat, it is often safer to pass the data you\n    need as arguments to the generator, rather than relying on the context\n    objects.\n\nMore headers cannot be sent after the body has begun. Therefore, you must\nmake sure all headers are set before starting the response. In particular,\nif the generator will access ``session``, be sure to do so in the view as\nwell so that the ``Vary: cookie`` header will be set. Do not modify the\nsession in the generator, as the ``Set-Cookie`` header will already be sent.\n\nUse it as a decorator on a generator function:\n\n.. code-block:: python\n\n    from flask import stream_with_context, request, Response\n\n    @app.get(\"/stream\")\n    def streamed_response():\n        @stream_with_context\n        def generate():\n            yield \"Hello \"\n            yield request.args[\"name\"]\n            yield \"!\"\n\n        return Response(generate())\n\nOr use it as a wrapper around a created generator:\n\n.. code-block:: python\n\n    from flask import stream_with_context, request, Response\n\n    @app.get(\"/stream\")\n    def streamed_response():\n        def generate():\n            yield \"Hello \"\n            yield request.args[\"name\"]\n            yield \"!\"\n\n        return Response(stream_with_context(generate()))\n\n.. versionadded:: 0.9",
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "make_response",
+          "kind": "function",
+          "line": 151,
+          "docstring": "Sometimes it is necessary to set additional headers in a view.  Because\nviews do not have to return response objects but can return a value that\nis converted into a response object by Flask itself, it becomes tricky to\nadd headers to it.  This function can be called instead of using a return\nand you will get a response object which you can use to attach headers.\n\nIf view looked like this and you want to add a new header::\n\n    def index():\n        return render_template('index.html', foo=42)\n\nYou can now do something like this::\n\n    def index():\n        response = make_response(render_template('index.html', foo=42))\n        response.headers['X-Parachutes'] = 'parachutes are cool'\n        return response\n\nThis function accepts the very same arguments you can return from a\nview function.  This for example creates a response with a 404 error\ncode::\n\n    response = make_response(render_template('not_found.html'), 404)\n\nThe other use case of this function is to force the return value of a\nview function into a response which is helpful with view\ndecorators::\n\n    response = make_response(view_function())\n    response.headers['X-Parachutes'] = 'parachutes are cool'\n\nInternally this function does the following things:\n\n-   if no arguments are passed, it creates a new response argument\n-   if one argument is passed, :meth:`flask.Flask.make_response`\n    is invoked with it.\n-   if more than one argument is passed, the arguments are passed\n    to the :meth:`flask.Flask.make_response` function as tuple.\n\n.. versionadded:: 0.6",
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "url_for",
+          "kind": "function",
+          "line": 200,
+          "docstring": "Generate a URL to the given endpoint with the given values.\n\nThis requires an active request or application context, and calls\n:meth:`current_app.url_for() <flask.Flask.url_for>`. See that method\nfor full documentation.\n\n:param endpoint: The endpoint name associated with the URL to\n    generate. If this starts with a ``.``, the current blueprint\n    name (if any) will be used.\n:param _anchor: If given, append this as ``#anchor`` to the URL.\n:param _method: If given, generate the URL associated with this\n    method for the endpoint.\n:param _scheme: If given, the URL will have this scheme if it is\n    external.\n:param _external: If given, prefer the URL to be internal (False) or\n    require it to be external (True). External URLs include the\n    scheme and domain. When not in an active request, URLs are\n    external by default.\n:param values: Values to use for the variable parts of the URL rule.\n    Unknown keys are appended as query string arguments, like\n    ``?a=b&c=d``.\n\n.. versionchanged:: 2.2\n    Calls ``current_app.url_for``, allowing an app to override the\n    behavior.\n\n.. versionchanged:: 0.10\n   The ``_scheme`` parameter was added.\n\n.. versionchanged:: 0.9\n   The ``_anchor`` and ``_method`` parameters were added.\n\n.. versionchanged:: 0.9\n   Calls ``app.handle_url_build_error`` on build errors.",
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "redirect",
+          "kind": "function",
+          "line": 254,
+          "docstring": "Create a redirect response object.\n\nIf :data:`~flask.current_app` is available, it will use its\n:meth:`~flask.Flask.redirect` method, otherwise it will use\n:func:`werkzeug.utils.redirect`.\n\n:param location: The URL to redirect to.\n:param code: The status code for the redirect.\n:param Response: The response class to use. Not used when\n    ``current_app`` is active, which uses ``app.response_class``.\n\n.. versionchanged:: 3.2\n    ``code`` defaults to ``303`` instead of ``302``.\n\n.. versionadded:: 2.2\n    Calls ``current_app.redirect`` if available instead of always\n    using Werkzeug's default ``redirect``.",
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "abort",
+          "kind": "function",
+          "line": 281,
+          "docstring": "Raise an :exc:`~werkzeug.exceptions.HTTPException` for the given\nstatus code.\n\nIf :data:`~flask.current_app` is available, it will call its\n:attr:`~flask.Flask.aborter` object, otherwise it will use\n:func:`werkzeug.exceptions.abort`.\n\n:param code: The status code for the exception, which must be\n    registered in ``app.aborter``.\n:param args: Passed to the exception.\n:param kwargs: Passed to the exception.\n\n.. versionadded:: 2.2\n    Calls ``current_app.aborter`` if available instead of always\n    using Werkzeug's default ``abort``.",
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "get_template_attribute",
+          "kind": "function",
+          "line": 304,
+          "docstring": "Loads a macro (or variable) a template exports.  This can be used to\ninvoke a macro from within Python code.  If you for example have a\ntemplate named :file:`_cider.html` with the following contents:\n\n.. sourcecode:: html+jinja\n\n   {% macro hello(name) %}Hello {{ name }}!{% endmacro %}\n\nYou can access this from Python code like this::\n\n    hello = get_template_attribute('_cider.html', 'hello')\n    return hello('World')\n\n.. versionadded:: 0.2\n\n:param template_name: the name of the template\n:param attribute: the name of the variable of macro to access",
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "flash",
+          "kind": "function",
+          "line": 326,
+          "docstring": "Flashes a message to the next request.  In order to remove the\nflashed message from the session and to display it to the user,\nthe template has to call :func:`get_flashed_messages`.\n\n.. versionchanged:: 0.3\n   `category` parameter added.\n\n:param message: the message to be flashed.\n:param category: the category for the message.  The following values\n                 are recommended: ``'message'`` for any kind of message,\n                 ``'error'`` for errors, ``'info'`` for information\n                 messages and ``'warning'`` for warnings.  However any\n                 kind of string can be used as category.",
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "get_flashed_messages",
+          "kind": "function",
+          "line": 360,
+          "docstring": "Pulls all flashed messages from the session and returns them.\nFurther calls in the same request to the function will return\nthe same messages.  By default just the messages are returned,\nbut when `with_categories` is set to ``True``, the return value will\nbe a list of tuples in the form ``(category, message)`` instead.\n\nFilter the flashed messages to one or more categories by providing those\ncategories in `category_filter`.  This allows rendering categories in\nseparate html blocks.  The `with_categories` and `category_filter`\narguments are distinct:\n\n* `with_categories` controls whether categories are returned with message\n  text (``True`` gives a tuple, where ``False`` gives just the message text).\n* `category_filter` filters the messages down to only those matching the\n  provided categories.\n\nSee :doc:`/patterns/flashing` for examples.\n\n.. versionchanged:: 0.3\n   `with_categories` parameter added.\n\n.. versionchanged:: 0.9\n    `category_filter` parameter added.\n\n:param with_categories: set to ``True`` to also receive categories.\n:param category_filter: filter of categories to limit return values.  Only\n                        categories in the list will be returned.",
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "_prepare_send_file_kwargs",
+          "kind": "function",
+          "line": 402,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "send_file",
+          "kind": "function",
+          "line": 417,
+          "docstring": "Send the contents of a file to the client.\n\nThe first argument can be a file path or a file-like object. Paths\nare preferred in most cases because Werkzeug can manage the file and\nget extra information from the path. Passing a file-like object\nrequires that the file is opened in binary mode, and is mostly\nuseful when building a file in memory with :class:`io.BytesIO`.\n\nNever pass file paths provided by a user. The path is assumed to be\ntrusted, so a user could craft a path to access a file you didn't\nintend. Use :func:`send_from_directory` to safely serve\nuser-requested paths from within a directory.\n\nIf the WSGI server sets a ``file_wrapper`` in ``environ``, it is\nused, otherwise Werkzeug's built-in wrapper is used. Alternatively,\nif the HTTP server supports ``X-Sendfile``, configuring Flask with\n``USE_X_SENDFILE = True`` will tell the server to send the given\npath, which is much more efficient than reading it in Python.\n\n:param path_or_file: The path to the file to send, relative to the\n    current working directory if a relative path is given.\n    Alternatively, a file-like object opened in binary mode; make\n    sure to call ``seek(0)`` if it was already read.\n:param mimetype: The MIME type to send for the file. If not\n    provided, it will try to detect it from the file name.\n:param as_attachment: Indicate to a browser that it should offer to\n    save the file instead of displaying it.\n:param download_name: The default name browsers will use when saving\n    the file. Defaults to the passed file name.\n:param conditional: Enable conditional and range responses based on\n    request headers. Requires passing a file path and ``environ``.\n:param etag: Calculate an ETag for the file, which requires passing\n    a file path. Can also be a string to use instead.\n:param last_modified: The last modified time to send for the file,\n    in seconds. If not provided, it will try to detect it from the\n    file path.\n:param max_age: How long the client should cache the file, in\n    seconds. If set, ``Cache-Control`` will be ``public``, otherwise\n    it will be ``no-cache`` to prefer conditional caching.\n\n.. versionchanged:: 2.0\n    ``download_name`` replaces the ``attachment_filename``\n    parameter. If ``as_attachment=False``, it is passed with\n    ``Content-Disposition: inline`` instead.\n\n.. versionchanged:: 2.0\n    ``max_age`` replaces the ``cache_timeout`` parameter.\n    ``conditional`` is enabled and ``max_age`` is not set by\n    default.\n\n.. versionchanged:: 2.0\n    ``etag`` replaces the ``add_etags`` parameter. It can be a\n    string to use instead of generating one.\n\n.. versionchanged:: 2.0\n    Passing a file-like object that inherits from\n    :class:`~io.TextIOBase` will raise a :exc:`ValueError` rather\n    than sending an empty file.\n\n.. versionadded:: 2.0\n    Moved the implementation to Werkzeug. This is now a wrapper to\n    pass some Flask-specific arguments.\n\n.. versionchanged:: 1.1\n    ``filename`` may be a :class:`~os.PathLike` object.\n\n.. versionchanged:: 1.1\n    Passing a :class:`~io.BytesIO` object supports range requests.\n\n.. versionchanged:: 1.0.3\n    Filenames are encoded with ASCII instead of Latin-1 for broader\n    compatibility with WSGI servers.\n\n.. versionchanged:: 1.0\n    UTF-8 filenames as specified in :rfc:`2231` are supported.\n\n.. versionchanged:: 0.12\n    The filename is no longer automatically inferred from file\n    objects. If you want to use automatic MIME and etag support,\n    pass a filename via ``filename_or_fp`` or\n    ``attachment_filename``.\n\n.. versionchanged:: 0.12\n    ``attachment_filename`` is preferred over ``filename`` for MIME\n    detection.\n\n.. versionchanged:: 0.9\n    ``cache_timeout`` defaults to\n    :meth:`Flask.get_send_file_max_age`.\n\n.. versionchanged:: 0.7\n    MIME guessing and etag support for file-like objects was\n    removed because it was unreliable. Pass a filename if you are\n    able to, otherwise attach an etag yourself.\n\n.. versionchanged:: 0.5\n    The ``add_etags``, ``cache_timeout`` and ``conditional``\n    parameters were added. The default behavior is to add etags.\n\n.. versionadded:: 0.2",
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "send_from_directory",
+          "kind": "function",
+          "line": 543,
+          "docstring": "Send a file from within a directory using :func:`send_file`.\n\n.. code-block:: python\n\n    @app.route(\"/uploads/<path:name>\")\n    def download_file(name):\n        return send_from_directory(\n            app.config['UPLOAD_FOLDER'], name, as_attachment=True\n        )\n\nThis is a secure way to serve files from a folder, such as static\nfiles or uploads. Uses :func:`~werkzeug.security.safe_join` to\nensure the path coming from the client is not maliciously crafted to\npoint outside the specified directory.\n\nIf the final path does not point to an existing regular file,\nraises a 404 :exc:`~werkzeug.exceptions.NotFound` error.\n\n:param directory: The directory that ``path`` must be located under,\n    relative to the current application's root path. This *must not*\n    be a value provided by the client, otherwise it becomes insecure.\n:param path: The path to the file to send, relative to\n    ``directory``.\n:param kwargs: Arguments to pass to :func:`send_file`.\n\n.. versionchanged:: 2.0\n    ``path`` replaces the ``filename`` parameter.\n\n.. versionadded:: 2.0\n    Moved the implementation to Werkzeug. This is now a wrapper to\n    pass some Flask-specific arguments.\n\n.. versionadded:: 0.5",
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "get_root_path",
+          "kind": "function",
+          "line": 587,
+          "docstring": "Find the root path of a package, or the path that contains a\nmodule. If it cannot be found, returns the current working\ndirectory.\n\nNot to be confused with the value returned by :func:`find_package`.\n\n:meta private:",
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "_split_blueprint_path",
+          "kind": "function",
+          "line": 645,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "_CollectErrors",
+          "kind": "class",
+          "line": 654,
+          "docstring": "A context manager that records and silences an error raised within it.\nUsed to run all teardown functions, then raise any errors afterward.",
+          "route_path": null,
+          "route_methods": []
+        }
+      ],
+      "parse_error": null
+    },
+    {
+      "path": "src/flask/typing.py",
+      "language": "python",
+      "line_count": 87,
+      "docstring": null,
+      "imports": [
+        {
+          "raw": "from __future__ import annotations",
+          "module": "__future__",
+          "line": 1,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import collections.abc as cabc",
+          "module": "collections.abc",
+          "line": 3,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import typing as t",
+          "module": "typing",
+          "line": 4,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from _typeshed.wsgi import WSGIApplication",
+          "module": "_typeshed.wsgi",
+          "line": 7,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from werkzeug.datastructures import Headers",
+          "module": "werkzeug.datastructures",
+          "line": 8,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from werkzeug.sansio.response import Response",
+          "module": "werkzeug.sansio.response",
+          "line": 9,
+          "status": "external",
+          "resolved_path": null
+        }
+      ],
+      "symbols": [],
+      "parse_error": null
+    },
+    {
+      "path": "src/flask/ctx.py",
+      "language": "python",
+      "line_count": 540,
+      "docstring": null,
+      "imports": [
+        {
+          "raw": "from __future__ import annotations",
+          "module": "__future__",
+          "line": 1,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import contextvars",
+          "module": "contextvars",
+          "line": 3,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import typing as t",
+          "module": "typing",
+          "line": 4,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from functools import update_wrapper",
+          "module": "functools",
+          "line": 5,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from types import TracebackType",
+          "module": "types",
+          "line": 6,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from werkzeug.exceptions import HTTPException",
+          "module": "werkzeug.exceptions",
+          "line": 8,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from werkzeug.routing import MapAdapter",
+          "module": "werkzeug.routing",
+          "line": 9,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from . import typing as ft",
+          "module": ".",
+          "line": 11,
+          "status": "resolved",
+          "resolved_path": "src/flask/__init__.py"
+        },
+        {
+          "raw": "from .globals import _cv_app",
+          "module": "globals",
+          "line": 12,
+          "status": "resolved",
+          "resolved_path": "src/flask/globals.py"
+        },
+        {
+          "raw": "from .helpers import _CollectErrors",
+          "module": "helpers",
+          "line": 13,
+          "status": "resolved",
+          "resolved_path": "src/flask/helpers.py"
+        },
+        {
+          "raw": "from .signals import appcontext_popped",
+          "module": "signals",
+          "line": 14,
+          "status": "resolved",
+          "resolved_path": "src/flask/signals.py"
+        },
+        {
+          "raw": "from .signals import appcontext_pushed",
+          "module": "signals",
+          "line": 15,
+          "status": "resolved",
+          "resolved_path": "src/flask/signals.py"
+        },
+        {
+          "raw": "import typing_extensions as te",
+          "module": "typing_extensions",
+          "line": 18,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from _typeshed.wsgi import WSGIEnvironment",
+          "module": "_typeshed.wsgi",
+          "line": 19,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from .app import Flask",
+          "module": "app",
+          "line": 21,
+          "status": "resolved",
+          "resolved_path": "src/flask/app.py"
+        },
+        {
+          "raw": "from .sessions import SessionMixin",
+          "module": "sessions",
+          "line": 22,
+          "status": "resolved",
+          "resolved_path": "src/flask/sessions.py"
+        },
+        {
+          "raw": "from .wrappers import Request",
+          "module": "wrappers",
+          "line": 23,
+          "status": "resolved",
+          "resolved_path": "src/flask/wrappers.py"
+        },
+        {
+          "raw": "import warnings",
+          "module": "warnings",
+          "line": 529,
+          "status": "external",
+          "resolved_path": null
+        }
+      ],
+      "symbols": [
+        {
+          "name": "_AppCtxGlobals",
+          "kind": "class",
+          "line": 30,
+          "docstring": "A plain object. Used as a namespace for storing data during an\napplication context.\n\nCreating an app context automatically creates this object, which is\nmade available as the :data:`.g` proxy.\n\n.. describe:: 'key' in g\n\n    Check whether an attribute is present.\n\n    .. versionadded:: 0.10\n\n.. describe:: iter(g)\n\n    Return an iterator over the attribute names.\n\n    .. versionadded:: 0.10",
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "after_this_request",
+          "kind": "function",
+          "line": 118,
+          "docstring": "Decorate a function to run after the current request. The behavior is the\nsame as :meth:`.Flask.after_request`, except it only applies to the current\nrequest, rather than every request. Therefore, it must be used within a\nrequest context, rather than during setup.\n\n.. code-block:: python\n\n    @app.route(\"/\")\n    def index():\n        @after_this_request\n        def add_header(response):\n            response.headers[\"X-Foo\"] = \"Parachute\"\n            return response\n\n        return \"Hello, World!\"\n\n.. versionadded:: 0.9",
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "copy_current_request_context",
+          "kind": "function",
+          "line": 154,
+          "docstring": "Decorate a function to run inside the current request context. This can\nbe used when starting a background task, otherwise it will not see the app\nand request objects that were active in the parent.\n\n.. warning::\n\n    Due to the following caveats, it is often safer (and simpler) to pass\n    the data you need when starting the task, rather than using this and\n    relying on the context objects.\n\nIn order to avoid execution switching partially though reading data, either\nread the request body (access ``form``, ``json``, ``data``, etc) before\nstarting the task, or use a lock. This can be an issue when using threading,\nbut shouldn't be an issue when using greenlet/gevent or asyncio.\n\nIf the task will access ``session``, be sure to do so in the parent as well\nso that the ``Vary: cookie`` header will be set. Modifying ``session`` in\nthe task should be avoided, as it may execute after the response cookie has\nalready been written.\n\n.. code-block:: python\n\n    import gevent\n    from flask import copy_current_request_context\n\n    @app.route('/')\n    def index():\n        @copy_current_request_context\n        def do_some_work():\n            # do some work here, it can access flask.request or\n            # flask.session like you would otherwise in the view function.\n            ...\n        gevent.spawn(do_some_work)\n        return 'Regular response'\n\n.. versionadded:: 0.10",
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "has_request_context",
+          "kind": "function",
+          "line": 209,
+          "docstring": "Test if an app context is active and if it has request information.\n\n.. code-block:: python\n\n    from flask import has_request_context, request\n\n    if has_request_context():\n        remote_addr = request.remote_addr\n\nIf a request context is active, the :data:`.request` and :data:`.session`\ncontext proxies will available and ``True``, otherwise ``False``. You can\nuse that to test the data you use, rather than using this function.\n\n.. code-block:: python\n\n    from flask import request\n\n    if request:\n        remote_addr = request.remote_addr\n\n.. versionadded:: 0.7",
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "has_app_context",
+          "kind": "function",
+          "line": 235,
+          "docstring": "Test if an app context is active. Unlike :func:`has_request_context`\nthis can be true outside a request, such as in a CLI command.\n\n.. code-block:: python\n\n    from flask import has_app_context, g\n\n    if has_app_context():\n        g.cached_data = ...\n\nIf an app context is active, the :data:`.g` and :data:`.current_app` context\nproxies will available and ``True``, otherwise ``False``. You can use that\nto test the data you use, rather than using this function.\n\n    from flask import g\n\n    if g:\n        g.cached_data = ...\n\n.. versionadded:: 0.9",
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "AppContext",
+          "kind": "class",
+          "line": 260,
+          "docstring": "An app context contains information about an app, and about the request\nwhen handling a request. A context is pushed at the beginning of each\nrequest and CLI command, and popped at the end. The context is referred to\nas a \"request context\" if it has request information, and an \"app context\"\nif not.\n\nDo not use this class directly. Use :meth:`.Flask.app_context` to create an\napp context if needed during setup, and :meth:`.Flask.test_request_context`\nto create a request context if needed during tests.\n\nWhen the context is popped, it will evaluate all the teardown functions\nregistered with :meth:`~flask.Flask.teardown_request` (if handling a\nrequest) then :meth:`.Flask.teardown_appcontext`.\n\nWhen using the interactive debugger, the context will be restored so\n``request`` is still accessible. Similarly, the test client can preserve the\ncontext after the request ends. However, teardown functions may already have\nclosed some resources such as database connections, and will run again when\nthe restored context is popped.\n\n:param app: The application this context represents.\n:param request: The request data this context represents.\n:param session: The session data this context represents. If not given,\n    loaded from the request on first access.\n\n.. versionchanged:: 3.2\n    Merged with ``RequestContext``. The ``RequestContext`` alias will be\n    removed in Flask 4.0.\n\n.. versionchanged:: 3.2\n    A combined app and request context is pushed for every request and CLI\n    command, rather than trying to detect if an app context is already\n    pushed.\n\n.. versionchanged:: 3.2\n    The session is loaded the first time it is accessed, rather than when\n    the context is pushed.",
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "__getattr__",
+          "kind": "function",
+          "line": 528,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        }
+      ],
+      "parse_error": null
+    },
+    {
+      "path": "src/flask/signals.py",
+      "language": "python",
+      "line_count": 17,
+      "docstring": null,
+      "imports": [
+        {
+          "raw": "from __future__ import annotations",
+          "module": "__future__",
+          "line": 1,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from blinker import Namespace",
+          "module": "blinker",
+          "line": 3,
+          "status": "external",
+          "resolved_path": null
+        }
+      ],
+      "symbols": [],
+      "parse_error": null
+    },
+    {
+      "path": "src/flask/blueprints.py",
+      "language": "python",
+      "line_count": 128,
+      "docstring": null,
+      "imports": [
+        {
+          "raw": "from __future__ import annotations",
+          "module": "__future__",
+          "line": 1,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import os",
+          "module": "os",
+          "line": 3,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import typing as t",
+          "module": "typing",
+          "line": 4,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from datetime import timedelta",
+          "module": "datetime",
+          "line": 5,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from .cli import AppGroup",
+          "module": "cli",
+          "line": 7,
+          "status": "resolved",
+          "resolved_path": "src/flask/cli.py"
+        },
+        {
+          "raw": "from .globals import current_app",
+          "module": "globals",
+          "line": 8,
+          "status": "resolved",
+          "resolved_path": "src/flask/globals.py"
+        },
+        {
+          "raw": "from .helpers import send_from_directory",
+          "module": "helpers",
+          "line": 9,
+          "status": "resolved",
+          "resolved_path": "src/flask/helpers.py"
+        },
+        {
+          "raw": "from .sansio.blueprints import Blueprint as SansioBlueprint",
+          "module": "sansio.blueprints",
+          "line": 10,
+          "status": "resolved",
+          "resolved_path": "src/flask/sansio/blueprints.py"
+        },
+        {
+          "raw": "from .sansio.blueprints import BlueprintSetupState as BlueprintSetupState",
+          "module": "sansio.blueprints",
+          "line": 11,
+          "status": "resolved",
+          "resolved_path": "src/flask/sansio/blueprints.py"
+        },
+        {
+          "raw": "from .sansio.scaffold import _sentinel",
+          "module": "sansio.scaffold",
+          "line": 12,
+          "status": "resolved",
+          "resolved_path": "src/flask/sansio/scaffold.py"
+        },
+        {
+          "raw": "from .wrappers import Response",
+          "module": "wrappers",
+          "line": 15,
+          "status": "resolved",
+          "resolved_path": "src/flask/wrappers.py"
+        }
+      ],
+      "symbols": [
+        {
+          "name": "Blueprint",
+          "kind": "class",
+          "line": 18,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        }
+      ],
+      "parse_error": null
+    },
+    {
+      "path": "src/flask/templating.py",
+      "language": "python",
+      "line_count": 212,
+      "docstring": null,
+      "imports": [
+        {
+          "raw": "from __future__ import annotations",
+          "module": "__future__",
+          "line": 1,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import typing as t",
+          "module": "typing",
+          "line": 3,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from jinja2 import BaseLoader",
+          "module": "jinja2",
+          "line": 5,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from jinja2 import Environment as BaseEnvironment",
+          "module": "jinja2",
+          "line": 6,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from jinja2 import Template",
+          "module": "jinja2",
+          "line": 7,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from jinja2 import TemplateNotFound",
+          "module": "jinja2",
+          "line": 8,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from .ctx import AppContext",
+          "module": "ctx",
+          "line": 10,
+          "status": "resolved",
+          "resolved_path": "src/flask/ctx.py"
+        },
+        {
+          "raw": "from .globals import app_ctx",
+          "module": "globals",
+          "line": 11,
+          "status": "resolved",
+          "resolved_path": "src/flask/globals.py"
+        },
+        {
+          "raw": "from .helpers import stream_with_context",
+          "module": "helpers",
+          "line": 12,
+          "status": "resolved",
+          "resolved_path": "src/flask/helpers.py"
+        },
+        {
+          "raw": "from .signals import before_render_template",
+          "module": "signals",
+          "line": 13,
+          "status": "resolved",
+          "resolved_path": "src/flask/signals.py"
+        },
+        {
+          "raw": "from .signals import template_rendered",
+          "module": "signals",
+          "line": 14,
+          "status": "resolved",
+          "resolved_path": "src/flask/signals.py"
+        },
+        {
+          "raw": "from .sansio.app import App",
+          "module": "sansio.app",
+          "line": 17,
+          "status": "resolved",
+          "resolved_path": "src/flask/sansio/app.py"
+        },
+        {
+          "raw": "from .sansio.scaffold import Scaffold",
+          "module": "sansio.scaffold",
+          "line": 18,
+          "status": "resolved",
+          "resolved_path": "src/flask/sansio/scaffold.py"
+        },
+        {
+          "raw": "from .debughelpers import explain_template_loading_attempts",
+          "module": "debughelpers",
+          "line": 80,
+          "status": "resolved",
+          "resolved_path": "src/flask/debughelpers.py"
+        }
+      ],
+      "symbols": [
+        {
+          "name": "_default_template_ctx_processor",
+          "kind": "function",
+          "line": 21,
+          "docstring": "Default template context processor.  Replaces the ``request`` and ``g``\nproxies with their concrete objects for faster access.",
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "Environment",
+          "kind": "class",
+          "line": 36,
+          "docstring": "Works like a regular Jinja environment but has some additional\nknowledge of how Flask's blueprint works so that it can prepend the\nname of the blueprint to referenced templates if necessary.",
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "DispatchingJinjaLoader",
+          "kind": "class",
+          "line": 49,
+          "docstring": "A loader that looks for templates in the application and all\nthe blueprint folders.",
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "_render",
+          "kind": "function",
+          "line": 123,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "render_template",
+          "kind": "function",
+          "line": 136,
+          "docstring": "Render a template by name with the given context.\n\n:param template_name_or_list: The name of the template to render. If\n    a list is given, the first name to exist will be rendered.\n:param context: The variables to make available in the template.",
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "render_template_string",
+          "kind": "function",
+          "line": 151,
+          "docstring": "Render a template from the given source string with the given\ncontext.\n\n:param source: The source code of the template to render.\n:param context: The variables to make available in the template.",
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "_stream",
+          "kind": "function",
+          "line": 163,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "stream_template",
+          "kind": "function",
+          "line": 181,
+          "docstring": "Render a template by name with the given context as a stream.\nThis returns an iterator of strings, which can be used as a\nstreaming response from a view.\n\n:param template_name_or_list: The name of the template to render. If\n    a list is given, the first name to exist will be rendered.\n:param context: The variables to make available in the template.\n\n.. versionadded:: 2.2",
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "stream_template_string",
+          "kind": "function",
+          "line": 200,
+          "docstring": "Render a template from the given source string with the given\ncontext as a stream. This returns an iterator of strings, which can\nbe used as a streaming response from a view.\n\n:param source: The source code of the template to render.\n:param context: The variables to make available in the template.\n\n.. versionadded:: 2.2",
+          "route_path": null,
+          "route_methods": []
+        }
+      ],
+      "parse_error": null
+    },
+    {
+      "path": "src/flask/json/provider.py",
+      "language": "python",
+      "line_count": 215,
+      "docstring": null,
+      "imports": [
+        {
+          "raw": "from __future__ import annotations",
+          "module": "__future__",
+          "line": 1,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import dataclasses",
+          "module": "dataclasses",
+          "line": 3,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import decimal",
+          "module": "decimal",
+          "line": 4,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import json",
+          "module": "json",
+          "line": 5,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import typing as t",
+          "module": "typing",
+          "line": 6,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import uuid",
+          "module": "uuid",
+          "line": 7,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import weakref",
+          "module": "weakref",
+          "line": 8,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from datetime import date",
+          "module": "datetime",
+          "line": 9,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from werkzeug.http import http_date",
+          "module": "werkzeug.http",
+          "line": 11,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from werkzeug.sansio.response import Response",
+          "module": "werkzeug.sansio.response",
+          "line": 14,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from ..sansio.app import App",
+          "module": "sansio.app",
+          "line": 16,
+          "status": "resolved",
+          "resolved_path": "src/flask/sansio/app.py"
+        }
+      ],
+      "symbols": [
+        {
+          "name": "JSONProvider",
+          "kind": "class",
+          "line": 19,
+          "docstring": "A standard set of JSON operations for an application. Subclasses\nof this can be used to customize JSON behavior or use different\nJSON libraries.\n\nTo implement a provider for a specific library, subclass this base\nclass and implement at least :meth:`dumps` and :meth:`loads`. All\nother methods have default implementations.\n\nTo use a different provider, either subclass ``Flask`` and set\n:attr:`~flask.Flask.json_provider_class` to a provider class, or set\n:attr:`app.json <flask.Flask.json>` to an instance of the class.\n\n:param app: An application instance. This will be stored as a\n    :class:`weakref.proxy` on the :attr:`_app` attribute.\n\n.. versionadded:: 2.2",
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "_default",
+          "kind": "function",
+          "line": 108,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "DefaultJSONProvider",
+          "kind": "class",
+          "line": 124,
+          "docstring": "Provide JSON operations using Python's built-in :mod:`json`\nlibrary. Serializes the following additional data types:\n\n-   :class:`datetime.datetime` and :class:`datetime.date` are\n    serialized to :rfc:`822` strings. This is the same as the HTTP\n    date format.\n-   :class:`uuid.UUID` is serialized to a string.\n-   :class:`dataclasses.dataclass` is passed to\n    :func:`dataclasses.asdict`.\n-   :class:`~markupsafe.Markup` (or any object with a ``__html__``\n    method) will call the ``__html__`` method to get a string.",
+          "route_path": null,
+          "route_methods": []
+        }
+      ],
+      "parse_error": null
+    },
+    {
+      "path": "src/flask/json/__init__.py",
+      "language": "python",
+      "line_count": 170,
+      "docstring": null,
+      "imports": [
+        {
+          "raw": "from __future__ import annotations",
+          "module": "__future__",
+          "line": 1,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import json as _json",
+          "module": "json",
+          "line": 3,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import typing as t",
+          "module": "typing",
+          "line": 4,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from ..globals import current_app",
+          "module": "globals",
+          "line": 6,
+          "status": "resolved",
+          "resolved_path": "src/flask/globals.py"
+        },
+        {
+          "raw": "from .provider import _default",
+          "module": "provider",
+          "line": 7,
+          "status": "resolved",
+          "resolved_path": "src/flask/json/provider.py"
+        },
+        {
+          "raw": "from ..wrappers import Response",
+          "module": "wrappers",
+          "line": 10,
+          "status": "resolved",
+          "resolved_path": "src/flask/wrappers.py"
+        }
+      ],
+      "symbols": [
+        {
+          "name": "dumps",
+          "kind": "function",
+          "line": 13,
+          "docstring": "Serialize data as JSON.\n\nIf :data:`~flask.current_app` is available, it will use its\n:meth:`app.json.dumps() <flask.json.provider.JSONProvider.dumps>`\nmethod, otherwise it will use :func:`json.dumps`.\n\n:param obj: The data to serialize.\n:param kwargs: Arguments passed to the ``dumps`` implementation.\n\n.. versionchanged:: 2.3\n    The ``app`` parameter was removed.\n\n.. versionchanged:: 2.2\n    Calls ``current_app.json.dumps``, allowing an app to override\n    the behavior.\n\n.. versionchanged:: 2.0.2\n    :class:`decimal.Decimal` is supported by converting to a string.\n\n.. versionchanged:: 2.0\n    ``encoding`` will be removed in Flask 2.1.\n\n.. versionchanged:: 1.0.3\n    ``app`` can be passed directly, rather than requiring an app\n    context for configuration.",
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "dump",
+          "kind": "function",
+          "line": 47,
+          "docstring": "Serialize data as JSON and write to a file.\n\nIf :data:`~flask.current_app` is available, it will use its\n:meth:`app.json.dump() <flask.json.provider.JSONProvider.dump>`\nmethod, otherwise it will use :func:`json.dump`.\n\n:param obj: The data to serialize.\n:param fp: A file opened for writing text. Should use the UTF-8\n    encoding to be valid JSON.\n:param kwargs: Arguments passed to the ``dump`` implementation.\n\n.. versionchanged:: 2.3\n    The ``app`` parameter was removed.\n\n.. versionchanged:: 2.2\n    Calls ``current_app.json.dump``, allowing an app to override\n    the behavior.\n\n.. versionchanged:: 2.0\n    Writing to a binary file, and the ``encoding`` argument, will be\n    removed in Flask 2.1.",
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "loads",
+          "kind": "function",
+          "line": 77,
+          "docstring": "Deserialize data as JSON.\n\nIf :data:`~flask.current_app` is available, it will use its\n:meth:`app.json.loads() <flask.json.provider.JSONProvider.loads>`\nmethod, otherwise it will use :func:`json.loads`.\n\n:param s: Text or UTF-8 bytes.\n:param kwargs: Arguments passed to the ``loads`` implementation.\n\n.. versionchanged:: 2.3\n    The ``app`` parameter was removed.\n\n.. versionchanged:: 2.2\n    Calls ``current_app.json.loads``, allowing an app to override\n    the behavior.\n\n.. versionchanged:: 2.0\n    ``encoding`` will be removed in Flask 2.1. The data must be a\n    string or UTF-8 bytes.\n\n.. versionchanged:: 1.0.3\n    ``app`` can be passed directly, rather than requiring an app\n    context for configuration.",
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "load",
+          "kind": "function",
+          "line": 108,
+          "docstring": "Deserialize data as JSON read from a file.\n\nIf :data:`~flask.current_app` is available, it will use its\n:meth:`app.json.load() <flask.json.provider.JSONProvider.load>`\nmethod, otherwise it will use :func:`json.load`.\n\n:param fp: A file opened for reading text or UTF-8 bytes.\n:param kwargs: Arguments passed to the ``load`` implementation.\n\n.. versionchanged:: 2.3\n    The ``app`` parameter was removed.\n\n.. versionchanged:: 2.2\n    Calls ``current_app.json.load``, allowing an app to override\n    the behavior.\n\n.. versionchanged:: 2.2\n    The ``app`` parameter will be removed in Flask 2.3.\n\n.. versionchanged:: 2.0\n    ``encoding`` will be removed in Flask 2.1. The file must be text\n    mode, or binary mode with UTF-8 bytes.",
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "jsonify",
+          "kind": "function",
+          "line": 138,
+          "docstring": "Serialize the given arguments as JSON, and return a\n:class:`~flask.Response` object with the ``application/json``\nmimetype. A dict or list returned from a view will be converted to a\nJSON response automatically without needing to call this.\n\nThis requires an active app context, and calls\n:meth:`app.json.response() <flask.json.provider.JSONProvider.response>`.\n\nIn debug mode, the output is formatted with indentation to make it\neasier to read. This may also be controlled by the provider.\n\nEither positional or keyword arguments can be given, not both.\nIf no arguments are given, ``None`` is serialized.\n\n:param args: A single value to serialize, or multiple values to\n    treat as a list to serialize.\n:param kwargs: Treat as a dict to serialize.\n\n.. versionchanged:: 2.2\n    Calls ``current_app.json.response``, allowing an app to override\n    the behavior.\n\n.. versionchanged:: 2.0.2\n    :class:`decimal.Decimal` is supported by converting to a string.\n\n.. versionchanged:: 0.11\n    Added support for serializing top-level arrays. This was a\n    security risk in ancient browsers. See :ref:`security-json`.\n\n.. versionadded:: 0.2",
+          "route_path": null,
+          "route_methods": []
+        }
+      ],
+      "parse_error": null
+    },
+    {
+      "path": "src/flask/json/tag.py",
+      "language": "python",
+      "line_count": 327,
+      "docstring": "Tagged JSON\n~~~~~~~~~~~\n\nA compact representation for lossless serialization of non-standard JSON\ntypes. :class:`~flask.sessions.SecureCookieSessionInterface` uses this\nto serialize the session data, but it may be useful in other places. It\ncan be extended to support other types.\n\n.. autoclass:: TaggedJSONSerializer\n    :members:\n\n.. autoclass:: JSONTag\n    :members:\n\nLet's see an example that adds support for\n:class:`~collections.OrderedDict`. Dicts don't have an order in JSON, so\nto handle this we will dump the items as a list of ``[key, value]``\npairs. Subclass :class:`JSONTag` and give it the new key ``' od'`` to\nidentify the type. The session serializer processes dicts first, so\ninsert the new tag at the front of the order since ``OrderedDict`` must\nbe processed before ``dict``.\n\n.. code-block:: python\n\n    from flask.json.tag import JSONTag\n\n    class TagOrderedDict(JSONTag):\n        __slots__ = ('serializer',)\n        key = ' od'\n\n        def check(self, value):\n            return isinstance(value, OrderedDict)\n\n        def to_json(self, value):\n            return [[k, self.serializer.tag(v)] for k, v in iteritems(value)]\n\n        def to_python(self, value):\n            return OrderedDict(value)\n\n    app.session_interface.serializer.register(TagOrderedDict, index=0)",
+      "imports": [
+        {
+          "raw": "from __future__ import annotations",
+          "module": "__future__",
+          "line": 44,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import typing as t",
+          "module": "typing",
+          "line": 46,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from base64 import b64decode",
+          "module": "base64",
+          "line": 47,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from base64 import b64encode",
+          "module": "base64",
+          "line": 48,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from datetime import datetime",
+          "module": "datetime",
+          "line": 49,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from uuid import UUID",
+          "module": "uuid",
+          "line": 50,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from markupsafe import Markup",
+          "module": "markupsafe",
+          "line": 52,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from werkzeug.http import http_date",
+          "module": "werkzeug.http",
+          "line": 53,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from werkzeug.http import parse_date",
+          "module": "werkzeug.http",
+          "line": 54,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from ..json import dumps",
+          "module": "json",
+          "line": 56,
+          "status": "resolved",
+          "resolved_path": "src/flask/json/__init__.py"
+        },
+        {
+          "raw": "from ..json import loads",
+          "module": "json",
+          "line": 57,
+          "status": "resolved",
+          "resolved_path": "src/flask/json/__init__.py"
+        }
+      ],
+      "symbols": [
+        {
+          "name": "JSONTag",
+          "kind": "class",
+          "line": 60,
+          "docstring": "Base class for defining type tags for :class:`TaggedJSONSerializer`.",
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "TagDict",
+          "kind": "class",
+          "line": 93,
+          "docstring": "Tag for 1-item dicts whose only key matches a registered tag.\n\nInternally, the dict key is suffixed with `__`, and the suffix is removed\nwhen deserializing.",
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "PassDict",
+          "kind": "class",
+          "line": 119,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "TagTuple",
+          "kind": "class",
+          "line": 133,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "PassList",
+          "kind": "class",
+          "line": 147,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "TagBytes",
+          "kind": "class",
+          "line": 159,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "TagMarkup",
+          "kind": "class",
+          "line": 173,
+          "docstring": "Serialize anything matching the :class:`~markupsafe.Markup` API by\nhaving a ``__html__`` method to the result of that method. Always\ndeserializes to an instance of :class:`~markupsafe.Markup`.",
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "TagUUID",
+          "kind": "class",
+          "line": 191,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "TagDateTime",
+          "kind": "class",
+          "line": 205,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "TaggedJSONSerializer",
+          "kind": "class",
+          "line": 219,
+          "docstring": "Serializer that uses a tag system to compactly represent objects that\nare not JSON types. Passed as the intermediate serializer to\n:class:`itsdangerous.Serializer`.\n\nThe following extra types are supported:\n\n* :class:`dict`\n* :class:`tuple`\n* :class:`bytes`\n* :class:`~markupsafe.Markup`\n* :class:`~uuid.UUID`\n* :class:`~datetime.datetime`",
+          "route_path": null,
+          "route_methods": []
+        }
+      ],
+      "parse_error": null
+    },
+    {
+      "path": "src/flask/sansio/app.py",
+      "language": "python",
+      "line_count": 1013,
+      "docstring": null,
+      "imports": [
+        {
+          "raw": "from __future__ import annotations",
+          "module": "__future__",
+          "line": 1,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import logging",
+          "module": "logging",
+          "line": 3,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import os",
+          "module": "os",
+          "line": 4,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import sys",
+          "module": "sys",
+          "line": 5,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import typing as t",
+          "module": "typing",
+          "line": 6,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from datetime import timedelta",
+          "module": "datetime",
+          "line": 7,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from itertools import chain",
+          "module": "itertools",
+          "line": 8,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from werkzeug.exceptions import Aborter",
+          "module": "werkzeug.exceptions",
+          "line": 10,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from werkzeug.exceptions import BadRequest",
+          "module": "werkzeug.exceptions",
+          "line": 11,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from werkzeug.exceptions import BadRequestKeyError",
+          "module": "werkzeug.exceptions",
+          "line": 12,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from werkzeug.routing import BuildError",
+          "module": "werkzeug.routing",
+          "line": 13,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from werkzeug.routing import Map",
+          "module": "werkzeug.routing",
+          "line": 14,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from werkzeug.routing import Rule",
+          "module": "werkzeug.routing",
+          "line": 15,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from werkzeug.sansio.response import Response",
+          "module": "werkzeug.sansio.response",
+          "line": 16,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from werkzeug.utils import cached_property",
+          "module": "werkzeug.utils",
+          "line": 17,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from werkzeug.utils import redirect as _wz_redirect",
+          "module": "werkzeug.utils",
+          "line": 18,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from .. import typing as ft",
+          "module": ".",
+          "line": 20,
+          "status": "resolved",
+          "resolved_path": "src/flask/__init__.py"
+        },
+        {
+          "raw": "from ..config import Config",
+          "module": "config",
+          "line": 21,
+          "status": "resolved",
+          "resolved_path": "src/flask/config.py"
+        },
+        {
+          "raw": "from ..config import ConfigAttribute",
+          "module": "config",
+          "line": 22,
+          "status": "resolved",
+          "resolved_path": "src/flask/config.py"
+        },
+        {
+          "raw": "from ..ctx import _AppCtxGlobals",
+          "module": "ctx",
+          "line": 23,
+          "status": "resolved",
+          "resolved_path": "src/flask/ctx.py"
+        },
+        {
+          "raw": "from ..helpers import _split_blueprint_path",
+          "module": "helpers",
+          "line": 24,
+          "status": "resolved",
+          "resolved_path": "src/flask/helpers.py"
+        },
+        {
+          "raw": "from ..helpers import get_debug_flag",
+          "module": "helpers",
+          "line": 25,
+          "status": "resolved",
+          "resolved_path": "src/flask/helpers.py"
+        },
+        {
+          "raw": "from ..json.provider import DefaultJSONProvider",
+          "module": "json.provider",
+          "line": 26,
+          "status": "resolved",
+          "resolved_path": "src/flask/json/provider.py"
+        },
+        {
+          "raw": "from ..json.provider import JSONProvider",
+          "module": "json.provider",
+          "line": 27,
+          "status": "resolved",
+          "resolved_path": "src/flask/json/provider.py"
+        },
+        {
+          "raw": "from ..logging import create_logger",
+          "module": "logging",
+          "line": 28,
+          "status": "resolved",
+          "resolved_path": "src/flask/logging.py"
+        },
+        {
+          "raw": "from ..templating import DispatchingJinjaLoader",
+          "module": "templating",
+          "line": 29,
+          "status": "resolved",
+          "resolved_path": "src/flask/templating.py"
+        },
+        {
+          "raw": "from ..templating import Environment",
+          "module": "templating",
+          "line": 30,
+          "status": "resolved",
+          "resolved_path": "src/flask/templating.py"
+        },
+        {
+          "raw": "from .scaffold import _endpoint_from_view_func",
+          "module": "scaffold",
+          "line": 31,
+          "status": "resolved",
+          "resolved_path": "src/flask/sansio/scaffold.py"
+        },
+        {
+          "raw": "from .scaffold import find_package",
+          "module": "scaffold",
+          "line": 32,
+          "status": "resolved",
+          "resolved_path": "src/flask/sansio/scaffold.py"
+        },
+        {
+          "raw": "from .scaffold import Scaffold",
+          "module": "scaffold",
+          "line": 33,
+          "status": "resolved",
+          "resolved_path": "src/flask/sansio/scaffold.py"
+        },
+        {
+          "raw": "from .scaffold import setupmethod",
+          "module": "scaffold",
+          "line": 34,
+          "status": "resolved",
+          "resolved_path": "src/flask/sansio/scaffold.py"
+        },
+        {
+          "raw": "from werkzeug.wrappers import Response as BaseResponse",
+          "module": "werkzeug.wrappers",
+          "line": 37,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from ..testing import FlaskClient",
+          "module": "testing",
+          "line": 39,
+          "status": "resolved",
+          "resolved_path": "src/flask/testing.py"
+        },
+        {
+          "raw": "from ..testing import FlaskCliRunner",
+          "module": "testing",
+          "line": 40,
+          "status": "resolved",
+          "resolved_path": "src/flask/testing.py"
+        },
+        {
+          "raw": "from .blueprints import Blueprint",
+          "module": "blueprints",
+          "line": 41,
+          "status": "resolved",
+          "resolved_path": "src/flask/sansio/blueprints.py"
+        }
+      ],
+      "symbols": [
+        {
+          "name": "_make_timedelta",
+          "kind": "function",
+          "line": 52,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "App",
+          "kind": "class",
+          "line": 59,
+          "docstring": "The flask object implements a WSGI application and acts as the central\nobject.  It is passed the name of the module or package of the\napplication.  Once it is created it will act as a central registry for\nthe view functions, the URL rules, template configuration and much more.\n\nThe name of the package is used to resolve resources from inside the\npackage or the folder the module is contained in depending on if the\npackage parameter resolves to an actual python package (a folder with\nan :file:`__init__.py` file inside) or a standard module (just a ``.py`` file).\n\nFor more information about resource loading, see :func:`open_resource`.\n\nUsually you create a :class:`Flask` instance in your main module or\nin the :file:`__init__.py` file of your package like this::\n\n    from flask import Flask\n    app = Flask(__name__)\n\n.. admonition:: About the First Parameter\n\n    The idea of the first parameter is to give Flask an idea of what\n    belongs to your application.  This name is used to find resources\n    on the filesystem, can be used by extensions to improve debugging\n    information and a lot more.\n\n    So it's important what you provide there.  If you are using a single\n    module, `__name__` is always the correct value.  If you however are\n    using a package, it's usually recommended to hardcode the name of\n    your package there.\n\n    For example if your application is defined in :file:`yourapplication/app.py`\n    you should create it with one of the two versions below::\n\n        app = Flask('yourapplication')\n        app = Flask(__name__.split('.')[0])\n\n    Why is that?  The application will work even with `__name__`, thanks\n    to how resources are looked up.  However it will make debugging more\n    painful.  Certain extensions can make assumptions based on the\n    import name of your application.  For example the Flask-SQLAlchemy\n    extension will look for the code in your application that triggered\n    an SQL query in debug mode.  If the import name is not properly set\n    up, that debugging information is lost.  (For example it would only\n    pick up SQL queries in `yourapplication.app` and not\n    `yourapplication.views.frontend`)\n\n.. versionadded:: 0.7\n   The `static_url_path`, `static_folder`, and `template_folder`\n   parameters were added.\n\n.. versionadded:: 0.8\n   The `instance_path` and `instance_relative_config` parameters were\n   added.\n\n.. versionadded:: 0.11\n   The `root_path` parameter was added.\n\n.. versionadded:: 1.0\n   The ``host_matching`` and ``static_host`` parameters were added.\n\n.. versionadded:: 1.0\n   The ``subdomain_matching`` parameter was added. Subdomain\n   matching needs to be enabled manually now. Setting\n   :data:`SERVER_NAME` does not implicitly enable it.\n\n:param import_name: the name of the application package\n:param static_url_path: can be used to specify a different path for the\n                        static files on the web.  Defaults to the name\n                        of the `static_folder` folder.\n:param static_folder: The folder with static files that is served at\n    ``static_url_path``. Relative to the application ``root_path``\n    or an absolute path. Defaults to ``'static'``.\n:param static_host: the host to use when adding the static route.\n    Defaults to None. Required when using ``host_matching=True``\n    with a ``static_folder`` configured.\n:param host_matching: set ``url_map.host_matching`` attribute.\n    Defaults to False.\n:param subdomain_matching: consider the subdomain relative to\n    :data:`SERVER_NAME` when matching routes. Defaults to False.\n:param template_folder: the folder that contains the templates that should\n                        be used by the application.  Defaults to\n                        ``'templates'`` folder in the root path of the\n                        application.\n:param instance_path: An alternative instance path for the application.\n                      By default the folder ``'instance'`` next to the\n                      package or module is assumed to be the instance\n                      path.\n:param instance_relative_config: if set to ``True`` relative filenames\n                                 for loading the config are assumed to\n                                 be relative to the instance path instead\n                                 of the application root.\n:param root_path: The path to the root of the application files.\n    This should only be set manually when it can't be detected\n    automatically, such as for namespace packages.",
+          "route_path": null,
+          "route_methods": []
+        }
+      ],
+      "parse_error": null
+    },
+    {
+      "path": "src/flask/sansio/scaffold.py",
+      "language": "python",
+      "line_count": 800,
+      "docstring": null,
+      "imports": [
+        {
+          "raw": "from __future__ import annotations",
+          "module": "__future__",
+          "line": 1,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import importlib.util",
+          "module": "importlib.util",
+          "line": 3,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import os",
+          "module": "os",
+          "line": 4,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import pathlib",
+          "module": "pathlib",
+          "line": 5,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import sys",
+          "module": "sys",
+          "line": 6,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import typing as t",
+          "module": "typing",
+          "line": 7,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from collections import defaultdict",
+          "module": "collections",
+          "line": 8,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from functools import update_wrapper",
+          "module": "functools",
+          "line": 9,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from jinja2 import BaseLoader",
+          "module": "jinja2",
+          "line": 11,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from jinja2 import FileSystemLoader",
+          "module": "jinja2",
+          "line": 12,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from werkzeug.exceptions import default_exceptions",
+          "module": "werkzeug.exceptions",
+          "line": 13,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from werkzeug.exceptions import HTTPException",
+          "module": "werkzeug.exceptions",
+          "line": 14,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from werkzeug.utils import cached_property",
+          "module": "werkzeug.utils",
+          "line": 15,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from .. import typing as ft",
+          "module": ".",
+          "line": 17,
+          "status": "resolved",
+          "resolved_path": "src/flask/__init__.py"
+        },
+        {
+          "raw": "from ..helpers import get_root_path",
+          "module": "helpers",
+          "line": 18,
+          "status": "resolved",
+          "resolved_path": "src/flask/helpers.py"
+        },
+        {
+          "raw": "from ..templating import _default_template_ctx_processor",
+          "module": "templating",
+          "line": 19,
+          "status": "resolved",
+          "resolved_path": "src/flask/templating.py"
+        },
+        {
+          "raw": "from click import Group",
+          "module": "click",
+          "line": 22,
+          "status": "external",
+          "resolved_path": null
+        }
+      ],
+      "symbols": [
+        {
+          "name": "setupmethod",
+          "kind": "function",
+          "line": 42,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "Scaffold",
+          "kind": "class",
+          "line": 52,
+          "docstring": "Common behavior shared between :class:`~flask.Flask` and\n:class:`~flask.blueprints.Blueprint`.\n\n:param import_name: The import name of the module where this object\n    is defined. Usually :attr:`__name__` should be used.\n:param static_folder: Path to a folder of static files to serve.\n    If this is set, a static route will be added.\n:param static_url_path: URL prefix for the static route.\n:param template_folder: Path to a folder containing template files.\n    for rendering. If this is set, a Jinja loader will be added.\n:param root_path: The path that static, template, and resource files\n    are relative to. Typically not set, it is discovered based on\n    the ``import_name``.\n\n.. versionadded:: 2.0",
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "_endpoint_from_view_func",
+          "kind": "function",
+          "line": 709,
+          "docstring": "Internal helper that returns the default endpoint for a given\nfunction.  This always is the function name.",
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "_find_package_path",
+          "kind": "function",
+          "line": 717,
+          "docstring": "Find the path that contains the package or module.",
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "find_package",
+          "kind": "function",
+          "line": 762,
+          "docstring": "Find the prefix that a package is installed under, and the path\nthat it would be imported from.\n\nThe prefix is the directory containing the standard directory\nhierarchy (lib, bin, etc.). If the package is not installed to the\nsystem (:attr:`sys.prefix`) or a virtualenv (``site-packages``),\n``None`` is returned.\n\nThe path is the entry in :attr:`sys.path` that contains the package\nfor import. If the package is not installed, it's assumed that the\npackage was imported from the current working directory.",
+          "route_path": null,
+          "route_methods": []
+        }
+      ],
+      "parse_error": null
+    },
+    {
+      "path": "src/flask/sansio/blueprints.py",
+      "language": "python",
+      "line_count": 692,
+      "docstring": null,
+      "imports": [
+        {
+          "raw": "from __future__ import annotations",
+          "module": "__future__",
+          "line": 1,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import os",
+          "module": "os",
+          "line": 3,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import typing as t",
+          "module": "typing",
+          "line": 4,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from collections import defaultdict",
+          "module": "collections",
+          "line": 5,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from functools import update_wrapper",
+          "module": "functools",
+          "line": 6,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "from .. import typing as ft",
+          "module": ".",
+          "line": 8,
+          "status": "resolved",
+          "resolved_path": "src/flask/__init__.py"
+        },
+        {
+          "raw": "from .scaffold import _endpoint_from_view_func",
+          "module": "scaffold",
+          "line": 9,
+          "status": "resolved",
+          "resolved_path": "src/flask/sansio/scaffold.py"
+        },
+        {
+          "raw": "from .scaffold import _sentinel",
+          "module": "scaffold",
+          "line": 10,
+          "status": "resolved",
+          "resolved_path": "src/flask/sansio/scaffold.py"
+        },
+        {
+          "raw": "from .scaffold import Scaffold",
+          "module": "scaffold",
+          "line": 11,
+          "status": "resolved",
+          "resolved_path": "src/flask/sansio/scaffold.py"
+        },
+        {
+          "raw": "from .scaffold import setupmethod",
+          "module": "scaffold",
+          "line": 12,
+          "status": "resolved",
+          "resolved_path": "src/flask/sansio/scaffold.py"
+        },
+        {
+          "raw": "from .app import App",
+          "module": "app",
+          "line": 15,
+          "status": "resolved",
+          "resolved_path": "src/flask/sansio/app.py"
+        }
+      ],
+      "symbols": [
+        {
+          "name": "BlueprintSetupState",
+          "kind": "class",
+          "line": 34,
+          "docstring": "Temporary holder object for registering a blueprint with the\napplication.  An instance of this class is created by the\n:meth:`~flask.Blueprint.make_setup_state` method and later passed\nto all register callback functions.",
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "Blueprint",
+          "kind": "class",
+          "line": 119,
+          "docstring": "Represents a blueprint, a collection of routes and other\napp-related functions that can be registered on a real application\nlater.\n\nA blueprint is an object that allows defining application functions\nwithout requiring an application object ahead of time. It uses the\nsame decorators as :class:`~flask.Flask`, but defers the need for an\napplication by recording them for later registration.\n\nDecorating a function with a blueprint creates a deferred function\nthat is called with :class:`~flask.blueprints.BlueprintSetupState`\nwhen the blueprint is registered on an application.\n\nSee :doc:`/blueprints` for more information.\n\n:param name: The name of the blueprint. Will be prepended to each\n    endpoint name.\n:param import_name: The name of the blueprint package, usually\n    ``__name__``. This helps locate the ``root_path`` for the\n    blueprint.\n:param static_folder: A folder with static files that should be\n    served by the blueprint's static route. The path is relative to\n    the blueprint's root path. Blueprint static files are disabled\n    by default.\n:param static_url_path: The url to serve static files from.\n    Defaults to ``static_folder``. If the blueprint does not have\n    a ``url_prefix``, the app's static route will take precedence,\n    and the blueprint's static files won't be accessible.\n:param template_folder: A folder with templates that should be added\n    to the app's template search path. The path is relative to the\n    blueprint's root path. Blueprint templates are disabled by\n    default. Blueprint templates have a lower precedence than those\n    in the app's templates folder.\n:param url_prefix: A path to prepend to all of the blueprint's URLs,\n    to make them distinct from the rest of the app's routes.\n:param subdomain: A subdomain that blueprint routes will match on by\n    default.\n:param url_defaults: A dict of default values that blueprint routes\n    will receive by default.\n:param root_path: By default, the blueprint will automatically set\n    this based on ``import_name``. In certain situations this\n    automatic detection can fail, so the path can be specified\n    manually instead.\n\n.. versionchanged:: 1.1.0\n    Blueprints have a ``cli`` group to register nested CLI commands.\n    The ``cli_group`` parameter controls the name of the group under\n    the ``flask`` command.\n\n.. versionadded:: 0.7",
+          "route_path": null,
+          "route_methods": []
+        }
+      ],
+      "parse_error": null
+    }
+  ],
+  "components": [
+    {
+      "id": "docs",
+      "folder_path": "docs",
+      "files": [
+        "docs/conf.py"
+      ],
+      "label": {
+        "name": "Project Documentation",
+        "summary": "Contains configuration and source files for generating the project's technical documentation.",
+        "source": "llm"
+      },
+      "is_other_merge": false
+    },
+    {
+      "id": "examples_celery",
+      "folder_path": "examples/celery",
+      "files": [
+        "examples/celery/make_celery.py",
+        "examples/celery/src/task_app/__init__.py",
+        "examples/celery/src/task_app/tasks.py",
+        "examples/celery/src/task_app/views.py"
+      ],
+      "label": {
+        "name": "Celery Task Integration",
+        "summary": "Provides example implementations for integrating Celery distributed task queues with the application.",
+        "source": "llm"
+      },
+      "is_other_merge": false
+    },
+    {
+      "id": "examples_tutorial",
+      "folder_path": "examples/tutorial",
+      "files": [
+        "examples/tutorial/flaskr/__init__.py",
+        "examples/tutorial/flaskr/auth.py",
+        "examples/tutorial/flaskr/blog.py",
+        "examples/tutorial/flaskr/db.py"
+      ],
+      "label": {
+        "name": "Tutorial Application Code",
+        "summary": "Contains a sample Flask application demonstrating core features like authentication, database management, and blogging.",
+        "source": "llm"
+      },
+      "is_other_merge": false
+    },
+    {
+      "id": "examples_javascript",
+      "folder_path": "examples/javascript",
+      "files": [
+        "examples/javascript/js_example/__init__.py",
+        "examples/javascript/js_example/views.py"
+      ],
+      "label": {
+        "name": "JavaScript Integration Examples",
+        "summary": "Demonstrates how to structure and serve views within the application to support JavaScript-based frontends.",
+        "source": "llm"
+      },
+      "is_other_merge": false
+    },
+    {
+      "id": "src_flask",
+      "folder_path": "src/flask",
+      "files": [
+        "src/flask/__init__.py",
+        "src/flask/__main__.py",
+        "src/flask/app.py",
+        "src/flask/blueprints.py",
+        "src/flask/cli.py",
+        "src/flask/config.py",
+        "src/flask/ctx.py",
+        "src/flask/debughelpers.py",
+        "src/flask/globals.py",
+        "src/flask/helpers.py",
+        "src/flask/json/__init__.py",
+        "src/flask/json/provider.py",
+        "src/flask/json/tag.py",
+        "src/flask/logging.py",
+        "src/flask/sansio/app.py",
+        "src/flask/sansio/blueprints.py",
+        "src/flask/sansio/scaffold.py",
+        "src/flask/sessions.py",
+        "src/flask/signals.py",
+        "src/flask/templating.py",
+        "src/flask/testing.py",
+        "src/flask/typing.py",
+        "src/flask/views.py",
+        "src/flask/wrappers.py"
+      ],
+      "label": {
+        "name": "Flask Core Framework",
+        "summary": "Contains the primary source code for the Flask web framework, including application logic, routing, configuration, and CLI tools.",
+        "source": "llm"
+      },
+      "is_other_merge": false
+    }
+  ],
+  "edges": [],
+  "unresolved": {
+    "imports": []
+  },
+  "mermaid": {
+    "diagram_type": "graph TD",
+    "source": "graph TD\n    docs[\"Project Documentation (1 file)\"]\n    examples_celery[\"Celery Task Integration (4 files)\"]\n    examples_tutorial[\"Tutorial Application Code (4 files)\"]\n    examples_javascript[\"JavaScript Integration Examples (2 files)\"]\n    src_flask[\"Flask Core Framework (24 files)\"]\n\n\n    classDef otherNode fill:#eee,stroke:#999,stroke-dasharray: 4 3\n"
+  },
+  "llm_model": "gemini-3-flash-preview",
+  "llm_call_count": 1
+}
