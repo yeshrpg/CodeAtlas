@@ -55,55 +55,16 @@ Architecture diagrams decay the millisecond they are exported to PNG or drawn on
 
 ## 📸 Interface & Visual Walkthrough
 
-Experience how Code Atlas decomposes, visualizes, and audits complex codebases in real time.
-
-### 1. Interactive Architecture Map (`Analyze` Mode)
-> Real-time AST ingestion rendering deterministic component boundaries, weighted import relationships, and pipeline performance metrics.
-
 <div align="center">
-  <img src="docs/assets/screenshots/01_analyze_architecture_view.png" alt="Code Atlas Analyze Architecture View" width="850" />
-</div>
-
-<br/>
-
-### 2. Base Revision Setup (`Compare` Mode)
-> Select baseline repository URLs and target commit references (`HEAD~1`, branch name, or specific SHA) for architectural diffing.
-
-<div align="center">
-  <img src="docs/assets/screenshots/02_compare_base_config.png" alt="Code Atlas Compare Base Target" width="850" />
-</div>
-
-<br/>
-
-### 3. Head Revision & Regression Diff
-> Compare target revisions to isolate newly introduced circular dependencies, layer boundary breaches, and orphaned modules.
-
-<div align="center">
-  <img src="docs/assets/screenshots/03_compare_head_diff.png" alt="Code Atlas Compare Head Target" width="850" />
-</div>
-
-<br/>
-
-### 4. Deep AST Evidence & Symbol Inspector (`Analysis Data`)
-> Inspect the underlying RFC-compliant JSON payload containing exact `file:line` proof, exported symbols, and resolved import paths.
-
-<div align="center">
-  <img src="docs/assets/screenshots/04_ast_analysis_data.png" alt="Code Atlas AST Analysis Data Inspector" width="850" />
-</div>
-
-<br/>
-
-<div align="center">
-
-### 🔗 Live Environments & Service Endpoints
-
-| Service | Endpoint / Deployment | Description |
-| :--- | :--- | :--- |
-| 🌐 **Frontend Web App** | [**codeatlas-frontend-nu.vercel.app**](https://codeatlas-frontend-nu.vercel.app) | Production interactive canvas, Mermaid v12 rendering engine & diff explorer |
-| ⚡ **Backend Engine** | [**Live API on Render**](https://codeatlas-backend-a6jw.onrender.com) | Production FastAPI REST service & AST ingestion pipeline |
-| 📖 **Interactive API Docs** | [Swagger UI (`/docs`)](https://codeatlas-backend-a6jw.onrender.com/docs) • [ReDoc (`/redoc`)](https://codeatlas-backend-a6jw.onrender.com/redoc) | Live OpenAPI schema explorer and endpoint sandbox |
-| 🩺 **System Health** | [`GET /health`](https://codeatlas-backend-a6jw.onrender.com/health) | Uptime status, concurrency limits & Gemini configuration check |
-
+  <img src="docs/assets/screenshots/01_repo_analysis.png" alt="Code Atlas Ingestion & Architecture Overview" width="850" />
+  <br/><br/>
+  <img src="docs/assets/screenshots/02_architecture_graph.png" alt="Code Atlas Architecture Component Graph" width="850" />
+  <br/><br/>
+  <img src="docs/assets/screenshots/03_components_list.png" alt="Code Atlas Extracted Components" width="850" />
+  <br/><br/>
+  <img src="docs/assets/screenshots/04_connections_table.png" alt="Code Atlas Module Connections & Evidence" width="850" />
+  <br/><br/>
+  <img src="docs/assets/screenshots/05_unresolved_imports.png" alt="Code Atlas Topological Connections & Import Audit" width="850" />
 </div>
 
 ---
