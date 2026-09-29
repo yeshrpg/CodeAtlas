@@ -12,7 +12,7 @@
 
 **Code Atlas converts multi-million-line repositories into interactive, mathematically verified architectural maps via static AST analysis—with zero cloud dependencies.**
 
-[![Frontend](https://img.shields.io/badge/Frontend-React%2019%20%7C%20Vite-61dafb?style=flat-square&logo=react)](https://github.com/yeshrpg/CodeAtlas/tree/adithya/frontend)
+[![Frontend Live](https://img.shields.io/badge/Frontend-Vercel%20Live-black?style=flat-square&logo=vercel)](https://codeatlas-frontend-nu.vercel.app)
 [![Backend Status](https://img.shields.io/badge/Backend-Render%20Live-success?style=flat-square&logo=render)](https://codeatlas-backend-a6jw.onrender.com)
 [![API Docs](https://img.shields.io/badge/API%20Docs-Swagger%20%2F%20OpenAPI-orange?style=flat-square)](https://codeatlas-backend-a6jw.onrender.com/docs)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square)](LICENSE)
@@ -20,7 +20,7 @@
 
 <br/>
 
-**[🌐 Frontend Application](https://github.com/yeshrpg/CodeAtlas/tree/adithya/frontend)** &nbsp;•&nbsp; **[⚡ Live Backend API](https://codeatlas-backend-a6jw.onrender.com)** &nbsp;•&nbsp; **[📖 Interactive Swagger Docs](https://codeatlas-backend-a6jw.onrender.com/docs)**
+**[🌐 Live Frontend Web App](https://codeatlas-frontend-nu.vercel.app)** &nbsp;•&nbsp; **[⚡ Live Backend API](https://codeatlas-backend-a6jw.onrender.com)** &nbsp;•&nbsp; **[📖 Interactive Swagger Docs](https://codeatlas-backend-a6jw.onrender.com/docs)**
 
 ---
 
@@ -99,7 +99,7 @@ Experience how Code Atlas decomposes, visualizes, and audits complex codebases i
 
 | Service | Endpoint / Deployment | Description |
 | :--- | :--- | :--- |
-| 🌐 **Frontend Application** | [`adithya/frontend` (Vite + React 19)](https://github.com/yeshrpg/CodeAtlas/tree/adithya/frontend) | Interactive canvas, Mermaid v12 rendering engine & diff explorer |
+| 🌐 **Frontend Web App** | [**codeatlas-frontend-nu.vercel.app**](https://codeatlas-frontend-nu.vercel.app) | Production interactive canvas, Mermaid v12 rendering engine & diff explorer |
 | ⚡ **Backend Engine** | [**Live API on Render**](https://codeatlas-backend-a6jw.onrender.com) | Production FastAPI REST service & AST ingestion pipeline |
 | 📖 **Interactive API Docs** | [Swagger UI (`/docs`)](https://codeatlas-backend-a6jw.onrender.com/docs) • [ReDoc (`/redoc`)](https://codeatlas-backend-a6jw.onrender.com/redoc) | Live OpenAPI schema explorer and endpoint sandbox |
 | 🩺 **System Health** | [`GET /health`](https://codeatlas-backend-a6jw.onrender.com/health) | Uptime status, concurrency limits & Gemini configuration check |
