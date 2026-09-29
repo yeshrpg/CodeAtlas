@@ -12,15 +12,16 @@
 
 **Code Atlas converts multi-million-line repositories into interactive, mathematically verified architectural maps via static AST analysis—with zero cloud dependencies.**
 
-[![CI Pipeline](https://img.shields.io/github/actions/workflow/status/yeshrpg/CodeAtlas/ci.yml?branch=main&style=flat-square&label=Build%20%26%20Test)](https://github.com/yeshrpg/CodeAtlas/actions)
+[![Backend Status](https://img.shields.io/badge/Backend-Render%20Live-success?style=flat-square&logo=render)](https://codeatlas-backend-a6jw.onrender.com)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square)](LICENSE)
 [![Engine: Python 3.11+ / TypeScript 5.8+](https://img.shields.io/badge/Runtime-Py%203.11%2B%20%7C%20TS%205.8%2B-informational?style=flat-square)](backend/requirements.txt)
 [![Architecture Spec](https://img.shields.io/badge/RFC-Pydantic%20v2%20Strict-emerald?style=flat-square)](docs/schema.md)
-[![Live Demo](https://img.shields.io/badge/Demo-CodeAtlas%20Live-orange?style=flat-square)](https://codeatlas.dev)
+[![API Docs](https://img.shields.io/badge/API%20Docs-Swagger%20%2F%20OpenAPI-orange?style=flat-square)](https://codeatlas-backend-a6jw.onrender.com/docs)
 
 ---
 
 [Problem vs Antidote](#-the-problem-vs-the-code-atlas-antidote) •
+[Walkthrough](#-interface--visual-walkthrough) •
 [Architecture](#-system-architecture) •
 [Quickstart](#-60-second-quickstart) •
 [Core Pillars](#-core-engineering-pillars) •
@@ -45,6 +46,61 @@ Architecture diagrams decay the millisecond they are exported to PNG or drawn on
 | **LLM Dependency & Cost** | Unbounded token drain ($0.50–$4.00 per repo scan) across hundreds of recursive prompts. | **Hard-Capped $\leq$ 1 LLM Call**. Used purely for semantic component labeling; operates 100% offline with heuristic fallback. |
 | **Drift & Regression** | Architecture documentation is abandoned within 3 sprints. | **Git Commit Diffing**. Computes edge additions, topological drops, and modular boundary crossings across revisions. |
 | **Data Privacy** | Full codebase source exfiltrated to remote third-party AI endpoints. | **Zero-Telemetry, Local-First**. Code is parsed and visualized inside your security perimeter. Code execution never occurs. |
+
+---
+
+## 📸 Interface & Visual Walkthrough
+
+Experience how Code Atlas decomposes, visualizes, and audits complex codebases in real time.
+
+### 1. Interactive Architecture Map (`Analyze` Mode)
+> Real-time AST ingestion rendering deterministic component boundaries, weighted import relationships, and pipeline performance metrics.
+
+<div align="center">
+  <img src="docs/assets/screenshots/01_analyze_architecture_view.png" alt="Code Atlas Analyze Architecture View" width="850" />
+</div>
+
+<br/>
+
+### 2. Base Revision Setup (`Compare` Mode)
+> Select baseline repository URLs and target commit references (`HEAD~1`, branch name, or specific SHA) for architectural diffing.
+
+<div align="center">
+  <img src="docs/assets/screenshots/02_compare_base_config.png" alt="Code Atlas Compare Base Target" width="850" />
+</div>
+
+<br/>
+
+### 3. Head Revision & Regression Diff
+> Compare target revisions to isolate newly introduced circular dependencies, layer boundary breaches, and orphaned modules.
+
+<div align="center">
+  <img src="docs/assets/screenshots/03_compare_head_diff.png" alt="Code Atlas Compare Head Target" width="850" />
+</div>
+
+<br/>
+
+### 4. Deep AST Evidence & Symbol Inspector (`Analysis Data`)
+> Inspect the underlying RFC-compliant JSON payload containing exact `file:line` proof, exported symbols, and resolved import paths.
+
+<div align="center">
+  <img src="docs/assets/screenshots/04_ast_analysis_data.png" alt="Code Atlas AST Analysis Data Inspector" width="850" />
+</div>
+
+<br/>
+
+<div align="center">
+
+### 🔗 Live Environments & Service Endpoints
+
+| Service | Endpoint / Deployment | Description |
+| :--- | :--- | :--- |
+| 🌐 **Frontend Application** | [`adithya/frontend` (Vite + React 19)](https://github.com/yeshrpg/CodeAtlas/tree/adithya/frontend) | Interactive canvas, Mermaid v12 rendering engine & diff explorer |
+| ⚡ **Backend Engine** | [**Live API on Render**](https://codeatlas-backend-a6jw.onrender.com) | Production FastAPI REST service & AST ingestion pipeline |
+| 📖 **Interactive API Docs** | [Swagger UI (`/docs`)](https://codeatlas-backend-a6jw.onrender.com/docs) • [ReDoc (`/redoc`)](https://codeatlas-backend-a6jw.onrender.com/redoc) | Live OpenAPI schema explorer and endpoint sandbox |
+| 🩺 **System Health** | [`GET /health`](https://codeatlas-backend-a6jw.onrender.com/health) | Uptime status, concurrency limits & Gemini configuration check |
+
+</div>
 
 ---
 
