@@ -1,0 +1,93 @@
+{
+  "analysis": {
+    "components": [
+      {
+        "id": "api",
+        "label": "API Layer",
+        "layer": "backend",
+        "summary": "Handles incoming HTTP requests and routes them to services.",
+        "label_source": "heuristic",
+        "files": ["src/api/routes.ts", "src/api/middleware.ts"],
+        "file_details": {
+          "src/api/routes.ts": {
+            "symbols": ["createRouter", "authMiddleware"],
+            "imports": [
+              { "name": "Router", "line": 1, "from": "express" },
+              { "name": "AuthService", "line": 3, "from": "../services/auth" }
+            ],
+            "importers": ["src/server.ts"]
+          },
+          "src/api/middleware.ts": {
+            "symbols": ["errorHandler", "requestLogger"],
+            "imports": [{ "name": "Request", "line": 1, "from": "express" }],
+            "importers": ["src/api/routes.ts"]
+          }
+        }
+      },
+      {
+        "id": "ui",
+        "label": "UI Layer",
+        "layer": "frontend",
+        "summary": "Renders the architecture diagram and detail panels.",
+        "label_source": "heuristic",
+        "files": ["src/App.tsx", "src/components/Graph.tsx"],
+        "file_details": {
+          "src/App.tsx": {
+            "symbols": ["App", "useAnalysis"],
+            "imports": [
+              { "name": "DiagramView", "line": 4, "from": "./components/DiagramView" }
+            ],
+            "importers": []
+          },
+          "src/components/Graph.tsx": {
+            "symbols": ["Graph", "toMermaid"],
+            "imports": [{ "name": "mermaid", "line": 1, "from": "mermaid" }],
+            "importers": ["src/App.tsx"]
+          }
+        }
+      },
+      {
+        "id": "cache",
+        "label": "Caching Layer",
+        "layer": "storage",
+        "summary": "Caches frequent queries to reduce database load.",
+        "label_source": "llm",
+        "files": ["src/cache/store.ts"],
+        "file_details": {
+          "src/cache/store.ts": {
+            "symbols": ["get", "set", "invalidate"],
+            "imports": [{ "name": "Redis", "line": 1, "from": "ioredis" }],
+            "importers": ["src/api/routes.ts"]
+          }
+        }
+      }
+    ],
+    "connections": [
+      { "from": "ui", "to": "api", "weight": 5 },
+      {
+        "from": "api",
+        "to": "cache",
+        "weight": 4,
+        "evidence": [
+          {
+            "file": "src/api/routes.ts",
+            "line": 9,
+            "text": "import { get } from '../cache/store'"
+          }
+        ]
+      }
+    ],
+    "stats": {
+      "files": 5,
+      "skipped": 0,
+      "edges": 2,
+      "unresolved_pct": 0,
+      "ms": 38
+    }
+  },
+  "added_components": ["cache"],
+  "removed_components": ["db"],
+  "added_connections": [{ "from": "api", "to": "cache", "weight": 4 }],
+  "removed_connections": [{ "from": "api", "to": "db", "weight": 8 }],
+  "reading_order": ["ui", "api", "cache"]
+}
