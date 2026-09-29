@@ -1,18 +1,20 @@
 """
-CodeAtlas backend — FastAPI entrypoint.
+CodeAtlas backend - FastAPI entrypoint.
 
 Locked constraints reflected here:
 - All endpoints are plain `def`, never `async def`.
 - CORS allowlist comes from the ALLOWED_ORIGINS env var (comma-separated),
   never hardcoded or wildcarded in production.
-- No SSE, no SQLite — in-memory dict cache only.
+- No SSE, no SQLite - in-memory dict cache only.
+
+v0.3.2:
+- Removed the temporary /debug/llm endpoint (LLM step confirmed working).
 
 v0.3.1:
 - Concurrency cap + per-repo result cache (demo-day safety on Render free tier).
 - Results where the LLM fell back to heuristic labels are cached for only
   HEURISTIC_TTL_SECONDS, so a Gemini hiccup/misconfig never sticks for 15 min.
-- /health reports llm_configured; /debug/llm diagnoses Gemini key/model problems
-  (temporary; returns no secrets; rate-limited to one Gemini call per 30s).
+- /health reports llm_configured.
 """
 
 import os
@@ -22,7 +24,6 @@ import uuid
 from datetime import datetime, timezone
 from typing import Optional
 
-import httpx
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
@@ -31,7 +32,7 @@ from app.pipeline import run_analysis
 from app.schema import AnalysisResult, AnalysisStatus, RepoMeta
 
 APP_NAME = "codeatlas-backend"
-APP_VERSION = "0.3.1"
+APP_VERSION = "0.3.2"
 
 app = FastAPI(title=APP_NAME, version=APP_VERSION)
 
@@ -160,56 +161,6 @@ def get_analysis(analysis_id: str) -> AnalysisResult:
     if result is None:
         raise HTTPException(status_code=404, detail="Analysis not found (expired or never existed).")
     return result
-
-
-# --- Temporary diagnostics (remove after the LLM step is confirmed) --------
-_last_debug_call = 0.0
-
-
-@app.get("/debug/llm")
-def debug_llm():
-    """Reports whether GEMINI_API_KEY / GEMINI_MODEL are set sanely and whether
-    Google accepts them. Never returns the key. One Gemini call per 30s max."""
-    global _last_debug_call
-    key = os.environ.get("GEMINI_API_KEY", "")
-    model = os.environ.get("GEMINI_MODEL", "")
-    info: dict = {
-        "api_key_set": bool(key.strip()),
-        "api_key_length": len(key),
-        "api_key_has_space_or_quote": key != key.strip() or '"' in key or "'" in key,
-        "model": model,
-        "model_has_space_or_quote": model != model.strip() or '"' in model or "'" in model,
-    }
-    if not key.strip() or not model.strip():
-        info["verdict"] = "MISSING: GEMINI_API_KEY and/or GEMINI_MODEL not set in Render env"
-        return info
-
-    now = time.time()
-    if now - _last_debug_call < 30:
-        info["verdict"] = "rate-limited: wait 30s and retry"
-        return info
-    _last_debug_call = now
-
-    try:
-        resp = httpx.post(
-            f"https://generativelanguage.googleapis.com/v1beta/models/{model.strip()}:generateContent",
-            headers={"x-goog-api-key": key.strip(), "Content-Type": "application/json"},
-            json={"contents": [{"parts": [{"text": "Reply with the single word: ok"}]}]},
-            timeout=20,
-        )
-        info["http_status"] = resp.status_code
-        if resp.status_code == 200:
-            info["verdict"] = "OK: Gemini accepts this key + model"
-        else:
-            try:
-                info["google_error"] = str(resp.json().get("error", {}).get("message", ""))[:300]
-            except Exception:
-                info["google_error"] = resp.text[:300]
-            info["verdict"] = "GOOGLE REJECTED THE CALL: see http_status and google_error"
-    except Exception as exc:
-        info["http_error"] = f"{type(exc).__name__}: {exc}"[:300]
-        info["verdict"] = "NETWORK ERROR reaching Google"
-    return info
 
 
 # NOTE: /compare lands in Y8 (stretch).
