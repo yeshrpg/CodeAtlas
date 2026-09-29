@@ -1,0 +1,1872 @@
+{
+  "analysis_id": "8f17270fbf864887826eea62894266eb",
+  "status": "done",
+  "repo": {
+    "owner": "gothinkster",
+    "name": "react-redux-realworld-example-app",
+    "default_branch": "master",
+    "commit_sha": "ee72eba4056392c95a27bc48d385d3f54ba38a18",
+    "is_public": true,
+    "total_files_scanned": 38,
+    "total_files_skipped": 7,
+    "total_size_bytes": 111576,
+    "is_flat_repo": false
+  },
+  "created_at": "2026-09-29T14:36:57.610704Z",
+  "completed_at": "2026-09-29T14:37:07.167296Z",
+  "error": null,
+  "parsed_files": [
+    {
+      "path": "src/agent.js",
+      "language": "javascript",
+      "line_count": 96,
+      "docstring": null,
+      "imports": [
+        {
+          "raw": "import superagentPromise from 'superagent-promise';",
+          "module": "superagent-promise",
+          "line": 1,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import _superagent from 'superagent';",
+          "module": "superagent",
+          "line": 2,
+          "status": "external",
+          "resolved_path": null
+        }
+      ],
+      "symbols": [
+        {
+          "name": "limit",
+          "kind": "function",
+          "line": 44,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        }
+      ],
+      "parse_error": null
+    },
+    {
+      "path": "src/index.js",
+      "language": "javascript",
+      "line_count": 20,
+      "docstring": null,
+      "imports": [
+        {
+          "raw": "import ReactDOM from 'react-dom';",
+          "module": "react-dom",
+          "line": 1,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import { Provider } from 'react-redux';",
+          "module": "react-redux",
+          "line": 2,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import React from 'react';",
+          "module": "react",
+          "line": 3,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import { store, history} from './store';",
+          "module": "./store",
+          "line": 4,
+          "status": "resolved",
+          "resolved_path": "src/store.js"
+        },
+        {
+          "raw": "import { Route, Switch } from 'react-router-dom';",
+          "module": "react-router-dom",
+          "line": 6,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import { ConnectedRouter } from 'react-router-redux';",
+          "module": "react-router-redux",
+          "line": 7,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import App from './components/App';",
+          "module": "./components/App",
+          "line": 9,
+          "status": "resolved",
+          "resolved_path": "src/components/App.js"
+        }
+      ],
+      "symbols": [],
+      "parse_error": null
+    },
+    {
+      "path": "src/middleware.js",
+      "language": "javascript",
+      "line_count": 68,
+      "docstring": null,
+      "imports": [
+        {
+          "raw": "import agent from './agent';",
+          "module": "./agent",
+          "line": 1,
+          "status": "resolved",
+          "resolved_path": "src/agent.js"
+        },
+        {
+          "raw": "import {\n  ASYNC_START,\n  ASYNC_END,\n  LOGIN,\n  LOGOUT,\n  REGISTER\n} from './constants/actionTypes';",
+          "module": "./constants/actionTypes",
+          "line": 2,
+          "status": "resolved",
+          "resolved_path": "src/constants/actionTypes.js"
+        }
+      ],
+      "symbols": [
+        {
+          "name": "isPromise",
+          "kind": "function",
+          "line": 63,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        }
+      ],
+      "parse_error": null
+    },
+    {
+      "path": "src/reducer.js",
+      "language": "javascript",
+      "line_count": 22,
+      "docstring": null,
+      "imports": [
+        {
+          "raw": "import article from './reducers/article';",
+          "module": "./reducers/article",
+          "line": 1,
+          "status": "resolved",
+          "resolved_path": "src/reducers/article.js"
+        },
+        {
+          "raw": "import articleList from './reducers/articleList';",
+          "module": "./reducers/articleList",
+          "line": 2,
+          "status": "resolved",
+          "resolved_path": "src/reducers/articleList.js"
+        },
+        {
+          "raw": "import auth from './reducers/auth';",
+          "module": "./reducers/auth",
+          "line": 3,
+          "status": "resolved",
+          "resolved_path": "src/reducers/auth.js"
+        },
+        {
+          "raw": "import { combineReducers } from 'redux';",
+          "module": "redux",
+          "line": 4,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import common from './reducers/common';",
+          "module": "./reducers/common",
+          "line": 5,
+          "status": "resolved",
+          "resolved_path": "src/reducers/common.js"
+        },
+        {
+          "raw": "import editor from './reducers/editor';",
+          "module": "./reducers/editor",
+          "line": 6,
+          "status": "resolved",
+          "resolved_path": "src/reducers/editor.js"
+        },
+        {
+          "raw": "import home from './reducers/home';",
+          "module": "./reducers/home",
+          "line": 7,
+          "status": "resolved",
+          "resolved_path": "src/reducers/home.js"
+        },
+        {
+          "raw": "import profile from './reducers/profile';",
+          "module": "./reducers/profile",
+          "line": 8,
+          "status": "resolved",
+          "resolved_path": "src/reducers/profile.js"
+        },
+        {
+          "raw": "import settings from './reducers/settings';",
+          "module": "./reducers/settings",
+          "line": 9,
+          "status": "resolved",
+          "resolved_path": "src/reducers/settings.js"
+        },
+        {
+          "raw": "import { routerReducer } from 'react-router-redux';",
+          "module": "react-router-redux",
+          "line": 10,
+          "status": "external",
+          "resolved_path": null
+        }
+      ],
+      "symbols": [],
+      "parse_error": null
+    },
+    {
+      "path": "src/store.js",
+      "language": "javascript",
+      "line_count": 25,
+      "docstring": null,
+      "imports": [
+        {
+          "raw": "import { applyMiddleware, createStore } from 'redux';",
+          "module": "redux",
+          "line": 1,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import { createLogger } from 'redux-logger'",
+          "module": "redux-logger",
+          "line": 2,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import { composeWithDevTools } from 'redux-devtools-extension/developmentOnly';",
+          "module": "redux-devtools-extension/developmentOnly",
+          "line": 3,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import { promiseMiddleware, localStorageMiddleware } from './middleware';",
+          "module": "./middleware",
+          "line": 4,
+          "status": "resolved",
+          "resolved_path": "src/middleware.js"
+        },
+        {
+          "raw": "import reducer from './reducer';",
+          "module": "./reducer",
+          "line": 5,
+          "status": "resolved",
+          "resolved_path": "src/reducer.js"
+        },
+        {
+          "raw": "import { routerMiddleware } from 'react-router-redux'",
+          "module": "react-router-redux",
+          "line": 7,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import createHistory from 'history/createBrowserHistory';",
+          "module": "history/createBrowserHistory",
+          "line": 8,
+          "status": "external",
+          "resolved_path": null
+        }
+      ],
+      "symbols": [
+        {
+          "name": "getMiddleware",
+          "kind": "function",
+          "line": 15,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        }
+      ],
+      "parse_error": null
+    },
+    {
+      "path": "src/constants/actionTypes.js",
+      "language": "javascript",
+      "line_count": 36,
+      "docstring": null,
+      "imports": [],
+      "symbols": [],
+      "parse_error": null
+    },
+    {
+      "path": "src/components/Editor.js",
+      "language": "javascript",
+      "line_count": 178,
+      "docstring": null,
+      "imports": [
+        {
+          "raw": "import ListErrors from './ListErrors';",
+          "module": "./ListErrors",
+          "line": 1,
+          "status": "resolved",
+          "resolved_path": "src/components/ListErrors.js"
+        },
+        {
+          "raw": "import React from 'react';",
+          "module": "react",
+          "line": 2,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import agent from '../agent';",
+          "module": "../agent",
+          "line": 3,
+          "status": "resolved",
+          "resolved_path": "src/agent.js"
+        },
+        {
+          "raw": "import { connect } from 'react-redux';",
+          "module": "react-redux",
+          "line": 4,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import {\n  ADD_TAG,\n  EDITOR_PAGE_LOADED,\n  REMOVE_TAG,\n  ARTICLE_SUBMITTED,\n  EDITOR_PAGE_UNLOADED,\n  UPDATE_FIELD_EDITOR\n} from '../constants/actionTypes';",
+          "module": "../constants/actionTypes",
+          "line": 5,
+          "status": "resolved",
+          "resolved_path": "src/constants/actionTypes.js"
+        }
+      ],
+      "symbols": [
+        {
+          "name": "Editor",
+          "kind": "class",
+          "line": 33,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        }
+      ],
+      "parse_error": null
+    },
+    {
+      "path": "src/components/Settings.js",
+      "language": "javascript",
+      "line_count": 171,
+      "docstring": null,
+      "imports": [
+        {
+          "raw": "import ListErrors from './ListErrors';",
+          "module": "./ListErrors",
+          "line": 1,
+          "status": "resolved",
+          "resolved_path": "src/components/ListErrors.js"
+        },
+        {
+          "raw": "import React from 'react';",
+          "module": "react",
+          "line": 2,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import agent from '../agent';",
+          "module": "../agent",
+          "line": 3,
+          "status": "resolved",
+          "resolved_path": "src/agent.js"
+        },
+        {
+          "raw": "import { connect } from 'react-redux';",
+          "module": "react-redux",
+          "line": 4,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import {\n  SETTINGS_SAVED,\n  SETTINGS_PAGE_UNLOADED,\n  LOGOUT\n} from '../constants/actionTypes';",
+          "module": "../constants/actionTypes",
+          "line": 5,
+          "status": "resolved",
+          "resolved_path": "src/constants/actionTypes.js"
+        }
+      ],
+      "symbols": [
+        {
+          "name": "SettingsForm",
+          "kind": "class",
+          "line": 11,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "Settings",
+          "kind": "class",
+          "line": 139,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        }
+      ],
+      "parse_error": null
+    },
+    {
+      "path": "src/components/ArticlePreview.js",
+      "language": "javascript",
+      "line_count": 79,
+      "docstring": null,
+      "imports": [
+        {
+          "raw": "import React from 'react';",
+          "module": "react",
+          "line": 1,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import { Link } from 'react-router-dom';",
+          "module": "react-router-dom",
+          "line": 2,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import agent from '../agent';",
+          "module": "../agent",
+          "line": 3,
+          "status": "resolved",
+          "resolved_path": "src/agent.js"
+        },
+        {
+          "raw": "import { connect } from 'react-redux';",
+          "module": "react-redux",
+          "line": 4,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import { ARTICLE_FAVORITED, ARTICLE_UNFAVORITED } from '../constants/actionTypes';",
+          "module": "../constants/actionTypes",
+          "line": 5,
+          "status": "resolved",
+          "resolved_path": "src/constants/actionTypes.js"
+        }
+      ],
+      "symbols": [],
+      "parse_error": null
+    },
+    {
+      "path": "src/components/ListPagination.js",
+      "language": "javascript",
+      "line_count": 58,
+      "docstring": null,
+      "imports": [
+        {
+          "raw": "import React from 'react';",
+          "module": "react",
+          "line": 1,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import agent from '../agent';",
+          "module": "../agent",
+          "line": 2,
+          "status": "resolved",
+          "resolved_path": "src/agent.js"
+        },
+        {
+          "raw": "import { connect } from 'react-redux';",
+          "module": "react-redux",
+          "line": 3,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import { SET_PAGE } from '../constants/actionTypes';",
+          "module": "../constants/actionTypes",
+          "line": 4,
+          "status": "resolved",
+          "resolved_path": "src/constants/actionTypes.js"
+        }
+      ],
+      "symbols": [],
+      "parse_error": null
+    },
+    {
+      "path": "src/components/Register.js",
+      "language": "javascript",
+      "line_count": 113,
+      "docstring": null,
+      "imports": [
+        {
+          "raw": "import { Link } from 'react-router-dom';",
+          "module": "react-router-dom",
+          "line": 1,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import ListErrors from './ListErrors';",
+          "module": "./ListErrors",
+          "line": 2,
+          "status": "resolved",
+          "resolved_path": "src/components/ListErrors.js"
+        },
+        {
+          "raw": "import React from 'react';",
+          "module": "react",
+          "line": 3,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import agent from '../agent';",
+          "module": "../agent",
+          "line": 4,
+          "status": "resolved",
+          "resolved_path": "src/agent.js"
+        },
+        {
+          "raw": "import { connect } from 'react-redux';",
+          "module": "react-redux",
+          "line": 5,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import {\n  UPDATE_FIELD_AUTH,\n  REGISTER,\n  REGISTER_PAGE_UNLOADED\n} from '../constants/actionTypes';",
+          "module": "../constants/actionTypes",
+          "line": 6,
+          "status": "resolved",
+          "resolved_path": "src/constants/actionTypes.js"
+        }
+      ],
+      "symbols": [
+        {
+          "name": "Register",
+          "kind": "class",
+          "line": 29,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        }
+      ],
+      "parse_error": null
+    },
+    {
+      "path": "src/components/Login.js",
+      "language": "javascript",
+      "line_count": 97,
+      "docstring": null,
+      "imports": [
+        {
+          "raw": "import { Link } from 'react-router-dom';",
+          "module": "react-router-dom",
+          "line": 1,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import ListErrors from './ListErrors';",
+          "module": "./ListErrors",
+          "line": 2,
+          "status": "resolved",
+          "resolved_path": "src/components/ListErrors.js"
+        },
+        {
+          "raw": "import React from 'react';",
+          "module": "react",
+          "line": 3,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import agent from '../agent';",
+          "module": "../agent",
+          "line": 4,
+          "status": "resolved",
+          "resolved_path": "src/agent.js"
+        },
+        {
+          "raw": "import { connect } from 'react-redux';",
+          "module": "react-redux",
+          "line": 5,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import {\n  UPDATE_FIELD_AUTH,\n  LOGIN,\n  LOGIN_PAGE_UNLOADED\n} from '../constants/actionTypes';",
+          "module": "../constants/actionTypes",
+          "line": 6,
+          "status": "resolved",
+          "resolved_path": "src/constants/actionTypes.js"
+        }
+      ],
+      "symbols": [
+        {
+          "name": "Login",
+          "kind": "class",
+          "line": 25,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        }
+      ],
+      "parse_error": null
+    },
+    {
+      "path": "src/components/Profile.js",
+      "language": "javascript",
+      "line_count": 170,
+      "docstring": null,
+      "imports": [
+        {
+          "raw": "import ArticleList from './ArticleList';",
+          "module": "./ArticleList",
+          "line": 1,
+          "status": "resolved",
+          "resolved_path": "src/components/ArticleList.js"
+        },
+        {
+          "raw": "import React from 'react';",
+          "module": "react",
+          "line": 2,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import { Link } from 'react-router-dom';",
+          "module": "react-router-dom",
+          "line": 3,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import agent from '../agent';",
+          "module": "../agent",
+          "line": 4,
+          "status": "resolved",
+          "resolved_path": "src/agent.js"
+        },
+        {
+          "raw": "import { connect } from 'react-redux';",
+          "module": "react-redux",
+          "line": 5,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import {\n  FOLLOW_USER,\n  UNFOLLOW_USER,\n  PROFILE_PAGE_LOADED,\n  PROFILE_PAGE_UNLOADED\n} from '../constants/actionTypes';",
+          "module": "../constants/actionTypes",
+          "line": 6,
+          "status": "resolved",
+          "resolved_path": "src/constants/actionTypes.js"
+        }
+      ],
+      "symbols": [
+        {
+          "name": "Profile",
+          "kind": "class",
+          "line": 77,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        }
+      ],
+      "parse_error": null
+    },
+    {
+      "path": "src/components/Header.js",
+      "language": "javascript",
+      "line_count": 91,
+      "docstring": null,
+      "imports": [
+        {
+          "raw": "import React from 'react';",
+          "module": "react",
+          "line": 1,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import { Link } from 'react-router-dom';",
+          "module": "react-router-dom",
+          "line": 2,
+          "status": "external",
+          "resolved_path": null
+        }
+      ],
+      "symbols": [
+        {
+          "name": "Header",
+          "kind": "class",
+          "line": 72,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        }
+      ],
+      "parse_error": null
+    },
+    {
+      "path": "src/components/ProfileFavorites.js",
+      "language": "javascript",
+      "line_count": 53,
+      "docstring": null,
+      "imports": [
+        {
+          "raw": "import { Profile, mapStateToProps } from './Profile';",
+          "module": "./Profile",
+          "line": 1,
+          "status": "resolved",
+          "resolved_path": "src/components/Profile.js"
+        },
+        {
+          "raw": "import React from 'react';",
+          "module": "react",
+          "line": 2,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import { Link } from 'react-router-dom';",
+          "module": "react-router-dom",
+          "line": 3,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import agent from '../agent';",
+          "module": "../agent",
+          "line": 4,
+          "status": "resolved",
+          "resolved_path": "src/agent.js"
+        },
+        {
+          "raw": "import { connect } from 'react-redux';",
+          "module": "react-redux",
+          "line": 5,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import {\n  PROFILE_PAGE_LOADED,\n  PROFILE_PAGE_UNLOADED\n} from '../constants/actionTypes';",
+          "module": "../constants/actionTypes",
+          "line": 6,
+          "status": "resolved",
+          "resolved_path": "src/constants/actionTypes.js"
+        }
+      ],
+      "symbols": [
+        {
+          "name": "ProfileFavorites",
+          "kind": "class",
+          "line": 18,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        }
+      ],
+      "parse_error": null
+    },
+    {
+      "path": "src/components/ArticleList.js",
+      "language": "javascript",
+      "line_count": 38,
+      "docstring": null,
+      "imports": [
+        {
+          "raw": "import ArticlePreview from './ArticlePreview';",
+          "module": "./ArticlePreview",
+          "line": 1,
+          "status": "resolved",
+          "resolved_path": "src/components/ArticlePreview.js"
+        },
+        {
+          "raw": "import ListPagination from './ListPagination';",
+          "module": "./ListPagination",
+          "line": 2,
+          "status": "resolved",
+          "resolved_path": "src/components/ListPagination.js"
+        },
+        {
+          "raw": "import React from 'react';",
+          "module": "react",
+          "line": 3,
+          "status": "external",
+          "resolved_path": null
+        }
+      ],
+      "symbols": [],
+      "parse_error": null
+    },
+    {
+      "path": "src/components/App.js",
+      "language": "javascript",
+      "line_count": 86,
+      "docstring": null,
+      "imports": [
+        {
+          "raw": "import agent from '../agent';",
+          "module": "../agent",
+          "line": 1,
+          "status": "resolved",
+          "resolved_path": "src/agent.js"
+        },
+        {
+          "raw": "import Header from './Header';",
+          "module": "./Header",
+          "line": 2,
+          "status": "resolved",
+          "resolved_path": "src/components/Header.js"
+        },
+        {
+          "raw": "import React from 'react';",
+          "module": "react",
+          "line": 3,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import { connect } from 'react-redux';",
+          "module": "react-redux",
+          "line": 4,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import { APP_LOAD, REDIRECT } from '../constants/actionTypes';",
+          "module": "../constants/actionTypes",
+          "line": 5,
+          "status": "resolved",
+          "resolved_path": "src/constants/actionTypes.js"
+        },
+        {
+          "raw": "import { Route, Switch } from 'react-router-dom';",
+          "module": "react-router-dom",
+          "line": 6,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import Article from '../components/Article';",
+          "module": "../components/Article",
+          "line": 7,
+          "status": "resolved",
+          "resolved_path": "src/components/Article/index.js"
+        },
+        {
+          "raw": "import Editor from '../components/Editor';",
+          "module": "../components/Editor",
+          "line": 8,
+          "status": "resolved",
+          "resolved_path": "src/components/Editor.js"
+        },
+        {
+          "raw": "import Home from '../components/Home';",
+          "module": "../components/Home",
+          "line": 9,
+          "status": "resolved",
+          "resolved_path": "src/components/Home/index.js"
+        },
+        {
+          "raw": "import Login from '../components/Login';",
+          "module": "../components/Login",
+          "line": 10,
+          "status": "resolved",
+          "resolved_path": "src/components/Login.js"
+        },
+        {
+          "raw": "import Profile from '../components/Profile';",
+          "module": "../components/Profile",
+          "line": 11,
+          "status": "resolved",
+          "resolved_path": "src/components/Profile.js"
+        },
+        {
+          "raw": "import ProfileFavorites from '../components/ProfileFavorites';",
+          "module": "../components/ProfileFavorites",
+          "line": 12,
+          "status": "resolved",
+          "resolved_path": "src/components/ProfileFavorites.js"
+        },
+        {
+          "raw": "import Register from '../components/Register';",
+          "module": "../components/Register",
+          "line": 13,
+          "status": "resolved",
+          "resolved_path": "src/components/Register.js"
+        },
+        {
+          "raw": "import Settings from '../components/Settings';",
+          "module": "../components/Settings",
+          "line": 14,
+          "status": "resolved",
+          "resolved_path": "src/components/Settings.js"
+        },
+        {
+          "raw": "import { store } from '../store';",
+          "module": "../store",
+          "line": 15,
+          "status": "resolved",
+          "resolved_path": "src/store.js"
+        },
+        {
+          "raw": "import { push } from 'react-router-redux';",
+          "module": "react-router-redux",
+          "line": 16,
+          "status": "external",
+          "resolved_path": null
+        }
+      ],
+      "symbols": [
+        {
+          "name": "App",
+          "kind": "class",
+          "line": 33,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        }
+      ],
+      "parse_error": null
+    },
+    {
+      "path": "src/components/ListErrors.js",
+      "language": "javascript",
+      "line_count": 26,
+      "docstring": null,
+      "imports": [
+        {
+          "raw": "import React from 'react';",
+          "module": "react",
+          "line": 1,
+          "status": "external",
+          "resolved_path": null
+        }
+      ],
+      "symbols": [
+        {
+          "name": "ListErrors",
+          "kind": "class",
+          "line": 3,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        }
+      ],
+      "parse_error": null
+    },
+    {
+      "path": "src/reducers/settings.js",
+      "language": "javascript",
+      "line_count": 25,
+      "docstring": null,
+      "imports": [
+        {
+          "raw": "import {\n  SETTINGS_SAVED,\n  SETTINGS_PAGE_UNLOADED,\n  ASYNC_START\n} from '../constants/actionTypes';",
+          "module": "../constants/actionTypes",
+          "line": 1,
+          "status": "resolved",
+          "resolved_path": "src/constants/actionTypes.js"
+        }
+      ],
+      "symbols": [],
+      "parse_error": null
+    },
+    {
+      "path": "src/reducers/auth.js",
+      "language": "javascript",
+      "line_count": 34,
+      "docstring": null,
+      "imports": [
+        {
+          "raw": "import {\n  LOGIN,\n  REGISTER,\n  LOGIN_PAGE_UNLOADED,\n  REGISTER_PAGE_UNLOADED,\n  ASYNC_START,\n  UPDATE_FIELD_AUTH\n} from '../constants/actionTypes';",
+          "module": "../constants/actionTypes",
+          "line": 1,
+          "status": "resolved",
+          "resolved_path": "src/constants/actionTypes.js"
+        }
+      ],
+      "symbols": [],
+      "parse_error": null
+    },
+    {
+      "path": "src/reducers/common.js",
+      "language": "javascript",
+      "line_count": 70,
+      "docstring": null,
+      "imports": [
+        {
+          "raw": "import {\n  APP_LOAD,\n  REDIRECT,\n  LOGOUT,\n  ARTICLE_SUBMITTED,\n  SETTINGS_SAVED,\n  LOGIN,\n  REGISTER,\n  DELETE_ARTICLE,\n  ARTICLE_PAGE_UNLOADED,\n  EDITOR_PAGE_UNLOADED,\n  HOME_PAGE_UNLOADED,\n  PROFILE_PAGE_UNLOADED,\n  PROFILE_FAVORITES_PAGE_UNLOADED,\n  SETTINGS_PAGE_UNLOADED,\n  LOGIN_PAGE_UNLOADED,\n  REGISTER_PAGE_UNLOADED\n} from '../constants/actionTypes';",
+          "module": "../constants/actionTypes",
+          "line": 1,
+          "status": "resolved",
+          "resolved_path": "src/constants/actionTypes.js"
+        }
+      ],
+      "symbols": [],
+      "parse_error": null
+    },
+    {
+      "path": "src/reducers/home.js",
+      "language": "javascript",
+      "line_count": 15,
+      "docstring": null,
+      "imports": [
+        {
+          "raw": "import { HOME_PAGE_LOADED, HOME_PAGE_UNLOADED } from '../constants/actionTypes';",
+          "module": "../constants/actionTypes",
+          "line": 1,
+          "status": "resolved",
+          "resolved_path": "src/constants/actionTypes.js"
+        }
+      ],
+      "symbols": [],
+      "parse_error": null
+    },
+    {
+      "path": "src/reducers/articleList.js",
+      "language": "javascript",
+      "line_count": 86,
+      "docstring": null,
+      "imports": [
+        {
+          "raw": "import {\n  ARTICLE_FAVORITED,\n  ARTICLE_UNFAVORITED,\n  SET_PAGE,\n  APPLY_TAG_FILTER,\n  HOME_PAGE_LOADED,\n  HOME_PAGE_UNLOADED,\n  CHANGE_TAB,\n  PROFILE_PAGE_LOADED,\n  PROFILE_PAGE_UNLOADED,\n  PROFILE_FAVORITES_PAGE_LOADED,\n  PROFILE_FAVORITES_PAGE_UNLOADED\n} from '../constants/actionTypes';",
+          "module": "../constants/actionTypes",
+          "line": 1,
+          "status": "resolved",
+          "resolved_path": "src/constants/actionTypes.js"
+        }
+      ],
+      "symbols": [],
+      "parse_error": null
+    },
+    {
+      "path": "src/reducers/article.js",
+      "language": "javascript",
+      "line_count": 35,
+      "docstring": null,
+      "imports": [
+        {
+          "raw": "import {\n  ARTICLE_PAGE_LOADED,\n  ARTICLE_PAGE_UNLOADED,\n  ADD_COMMENT,\n  DELETE_COMMENT\n} from '../constants/actionTypes';",
+          "module": "../constants/actionTypes",
+          "line": 1,
+          "status": "resolved",
+          "resolved_path": "src/constants/actionTypes.js"
+        }
+      ],
+      "symbols": [],
+      "parse_error": null
+    },
+    {
+      "path": "src/reducers/editor.js",
+      "language": "javascript",
+      "line_count": 54,
+      "docstring": null,
+      "imports": [
+        {
+          "raw": "import {\n  EDITOR_PAGE_LOADED,\n  EDITOR_PAGE_UNLOADED,\n  ARTICLE_SUBMITTED,\n  ASYNC_START,\n  ADD_TAG,\n  REMOVE_TAG,\n  UPDATE_FIELD_EDITOR\n} from '../constants/actionTypes';",
+          "module": "../constants/actionTypes",
+          "line": 1,
+          "status": "resolved",
+          "resolved_path": "src/constants/actionTypes.js"
+        }
+      ],
+      "symbols": [],
+      "parse_error": null
+    },
+    {
+      "path": "src/reducers/profile.js",
+      "language": "javascript",
+      "line_count": 24,
+      "docstring": null,
+      "imports": [
+        {
+          "raw": "import {\n  PROFILE_PAGE_LOADED,\n  PROFILE_PAGE_UNLOADED,\n  FOLLOW_USER,\n  UNFOLLOW_USER\n} from '../constants/actionTypes';",
+          "module": "../constants/actionTypes",
+          "line": 1,
+          "status": "resolved",
+          "resolved_path": "src/constants/actionTypes.js"
+        }
+      ],
+      "symbols": [],
+      "parse_error": null
+    },
+    {
+      "path": "src/components/Article/CommentList.js",
+      "language": "javascript",
+      "line_count": 22,
+      "docstring": null,
+      "imports": [
+        {
+          "raw": "import Comment from './Comment';",
+          "module": "./Comment",
+          "line": 1,
+          "status": "resolved",
+          "resolved_path": "src/components/Article/Comment.js"
+        },
+        {
+          "raw": "import React from 'react';",
+          "module": "react",
+          "line": 2,
+          "status": "external",
+          "resolved_path": null
+        }
+      ],
+      "symbols": [],
+      "parse_error": null
+    },
+    {
+      "path": "src/components/Article/CommentInput.js",
+      "language": "javascript",
+      "line_count": 58,
+      "docstring": null,
+      "imports": [
+        {
+          "raw": "import React from 'react';",
+          "module": "react",
+          "line": 1,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import agent from '../../agent';",
+          "module": "../../agent",
+          "line": 2,
+          "status": "resolved",
+          "resolved_path": "src/agent.js"
+        },
+        {
+          "raw": "import { connect } from 'react-redux';",
+          "module": "react-redux",
+          "line": 3,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import { ADD_COMMENT } from '../../constants/actionTypes';",
+          "module": "../../constants/actionTypes",
+          "line": 4,
+          "status": "resolved",
+          "resolved_path": "src/constants/actionTypes.js"
+        }
+      ],
+      "symbols": [
+        {
+          "name": "CommentInput",
+          "kind": "class",
+          "line": 11,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        }
+      ],
+      "parse_error": null
+    },
+    {
+      "path": "src/components/Article/DeleteButton.js",
+      "language": "javascript",
+      "line_count": 27,
+      "docstring": null,
+      "imports": [
+        {
+          "raw": "import React from 'react';",
+          "module": "react",
+          "line": 1,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import agent from '../../agent';",
+          "module": "../../agent",
+          "line": 2,
+          "status": "resolved",
+          "resolved_path": "src/agent.js"
+        },
+        {
+          "raw": "import { connect } from 'react-redux';",
+          "module": "react-redux",
+          "line": 3,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import { DELETE_COMMENT } from '../../constants/actionTypes';",
+          "module": "../../constants/actionTypes",
+          "line": 4,
+          "status": "resolved",
+          "resolved_path": "src/constants/actionTypes.js"
+        }
+      ],
+      "symbols": [
+        {
+          "name": "del",
+          "kind": "function",
+          "line": 12,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        }
+      ],
+      "parse_error": null
+    },
+    {
+      "path": "src/components/Article/CommentContainer.js",
+      "language": "javascript",
+      "line_count": 40,
+      "docstring": null,
+      "imports": [
+        {
+          "raw": "import CommentInput from './CommentInput';",
+          "module": "./CommentInput",
+          "line": 1,
+          "status": "resolved",
+          "resolved_path": "src/components/Article/CommentInput.js"
+        },
+        {
+          "raw": "import CommentList from './CommentList';",
+          "module": "./CommentList",
+          "line": 2,
+          "status": "resolved",
+          "resolved_path": "src/components/Article/CommentList.js"
+        },
+        {
+          "raw": "import { Link } from 'react-router-dom';",
+          "module": "react-router-dom",
+          "line": 3,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import React from 'react';",
+          "module": "react",
+          "line": 4,
+          "status": "external",
+          "resolved_path": null
+        }
+      ],
+      "symbols": [],
+      "parse_error": null
+    },
+    {
+      "path": "src/components/Article/Comment.js",
+      "language": "javascript",
+      "line_count": 35,
+      "docstring": null,
+      "imports": [
+        {
+          "raw": "import DeleteButton from './DeleteButton';",
+          "module": "./DeleteButton",
+          "line": 1,
+          "status": "resolved",
+          "resolved_path": "src/components/Article/DeleteButton.js"
+        },
+        {
+          "raw": "import { Link } from 'react-router-dom';",
+          "module": "react-router-dom",
+          "line": 2,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import React from 'react';",
+          "module": "react",
+          "line": 3,
+          "status": "external",
+          "resolved_path": null
+        }
+      ],
+      "symbols": [],
+      "parse_error": null
+    },
+    {
+      "path": "src/components/Article/ArticleActions.js",
+      "language": "javascript",
+      "line_count": 41,
+      "docstring": null,
+      "imports": [
+        {
+          "raw": "import { Link } from 'react-router-dom';",
+          "module": "react-router-dom",
+          "line": 1,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import React from 'react';",
+          "module": "react",
+          "line": 2,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import agent from '../../agent';",
+          "module": "../../agent",
+          "line": 3,
+          "status": "resolved",
+          "resolved_path": "src/agent.js"
+        },
+        {
+          "raw": "import { connect } from 'react-redux';",
+          "module": "react-redux",
+          "line": 4,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import { DELETE_ARTICLE } from '../../constants/actionTypes';",
+          "module": "../../constants/actionTypes",
+          "line": 5,
+          "status": "resolved",
+          "resolved_path": "src/constants/actionTypes.js"
+        }
+      ],
+      "symbols": [
+        {
+          "name": "del",
+          "kind": "function",
+          "line": 14,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        }
+      ],
+      "parse_error": null
+    },
+    {
+      "path": "src/components/Article/ArticleMeta.js",
+      "language": "javascript",
+      "line_count": 27,
+      "docstring": null,
+      "imports": [
+        {
+          "raw": "import ArticleActions from './ArticleActions';",
+          "module": "./ArticleActions",
+          "line": 1,
+          "status": "resolved",
+          "resolved_path": "src/components/Article/ArticleActions.js"
+        },
+        {
+          "raw": "import { Link } from 'react-router-dom';",
+          "module": "react-router-dom",
+          "line": 2,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import React from 'react';",
+          "module": "react",
+          "line": 3,
+          "status": "external",
+          "resolved_path": null
+        }
+      ],
+      "symbols": [],
+      "parse_error": null
+    },
+    {
+      "path": "src/components/Article/index.js",
+      "language": "javascript",
+      "line_count": 97,
+      "docstring": null,
+      "imports": [
+        {
+          "raw": "import ArticleMeta from './ArticleMeta';",
+          "module": "./ArticleMeta",
+          "line": 1,
+          "status": "resolved",
+          "resolved_path": "src/components/Article/ArticleMeta.js"
+        },
+        {
+          "raw": "import CommentContainer from './CommentContainer';",
+          "module": "./CommentContainer",
+          "line": 2,
+          "status": "resolved",
+          "resolved_path": "src/components/Article/CommentContainer.js"
+        },
+        {
+          "raw": "import React from 'react';",
+          "module": "react",
+          "line": 3,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import agent from '../../agent';",
+          "module": "../../agent",
+          "line": 4,
+          "status": "resolved",
+          "resolved_path": "src/agent.js"
+        },
+        {
+          "raw": "import { connect } from 'react-redux';",
+          "module": "react-redux",
+          "line": 5,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import marked from 'marked';",
+          "module": "marked",
+          "line": 6,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import { ARTICLE_PAGE_LOADED, ARTICLE_PAGE_UNLOADED } from '../../constants/actionTypes';",
+          "module": "../../constants/actionTypes",
+          "line": 7,
+          "status": "resolved",
+          "resolved_path": "src/constants/actionTypes.js"
+        }
+      ],
+      "symbols": [
+        {
+          "name": "Article",
+          "kind": "class",
+          "line": 21,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        }
+      ],
+      "parse_error": null
+    },
+    {
+      "path": "src/components/Home/Tags.js",
+      "language": "javascript",
+      "line_count": 36,
+      "docstring": null,
+      "imports": [
+        {
+          "raw": "import React from 'react';",
+          "module": "react",
+          "line": 1,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import agent from '../../agent';",
+          "module": "../../agent",
+          "line": 2,
+          "status": "resolved",
+          "resolved_path": "src/agent.js"
+        }
+      ],
+      "symbols": [],
+      "parse_error": null
+    },
+    {
+      "path": "src/components/Home/Banner.js",
+      "language": "javascript",
+      "line_count": 19,
+      "docstring": null,
+      "imports": [
+        {
+          "raw": "import React from 'react';",
+          "module": "react",
+          "line": 1,
+          "status": "external",
+          "resolved_path": null
+        }
+      ],
+      "symbols": [
+        {
+          "name": "Banner",
+          "kind": "function",
+          "line": 3,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        }
+      ],
+      "parse_error": null
+    },
+    {
+      "path": "src/components/Home/MainView.js",
+      "language": "javascript",
+      "line_count": 96,
+      "docstring": null,
+      "imports": [
+        {
+          "raw": "import ArticleList from '../ArticleList';",
+          "module": "../ArticleList",
+          "line": 1,
+          "status": "resolved",
+          "resolved_path": "src/components/ArticleList.js"
+        },
+        {
+          "raw": "import React from 'react';",
+          "module": "react",
+          "line": 2,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import agent from '../../agent';",
+          "module": "../../agent",
+          "line": 3,
+          "status": "resolved",
+          "resolved_path": "src/agent.js"
+        },
+        {
+          "raw": "import { connect } from 'react-redux';",
+          "module": "react-redux",
+          "line": 4,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import { CHANGE_TAB } from '../../constants/actionTypes';",
+          "module": "../../constants/actionTypes",
+          "line": 5,
+          "status": "resolved",
+          "resolved_path": "src/constants/actionTypes.js"
+        }
+      ],
+      "symbols": [],
+      "parse_error": null
+    },
+    {
+      "path": "src/components/Home/index.js",
+      "language": "javascript",
+      "line_count": 73,
+      "docstring": null,
+      "imports": [
+        {
+          "raw": "import Banner from './Banner';",
+          "module": "./Banner",
+          "line": 1,
+          "status": "resolved",
+          "resolved_path": "src/components/Home/Banner.js"
+        },
+        {
+          "raw": "import MainView from './MainView';",
+          "module": "./MainView",
+          "line": 2,
+          "status": "resolved",
+          "resolved_path": "src/components/Home/MainView.js"
+        },
+        {
+          "raw": "import React from 'react';",
+          "module": "react",
+          "line": 3,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import Tags from './Tags';",
+          "module": "./Tags",
+          "line": 4,
+          "status": "resolved",
+          "resolved_path": "src/components/Home/Tags.js"
+        },
+        {
+          "raw": "import agent from '../../agent';",
+          "module": "../../agent",
+          "line": 5,
+          "status": "resolved",
+          "resolved_path": "src/agent.js"
+        },
+        {
+          "raw": "import { connect } from 'react-redux';",
+          "module": "react-redux",
+          "line": 6,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import {\n  HOME_PAGE_LOADED,\n  HOME_PAGE_UNLOADED,\n  APPLY_TAG_FILTER\n} from '../../constants/actionTypes';",
+          "module": "../../constants/actionTypes",
+          "line": 7,
+          "status": "resolved",
+          "resolved_path": "src/constants/actionTypes.js"
+        }
+      ],
+      "symbols": [
+        {
+          "name": "Home",
+          "kind": "class",
+          "line": 30,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        }
+      ],
+      "parse_error": null
+    }
+  ],
+  "components": [
+    {
+      "id": "src",
+      "folder_path": "src",
+      "files": [
+        "src/agent.js",
+        "src/index.js",
+        "src/middleware.js",
+        "src/reducer.js",
+        "src/store.js"
+      ],
+      "label": {
+        "name": "Core Application Logic",
+        "summary": "Initializes the application and configures the global Redux store and API middleware.",
+        "source": "llm"
+      },
+      "is_other_merge": false
+    },
+    {
+      "id": "src_constants",
+      "folder_path": "src/constants",
+      "files": [
+        "src/constants/actionTypes.js"
+      ],
+      "label": {
+        "name": "Global Action Constants",
+        "summary": "Stores centralized string constants for Redux action types to ensure consistency across the app.",
+        "source": "llm"
+      },
+      "is_other_merge": false
+    },
+    {
+      "id": "src_components",
+      "folder_path": "src/components",
+      "files": [
+        "src/components/App.js",
+        "src/components/ArticleList.js",
+        "src/components/ArticlePreview.js",
+        "src/components/Editor.js",
+        "src/components/Header.js",
+        "src/components/ListErrors.js",
+        "src/components/ListPagination.js",
+        "src/components/Login.js",
+        "src/components/Profile.js",
+        "src/components/ProfileFavorites.js",
+        "src/components/Register.js",
+        "src/components/Settings.js"
+      ],
+      "label": {
+        "name": "Shared UI Components",
+        "summary": "Provides the primary layout and reusable interface components for the application's various views.",
+        "source": "llm"
+      },
+      "is_other_merge": false
+    },
+    {
+      "id": "src_reducers",
+      "folder_path": "src/reducers",
+      "files": [
+        "src/reducers/article.js",
+        "src/reducers/articleList.js",
+        "src/reducers/auth.js",
+        "src/reducers/common.js",
+        "src/reducers/editor.js",
+        "src/reducers/home.js",
+        "src/reducers/profile.js",
+        "src/reducers/settings.js"
+      ],
+      "label": {
+        "name": "State Management Reducers",
+        "summary": "Defines how the application state changes in response to actions for different functional modules.",
+        "source": "llm"
+      },
+      "is_other_merge": false
+    },
+    {
+      "id": "src_components_Article",
+      "folder_path": "src/components/Article",
+      "files": [
+        "src/components/Article/ArticleActions.js",
+        "src/components/Article/ArticleMeta.js",
+        "src/components/Article/Comment.js",
+        "src/components/Article/CommentContainer.js",
+        "src/components/Article/CommentInput.js",
+        "src/components/Article/CommentList.js",
+        "src/components/Article/DeleteButton.js",
+        "src/components/Article/index.js"
+      ],
+      "label": {
+        "name": "Article Detail Components",
+        "summary": "Contains the specific UI elements for viewing articles and interacting with their associated comments.",
+        "source": "llm"
+      },
+      "is_other_merge": false
+    },
+    {
+      "id": "src_components_Home",
+      "folder_path": "src/components/Home",
+      "files": [
+        "src/components/Home/Banner.js",
+        "src/components/Home/MainView.js",
+        "src/components/Home/Tags.js",
+        "src/components/Home/index.js"
+      ],
+      "label": {
+        "name": "Homepage View Components",
+        "summary": "Organizes the components used to build the main landing page and its content feeds.",
+        "source": "llm"
+      },
+      "is_other_merge": false
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "src",
+      "target_id": "src_components",
+      "import_count": 1,
+      "evidence": [
+        "src/index.js:9"
+      ]
+    },
+    {
+      "source_id": "src",
+      "target_id": "src_constants",
+      "import_count": 1,
+      "evidence": [
+        "src/middleware.js:2"
+      ]
+    },
+    {
+      "source_id": "src",
+      "target_id": "src_reducers",
+      "import_count": 8,
+      "evidence": [
+        "src/reducer.js:1",
+        "src/reducer.js:2",
+        "src/reducer.js:3",
+        "src/reducer.js:5",
+        "src/reducer.js:6",
+        "src/reducer.js:7",
+        "src/reducer.js:8",
+        "src/reducer.js:9"
+      ]
+    },
+    {
+      "source_id": "src_components",
+      "target_id": "src",
+      "import_count": 10,
+      "evidence": [
+        "src/components/Editor.js:3",
+        "src/components/Settings.js:3",
+        "src/components/ArticlePreview.js:3",
+        "src/components/ListPagination.js:2",
+        "src/components/Register.js:4",
+        "src/components/Login.js:4",
+        "src/components/Profile.js:4",
+        "src/components/ProfileFavorites.js:4",
+        "src/components/App.js:1",
+        "src/components/App.js:15"
+      ]
+    },
+    {
+      "source_id": "src_components",
+      "target_id": "src_constants",
+      "import_count": 9,
+      "evidence": [
+        "src/components/Editor.js:5",
+        "src/components/Settings.js:5",
+        "src/components/ArticlePreview.js:5",
+        "src/components/ListPagination.js:4",
+        "src/components/Register.js:6",
+        "src/components/Login.js:6",
+        "src/components/Profile.js:6",
+        "src/components/ProfileFavorites.js:6",
+        "src/components/App.js:5"
+      ]
+    },
+    {
+      "source_id": "src_components",
+      "target_id": "src_components_Article",
+      "import_count": 1,
+      "evidence": [
+        "src/components/App.js:7"
+      ]
+    },
+    {
+      "source_id": "src_components",
+      "target_id": "src_components_Home",
+      "import_count": 1,
+      "evidence": [
+        "src/components/App.js:9"
+      ]
+    },
+    {
+      "source_id": "src_reducers",
+      "target_id": "src_constants",
+      "import_count": 8,
+      "evidence": [
+        "src/reducers/settings.js:1",
+        "src/reducers/auth.js:1",
+        "src/reducers/common.js:1",
+        "src/reducers/home.js:1",
+        "src/reducers/articleList.js:1",
+        "src/reducers/article.js:1",
+        "src/reducers/editor.js:1",
+        "src/reducers/profile.js:1"
+      ]
+    },
+    {
+      "source_id": "src_components_Article",
+      "target_id": "src",
+      "import_count": 4,
+      "evidence": [
+        "src/components/Article/CommentInput.js:2",
+        "src/components/Article/DeleteButton.js:2",
+        "src/components/Article/ArticleActions.js:3",
+        "src/components/Article/index.js:4"
+      ]
+    },
+    {
+      "source_id": "src_components_Article",
+      "target_id": "src_constants",
+      "import_count": 4,
+      "evidence": [
+        "src/components/Article/CommentInput.js:4",
+        "src/components/Article/DeleteButton.js:4",
+        "src/components/Article/ArticleActions.js:5",
+        "src/components/Article/index.js:7"
+      ]
+    },
+    {
+      "source_id": "src_components_Home",
+      "target_id": "src",
+      "import_count": 3,
+      "evidence": [
+        "src/components/Home/Tags.js:2",
+        "src/components/Home/MainView.js:3",
+        "src/components/Home/index.js:5"
+      ]
+    },
+    {
+      "source_id": "src_components_Home",
+      "target_id": "src_components",
+      "import_count": 1,
+      "evidence": [
+        "src/components/Home/MainView.js:1"
+      ]
+    },
+    {
+      "source_id": "src_components_Home",
+      "target_id": "src_constants",
+      "import_count": 2,
+      "evidence": [
+        "src/components/Home/MainView.js:5",
+        "src/components/Home/index.js:7"
+      ]
+    }
+  ],
+  "unresolved": {
+    "imports": []
+  },
+  "mermaid": {
+    "diagram_type": "graph TD",
+    "source": "graph TD\n    src[\"Core Application Logic (5 files)\"]\n    src_constants[\"Global Action Constants (1 file)\"]\n    src_components[\"Shared UI Components (12 files)\"]\n    src_reducers[\"State Management Reducers (8 files)\"]\n    src_components_Article[\"Article Detail Components (8 files)\"]\n    src_components_Home[\"Homepage View Components (4 files)\"]\n\n    src --> src_components\n    src --> src_constants\n    src -->|8| src_reducers\n    src_components -->|10| src\n    src_components -->|9| src_constants\n    src_components --> src_components_Article\n    src_components --> src_components_Home\n    src_reducers -->|8| src_constants\n    src_components_Article -->|4| src\n    src_components_Article -->|4| src_constants\n    src_components_Home -->|3| src\n    src_components_Home --> src_components\n    src_components_Home -->|2| src_constants\n\n    classDef otherNode fill:#eee,stroke:#999,stroke-dasharray: 4 3\n"
+  },
+  "llm_model": "gemini-3-flash-preview",
+  "llm_call_count": 1
+}

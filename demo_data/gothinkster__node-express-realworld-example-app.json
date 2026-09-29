@@ -1,0 +1,1267 @@
+{
+  "analysis_id": "d66c14c6a6814ae8a1280a7ed2ec0fdd",
+  "status": "done",
+  "repo": {
+    "owner": "gothinkster",
+    "name": "node-express-realworld-example-app",
+    "default_branch": "master",
+    "commit_sha": "30b68e1e881462b2f4164ea09ab4c4f5699c7b0b",
+    "is_public": true,
+    "total_files_scanned": 33,
+    "total_files_skipped": 34,
+    "total_size_bytes": 184482,
+    "is_flat_repo": false
+  },
+  "created_at": "2026-09-29T14:37:23.111304Z",
+  "completed_at": "2026-09-29T14:37:33.402054Z",
+  "error": null,
+  "parsed_files": [
+    {
+      "path": "jest.config.ts",
+      "language": "typescript",
+      "line_count": 15,
+      "docstring": "eslint-disable",
+      "imports": [],
+      "symbols": [],
+      "parse_error": null
+    },
+    {
+      "path": "jest.preset.js",
+      "language": "javascript",
+      "line_count": 3,
+      "docstring": null,
+      "imports": [
+        {
+          "raw": "const nxPreset = require('@nx/jest/preset').default;",
+          "module": "@nx/jest/preset",
+          "line": 1,
+          "status": "external",
+          "resolved_path": null
+        }
+      ],
+      "symbols": [],
+      "parse_error": null
+    },
+    {
+      "path": "e2e/jest.config.ts",
+      "language": "typescript",
+      "line_count": 19,
+      "docstring": "eslint-disable",
+      "imports": [],
+      "symbols": [],
+      "parse_error": null
+    },
+    {
+      "path": "src/main.ts",
+      "language": "typescript",
+      "line_count": 57,
+      "docstring": null,
+      "imports": [
+        {
+          "raw": "import express from 'express';",
+          "module": "express",
+          "line": 1,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import cors from 'cors';",
+          "module": "cors",
+          "line": 2,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import * as bodyParser from 'body-parser';",
+          "module": "body-parser",
+          "line": 3,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import routes from './app/routes/routes';",
+          "module": "./app/routes/routes",
+          "line": 4,
+          "status": "resolved",
+          "resolved_path": "src/app/routes/routes.ts"
+        },
+        {
+          "raw": "import HttpException from './app/models/http-exception.model';",
+          "module": "./app/models/http-exception.model",
+          "line": 5,
+          "status": "resolved",
+          "resolved_path": "src/app/models/http-exception.model.ts"
+        }
+      ],
+      "symbols": [
+        {
+          "name": "GET /",
+          "kind": "route",
+          "line": 21,
+          "docstring": null,
+          "route_path": "/",
+          "route_methods": [
+            "GET"
+          ]
+        }
+      ],
+      "parse_error": null
+    },
+    {
+      "path": "e2e/src/server/server.spec.ts",
+      "language": "typescript",
+      "line_count": 10,
+      "docstring": null,
+      "imports": [
+        {
+          "raw": "import axios from 'axios';",
+          "module": "axios",
+          "line": 1,
+          "status": "external",
+          "resolved_path": null
+        }
+      ],
+      "symbols": [],
+      "parse_error": null
+    },
+    {
+      "path": "e2e/src/support/global-teardown.ts",
+      "language": "typescript",
+      "line_count": 7,
+      "docstring": "eslint-disable",
+      "imports": [],
+      "symbols": [],
+      "parse_error": null
+    },
+    {
+      "path": "e2e/src/support/global-setup.ts",
+      "language": "typescript",
+      "line_count": 10,
+      "docstring": "eslint-disable",
+      "imports": [],
+      "symbols": [],
+      "parse_error": null
+    },
+    {
+      "path": "e2e/src/support/test-setup.ts",
+      "language": "typescript",
+      "line_count": 10,
+      "docstring": "eslint-disable",
+      "imports": [
+        {
+          "raw": "import axios from 'axios';",
+          "module": "axios",
+          "line": 3,
+          "status": "external",
+          "resolved_path": null
+        }
+      ],
+      "symbols": [],
+      "parse_error": null
+    },
+    {
+      "path": "src/prisma/prisma-client.ts",
+      "language": "typescript",
+      "line_count": 23,
+      "docstring": null,
+      "imports": [
+        {
+          "raw": "import { PrismaClient } from '@prisma/client';",
+          "module": "@prisma/client",
+          "line": 1,
+          "status": "external",
+          "resolved_path": null
+        }
+      ],
+      "symbols": [],
+      "parse_error": null
+    },
+    {
+      "path": "src/prisma/seed.ts",
+      "language": "typescript",
+      "line_count": 66,
+      "docstring": null,
+      "imports": [
+        {
+          "raw": "import {\n  randEmail,\n  randFullName,\n  randLines,\n  randParagraph,\n  randPassword, randPhrase,\n  randWord\n} from '@ngneat/falso';",
+          "module": "@ngneat/falso",
+          "line": 1,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import { PrismaClient } from '@prisma/client';",
+          "module": "@prisma/client",
+          "line": 9,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import { RegisteredUser } from '../app/routes/auth/registered-user.model';",
+          "module": "../app/routes/auth/registered-user.model",
+          "line": 10,
+          "status": "resolved",
+          "resolved_path": "src/app/routes/auth/registered-user.model.ts"
+        },
+        {
+          "raw": "import { createUser } from '../app/routes/auth/auth.service';",
+          "module": "../app/routes/auth/auth.service",
+          "line": 11,
+          "status": "resolved",
+          "resolved_path": "src/app/routes/auth/auth.service.ts"
+        },
+        {
+          "raw": "import { addComment, createArticle } from '../app/routes/article/article.service';",
+          "module": "../app/routes/article/article.service",
+          "line": 12,
+          "status": "resolved",
+          "resolved_path": "src/app/routes/article/article.service.ts"
+        }
+      ],
+      "symbols": [
+        {
+          "name": "generateUser",
+          "kind": "function",
+          "line": 16,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "generateArticle",
+          "kind": "function",
+          "line": 25,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "generateComment",
+          "kind": "function",
+          "line": 36,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "main",
+          "kind": "function",
+          "line": 39,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        }
+      ],
+      "parse_error": null
+    },
+    {
+      "path": "src/app/models/http-exception.model.ts",
+      "language": "typescript",
+      "line_count": 12,
+      "docstring": null,
+      "imports": [],
+      "symbols": [
+        {
+          "name": "HttpException",
+          "kind": "class",
+          "line": 1,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        }
+      ],
+      "parse_error": null
+    },
+    {
+      "path": "src/app/routes/routes.ts",
+      "language": "typescript",
+      "line_count": 13,
+      "docstring": null,
+      "imports": [
+        {
+          "raw": "import { Router } from 'express';",
+          "module": "express",
+          "line": 1,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import tagsController from './tag/tag.controller';",
+          "module": "./tag/tag.controller",
+          "line": 2,
+          "status": "resolved",
+          "resolved_path": "src/app/routes/tag/tag.controller.ts"
+        },
+        {
+          "raw": "import articlesController from './article/article.controller';",
+          "module": "./article/article.controller",
+          "line": 3,
+          "status": "resolved",
+          "resolved_path": "src/app/routes/article/article.controller.ts"
+        },
+        {
+          "raw": "import authController from './auth/auth.controller';",
+          "module": "./auth/auth.controller",
+          "line": 4,
+          "status": "resolved",
+          "resolved_path": "src/app/routes/auth/auth.controller.ts"
+        },
+        {
+          "raw": "import profileController from './profile/profile.controller';",
+          "module": "./profile/profile.controller",
+          "line": 5,
+          "status": "resolved",
+          "resolved_path": "src/app/routes/profile/profile.controller.ts"
+        }
+      ],
+      "symbols": [],
+      "parse_error": null
+    },
+    {
+      "path": "src/app/routes/auth/auth.controller.ts",
+      "language": "typescript",
+      "line_count": 70,
+      "docstring": null,
+      "imports": [
+        {
+          "raw": "import { NextFunction, Request, Response, Router } from 'express';",
+          "module": "express",
+          "line": 1,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import auth from './auth';",
+          "module": "./auth",
+          "line": 2,
+          "status": "resolved",
+          "resolved_path": "src/app/routes/auth/auth.ts"
+        },
+        {
+          "raw": "import { createUser, getCurrentUser, login, updateUser } from './auth.service';",
+          "module": "./auth.service",
+          "line": 3,
+          "status": "resolved",
+          "resolved_path": "src/app/routes/auth/auth.service.ts"
+        }
+      ],
+      "symbols": [
+        {
+          "name": "POST /users",
+          "kind": "route",
+          "line": 14,
+          "docstring": "Create an user @auth none @route {POST} /users @bodyparam us",
+          "route_path": "/users",
+          "route_methods": [
+            "POST"
+          ]
+        },
+        {
+          "name": "POST /users/login",
+          "kind": "route",
+          "line": 30,
+          "docstring": "Login @auth none @route {POST} /users/login @bodyparam user ",
+          "route_path": "/users/login",
+          "route_methods": [
+            "POST"
+          ]
+        },
+        {
+          "name": "GET /user",
+          "kind": "route",
+          "line": 45,
+          "docstring": "Get current user @auth required @route {GET} /user @returns ",
+          "route_path": "/user",
+          "route_methods": [
+            "GET"
+          ]
+        },
+        {
+          "name": "PUT /user",
+          "kind": "route",
+          "line": 61,
+          "docstring": "Update user @auth required @route {PUT} /user @bodyparam use",
+          "route_path": "/user",
+          "route_methods": [
+            "PUT"
+          ]
+        }
+      ],
+      "parse_error": null
+    },
+    {
+      "path": "src/app/routes/auth/token.utils.ts",
+      "language": "typescript",
+      "line_count": 8,
+      "docstring": null,
+      "imports": [
+        {
+          "raw": "import * as jwt from 'jsonwebtoken';",
+          "module": "jsonwebtoken",
+          "line": 1,
+          "status": "external",
+          "resolved_path": null
+        }
+      ],
+      "symbols": [
+        {
+          "name": "generateToken",
+          "kind": "function",
+          "line": 3,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        }
+      ],
+      "parse_error": null
+    },
+    {
+      "path": "src/app/routes/auth/register-input.model.ts",
+      "language": "typescript",
+      "line_count": 8,
+      "docstring": null,
+      "imports": [],
+      "symbols": [],
+      "parse_error": null
+    },
+    {
+      "path": "src/app/routes/auth/auth.ts",
+      "language": "typescript",
+      "line_count": 28,
+      "docstring": null,
+      "imports": [
+        {
+          "raw": "import { expressjwt as jwt } from 'express-jwt';",
+          "module": "express-jwt",
+          "line": 1,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import * as express from 'express';",
+          "module": "express",
+          "line": 2,
+          "status": "external",
+          "resolved_path": null
+        }
+      ],
+      "symbols": [
+        {
+          "name": "getTokenFromHeaders",
+          "kind": "function",
+          "line": 4,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        }
+      ],
+      "parse_error": null
+    },
+    {
+      "path": "src/app/routes/auth/user-request.d.ts",
+      "language": "typescript",
+      "line_count": 9,
+      "docstring": null,
+      "imports": [],
+      "symbols": [],
+      "parse_error": null
+    },
+    {
+      "path": "src/app/routes/auth/registered-user.model.ts",
+      "language": "typescript",
+      "line_count": 8,
+      "docstring": null,
+      "imports": [],
+      "symbols": [],
+      "parse_error": null
+    },
+    {
+      "path": "src/app/routes/auth/user.model.ts",
+      "language": "typescript",
+      "line_count": 17,
+      "docstring": null,
+      "imports": [
+        {
+          "raw": "import { Article } from '../article/article.model';",
+          "module": "../article/article.model",
+          "line": 1,
+          "status": "resolved",
+          "resolved_path": "src/app/routes/article/article.model.ts"
+        },
+        {
+          "raw": "import { Comment } from '../article/comment.model';",
+          "module": "../article/comment.model",
+          "line": 2,
+          "status": "resolved",
+          "resolved_path": "src/app/routes/article/comment.model.ts"
+        }
+      ],
+      "symbols": [],
+      "parse_error": null
+    },
+    {
+      "path": "src/app/routes/auth/auth.service.ts",
+      "language": "typescript",
+      "line_count": 183,
+      "docstring": null,
+      "imports": [
+        {
+          "raw": "import * as bcrypt from 'bcryptjs';",
+          "module": "bcryptjs",
+          "line": 1,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import { RegisterInput } from './register-input.model';",
+          "module": "./register-input.model",
+          "line": 2,
+          "status": "resolved",
+          "resolved_path": "src/app/routes/auth/register-input.model.ts"
+        },
+        {
+          "raw": "import prisma from '../../../prisma/prisma-client';",
+          "module": "../../../prisma/prisma-client",
+          "line": 3,
+          "status": "resolved",
+          "resolved_path": "src/prisma/prisma-client.ts"
+        },
+        {
+          "raw": "import HttpException from '../../models/http-exception.model';",
+          "module": "../../models/http-exception.model",
+          "line": 4,
+          "status": "resolved",
+          "resolved_path": "src/app/models/http-exception.model.ts"
+        },
+        {
+          "raw": "import { RegisteredUser } from './registered-user.model';",
+          "module": "./registered-user.model",
+          "line": 5,
+          "status": "resolved",
+          "resolved_path": "src/app/routes/auth/registered-user.model.ts"
+        },
+        {
+          "raw": "import generateToken from './token.utils';",
+          "module": "./token.utils",
+          "line": 6,
+          "status": "resolved",
+          "resolved_path": "src/app/routes/auth/token.utils.ts"
+        },
+        {
+          "raw": "import { User } from './user.model';",
+          "module": "./user.model",
+          "line": 7,
+          "status": "resolved",
+          "resolved_path": "src/app/routes/auth/user.model.ts"
+        }
+      ],
+      "symbols": [
+        {
+          "name": "checkUserUniqueness",
+          "kind": "function",
+          "line": 9,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "createUser",
+          "kind": "function",
+          "line": 38,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "login",
+          "kind": "function",
+          "line": 84,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "getCurrentUser",
+          "kind": "function",
+          "line": 131,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "user",
+          "kind": "function",
+          "line": 132,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "updateUser",
+          "kind": "function",
+          "line": 151,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        }
+      ],
+      "parse_error": null
+    },
+    {
+      "path": "src/app/routes/article/article.service.ts",
+      "language": "typescript",
+      "line_count": 652,
+      "docstring": null,
+      "imports": [
+        {
+          "raw": "import slugify from 'slugify';",
+          "module": "slugify",
+          "line": 1,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import prisma from '../../../prisma/prisma-client';",
+          "module": "../../../prisma/prisma-client",
+          "line": 2,
+          "status": "resolved",
+          "resolved_path": "src/prisma/prisma-client.ts"
+        },
+        {
+          "raw": "import HttpException from '../../models/http-exception.model';",
+          "module": "../../models/http-exception.model",
+          "line": 3,
+          "status": "resolved",
+          "resolved_path": "src/app/models/http-exception.model.ts"
+        },
+        {
+          "raw": "import profileMapper from '../profile/profile.utils';",
+          "module": "../profile/profile.utils",
+          "line": 4,
+          "status": "resolved",
+          "resolved_path": "src/app/routes/profile/profile.utils.ts"
+        },
+        {
+          "raw": "import articleMapper from './article.mapper';",
+          "module": "./article.mapper",
+          "line": 5,
+          "status": "resolved",
+          "resolved_path": "src/app/routes/article/article.mapper.ts"
+        },
+        {
+          "raw": "import { Tag } from '../tag/tag.model';",
+          "module": "../tag/tag.model",
+          "line": 6,
+          "status": "resolved",
+          "resolved_path": "src/app/routes/tag/tag.model.ts"
+        }
+      ],
+      "symbols": [
+        {
+          "name": "buildFindAllQuery",
+          "kind": "function",
+          "line": 8,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "getArticles",
+          "kind": "function",
+          "line": 69,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "getFeed",
+          "kind": "function",
+          "line": 113,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "createArticle",
+          "kind": "function",
+          "line": 162,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "getArticle",
+          "kind": "function",
+          "line": 241,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "disconnectArticlesTags",
+          "kind": "function",
+          "line": 276,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "updateArticle",
+          "kind": "function",
+          "line": 289,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "deleteArticle",
+          "kind": "function",
+          "line": 385,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "getCommentsByArticle",
+          "kind": "function",
+          "line": 416,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "addComment",
+          "kind": "function",
+          "line": 473,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "deleteComment",
+          "kind": "function",
+          "line": 527,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "favoriteArticle",
+          "kind": "function",
+          "line": 562,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "unfavoriteArticle",
+          "kind": "function",
+          "line": 608,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        }
+      ],
+      "parse_error": null
+    },
+    {
+      "path": "src/app/routes/article/author.mapper.ts",
+      "language": "typescript",
+      "line_count": 12,
+      "docstring": null,
+      "imports": [
+        {
+          "raw": "import { User } from '../auth/user.model';",
+          "module": "../auth/user.model",
+          "line": 1,
+          "status": "resolved",
+          "resolved_path": "src/app/routes/auth/user.model.ts"
+        }
+      ],
+      "symbols": [
+        {
+          "name": "authorMapper",
+          "kind": "function",
+          "line": 3,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        }
+      ],
+      "parse_error": null
+    },
+    {
+      "path": "src/app/routes/article/article.model.ts",
+      "language": "typescript",
+      "line_count": 10,
+      "docstring": null,
+      "imports": [
+        {
+          "raw": "import { Comment } from './comment.model';",
+          "module": "./comment.model",
+          "line": 1,
+          "status": "resolved",
+          "resolved_path": "src/app/routes/article/comment.model.ts"
+        }
+      ],
+      "symbols": [],
+      "parse_error": null
+    },
+    {
+      "path": "src/app/routes/article/article.controller.ts",
+      "language": "typescript",
+      "line_count": 243,
+      "docstring": null,
+      "imports": [
+        {
+          "raw": "import { NextFunction, Request, Response, Router } from 'express';",
+          "module": "express",
+          "line": 1,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import auth from '../auth/auth';",
+          "module": "../auth/auth",
+          "line": 2,
+          "status": "resolved",
+          "resolved_path": "src/app/routes/auth/auth.ts"
+        },
+        {
+          "raw": "import {\n  addComment,\n  createArticle,\n  deleteArticle,\n  deleteComment,\n  favoriteArticle,\n  getArticle,\n  getArticles,\n  getCommentsByArticle,\n  getFeed,\n  unfavoriteArticle,\n  updateArticle,\n} from './article.service';",
+          "module": "./article.service",
+          "line": 3,
+          "status": "resolved",
+          "resolved_path": "src/app/routes/article/article.service.ts"
+        }
+      ],
+      "symbols": [
+        {
+          "name": "GET /articles",
+          "kind": "route",
+          "line": 30,
+          "docstring": "Get paginated articles @auth optional @route {GET} /articles",
+          "route_path": "/articles",
+          "route_methods": [
+            "GET"
+          ]
+        },
+        {
+          "name": "POST /articles",
+          "kind": "route",
+          "line": 71,
+          "docstring": "Create article @route {POST} /articles @bodyparam  title @bo",
+          "route_path": "/articles",
+          "route_methods": [
+            "POST"
+          ]
+        }
+      ],
+      "parse_error": null
+    },
+    {
+      "path": "src/app/routes/article/comment.model.ts",
+      "language": "typescript",
+      "line_count": 9,
+      "docstring": null,
+      "imports": [
+        {
+          "raw": "import { Article } from './article.model';",
+          "module": "./article.model",
+          "line": 1,
+          "status": "resolved",
+          "resolved_path": "src/app/routes/article/article.model.ts"
+        }
+      ],
+      "symbols": [],
+      "parse_error": null
+    },
+    {
+      "path": "src/app/routes/article/article.mapper.ts",
+      "language": "typescript",
+      "line_count": 16,
+      "docstring": null,
+      "imports": [
+        {
+          "raw": "import authorMapper from './author.mapper';",
+          "module": "./author.mapper",
+          "line": 1,
+          "status": "resolved",
+          "resolved_path": "src/app/routes/article/author.mapper.ts"
+        }
+      ],
+      "symbols": [
+        {
+          "name": "articleMapper",
+          "kind": "function",
+          "line": 3,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        }
+      ],
+      "parse_error": null
+    },
+    {
+      "path": "src/app/routes/tag/tag.service.ts",
+      "language": "typescript",
+      "line_count": 40,
+      "docstring": null,
+      "imports": [
+        {
+          "raw": "import prisma from '../../../prisma/prisma-client';",
+          "module": "../../../prisma/prisma-client",
+          "line": 1,
+          "status": "resolved",
+          "resolved_path": "src/prisma/prisma-client.ts"
+        },
+        {
+          "raw": "import { Tag } from './tag.model';",
+          "module": "./tag.model",
+          "line": 2,
+          "status": "resolved",
+          "resolved_path": "src/app/routes/tag/tag.model.ts"
+        }
+      ],
+      "symbols": [
+        {
+          "name": "getTags",
+          "kind": "function",
+          "line": 4,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        }
+      ],
+      "parse_error": null
+    },
+    {
+      "path": "src/app/routes/tag/tag.controller.ts",
+      "language": "typescript",
+      "line_count": 22,
+      "docstring": null,
+      "imports": [
+        {
+          "raw": "import { NextFunction, Request, Response, Router } from 'express';",
+          "module": "express",
+          "line": 1,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import auth from '../auth/auth';",
+          "module": "../auth/auth",
+          "line": 2,
+          "status": "resolved",
+          "resolved_path": "src/app/routes/auth/auth.ts"
+        },
+        {
+          "raw": "import getTags from './tag.service';",
+          "module": "./tag.service",
+          "line": 3,
+          "status": "resolved",
+          "resolved_path": "src/app/routes/tag/tag.service.ts"
+        }
+      ],
+      "symbols": [
+        {
+          "name": "GET /tags",
+          "kind": "route",
+          "line": 13,
+          "docstring": "Get top 10 popular tags @auth optional @route {GET} /api/tag",
+          "route_path": "/tags",
+          "route_methods": [
+            "GET"
+          ]
+        }
+      ],
+      "parse_error": null
+    },
+    {
+      "path": "src/app/routes/tag/tag.model.ts",
+      "language": "typescript",
+      "line_count": 3,
+      "docstring": null,
+      "imports": [],
+      "symbols": [],
+      "parse_error": null
+    },
+    {
+      "path": "src/app/routes/profile/profile.service.ts",
+      "language": "typescript",
+      "line_count": 60,
+      "docstring": null,
+      "imports": [
+        {
+          "raw": "import prisma from '../../../prisma/prisma-client';",
+          "module": "../../../prisma/prisma-client",
+          "line": 1,
+          "status": "resolved",
+          "resolved_path": "src/prisma/prisma-client.ts"
+        },
+        {
+          "raw": "import profileMapper from './profile.utils';",
+          "module": "./profile.utils",
+          "line": 2,
+          "status": "resolved",
+          "resolved_path": "src/app/routes/profile/profile.utils.ts"
+        },
+        {
+          "raw": "import HttpException from '../../models/http-exception.model';",
+          "module": "../../models/http-exception.model",
+          "line": 3,
+          "status": "resolved",
+          "resolved_path": "src/app/models/http-exception.model.ts"
+        }
+      ],
+      "symbols": [
+        {
+          "name": "getProfile",
+          "kind": "function",
+          "line": 5,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "followUser",
+          "kind": "function",
+          "line": 22,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        },
+        {
+          "name": "unfollowUser",
+          "kind": "function",
+          "line": 42,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        }
+      ],
+      "parse_error": null
+    },
+    {
+      "path": "src/app/routes/profile/profile.utils.ts",
+      "language": "typescript",
+      "line_count": 13,
+      "docstring": null,
+      "imports": [
+        {
+          "raw": "import { User } from '../auth/user.model';",
+          "module": "../auth/user.model",
+          "line": 1,
+          "status": "resolved",
+          "resolved_path": "src/app/routes/auth/user.model.ts"
+        },
+        {
+          "raw": "import { Profile } from './profile.model';",
+          "module": "./profile.model",
+          "line": 2,
+          "status": "resolved",
+          "resolved_path": "src/app/routes/profile/profile.model.ts"
+        }
+      ],
+      "symbols": [
+        {
+          "name": "profileMapper",
+          "kind": "function",
+          "line": 4,
+          "docstring": null,
+          "route_path": null,
+          "route_methods": []
+        }
+      ],
+      "parse_error": null
+    },
+    {
+      "path": "src/app/routes/profile/profile.model.ts",
+      "language": "typescript",
+      "line_count": 6,
+      "docstring": null,
+      "imports": [],
+      "symbols": [],
+      "parse_error": null
+    },
+    {
+      "path": "src/app/routes/profile/profile.controller.ts",
+      "language": "typescript",
+      "line_count": 67,
+      "docstring": null,
+      "imports": [
+        {
+          "raw": "import { NextFunction, Request, Response, Router } from 'express';",
+          "module": "express",
+          "line": 1,
+          "status": "external",
+          "resolved_path": null
+        },
+        {
+          "raw": "import auth from '../auth/auth';",
+          "module": "../auth/auth",
+          "line": 2,
+          "status": "resolved",
+          "resolved_path": "src/app/routes/auth/auth.ts"
+        },
+        {
+          "raw": "import { followUser, getProfile, unfollowUser } from './profile.service';",
+          "module": "./profile.service",
+          "line": 3,
+          "status": "resolved",
+          "resolved_path": "src/app/routes/profile/profile.service.ts"
+        }
+      ],
+      "symbols": [],
+      "parse_error": null
+    }
+  ],
+  "components": [
+    {
+      "id": "root",
+      "folder_path": "",
+      "files": [
+        "jest.config.ts",
+        "jest.preset.js"
+      ],
+      "label": {
+        "name": "Project Root Configuration",
+        "summary": "Contains global configuration files and testing presets for the entire project workspace.",
+        "source": "llm"
+      },
+      "is_other_merge": false
+    },
+    {
+      "id": "e2e",
+      "folder_path": "e2e",
+      "files": [
+        "e2e/jest.config.ts"
+      ],
+      "label": {
+        "name": "End-to-End Testing Root",
+        "summary": "Serves as the base directory for end-to-end testing configuration and environment setup.",
+        "source": "llm"
+      },
+      "is_other_merge": false
+    },
+    {
+      "id": "src",
+      "folder_path": "src",
+      "files": [
+        "src/main.ts"
+      ],
+      "label": {
+        "name": "Application Entry Point",
+        "summary": "Houses the main entry point file responsible for bootstrapping and starting the application.",
+        "source": "llm"
+      },
+      "is_other_merge": false
+    },
+    {
+      "id": "e2e_src",
+      "folder_path": "e2e/src",
+      "files": [
+        "e2e/src/server/server.spec.ts",
+        "e2e/src/support/global-setup.ts",
+        "e2e/src/support/global-teardown.ts",
+        "e2e/src/support/test-setup.ts"
+      ],
+      "label": {
+        "name": "E2E Test Implementation",
+        "summary": "Contains the actual end-to-end test specifications along with global setup and teardown utilities.",
+        "source": "llm"
+      },
+      "is_other_merge": false
+    },
+    {
+      "id": "src_prisma",
+      "folder_path": "src/prisma",
+      "files": [
+        "src/prisma/prisma-client.ts",
+        "src/prisma/seed.ts"
+      ],
+      "label": {
+        "name": "Database Access Layer",
+        "summary": "Manages the Prisma ORM client initialization and database seeding scripts for the application.",
+        "source": "llm"
+      },
+      "is_other_merge": false
+    },
+    {
+      "id": "src_app",
+      "folder_path": "src/app",
+      "files": [
+        "src/app/models/http-exception.model.ts",
+        "src/app/routes/article/article.controller.ts",
+        "src/app/routes/article/article.mapper.ts",
+        "src/app/routes/article/article.model.ts",
+        "src/app/routes/article/article.service.ts",
+        "src/app/routes/article/author.mapper.ts",
+        "src/app/routes/article/comment.model.ts",
+        "src/app/routes/auth/auth.controller.ts",
+        "src/app/routes/auth/auth.service.ts",
+        "src/app/routes/auth/auth.ts",
+        "src/app/routes/auth/register-input.model.ts",
+        "src/app/routes/auth/registered-user.model.ts",
+        "src/app/routes/auth/token.utils.ts",
+        "src/app/routes/auth/user-request.d.ts",
+        "src/app/routes/auth/user.model.ts",
+        "src/app/routes/profile/profile.controller.ts",
+        "src/app/routes/profile/profile.model.ts",
+        "src/app/routes/profile/profile.service.ts",
+        "src/app/routes/profile/profile.utils.ts",
+        "src/app/routes/routes.ts",
+        "src/app/routes/tag/tag.controller.ts",
+        "src/app/routes/tag/tag.model.ts",
+        "src/app/routes/tag/tag.service.ts"
+      ],
+      "label": {
+        "name": "Core Application Logic",
+        "summary": "Implements the main business logic, including API routes, controllers, services, and data models.",
+        "source": "llm"
+      },
+      "is_other_merge": false
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "src",
+      "target_id": "src_app",
+      "import_count": 2,
+      "evidence": [
+        "src/main.ts:4",
+        "src/main.ts:5"
+      ]
+    },
+    {
+      "source_id": "src_prisma",
+      "target_id": "src_app",
+      "import_count": 3,
+      "evidence": [
+        "src/prisma/seed.ts:10",
+        "src/prisma/seed.ts:11",
+        "src/prisma/seed.ts:12"
+      ]
+    },
+    {
+      "source_id": "src_app",
+      "target_id": "src_prisma",
+      "import_count": 4,
+      "evidence": [
+        "src/app/routes/auth/auth.service.ts:3",
+        "src/app/routes/article/article.service.ts:2",
+        "src/app/routes/tag/tag.service.ts:1",
+        "src/app/routes/profile/profile.service.ts:1"
+      ]
+    }
+  ],
+  "unresolved": {
+    "imports": []
+  },
+  "mermaid": {
+    "diagram_type": "graph TD",
+    "source": "graph TD\n    root[\"Project Root Configuration (2 files)\"]\n    e2e[\"End-to-End Testing Root (1 file)\"]\n    src[\"Application Entry Point (1 file)\"]\n    e2e_src[\"E2E Test Implementation (4 files)\"]\n    src_prisma[\"Database Access Layer (2 files)\"]\n    src_app[\"Core Application Logic (23 files)\"]\n\n    src -->|2| src_app\n    src_prisma -->|3| src_app\n    src_app -->|4| src_prisma\n\n    classDef otherNode fill:#eee,stroke:#999,stroke-dasharray: 4 3\n"
+  },
+  "llm_model": "gemini-3-flash-preview",
+  "llm_call_count": 1
+}
