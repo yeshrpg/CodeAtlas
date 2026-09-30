@@ -1,9 +1,16 @@
-def analyze_health(components, connections):
-    ids = {c["id"] for c in components}
-    edges = {(c["from"], c["to"]) for c in connections}
+def _get(obj, *names):
+    for n in names:
+        if hasattr(obj, n):
+            return getattr(obj, n)
+    raise AttributeError(f"none of {names} found on {obj!r}")
+
+def analyze_health(components, edges):
+    ids = {_get(c, "id", "component_id") for c in components}
+    edge_pairs = {(_get(e, "source", "from_id", "from_"), _get(e, "target", "to_id", "to_"))
+                  for e in edges}
 
     adj = {i: set() for i in ids}
-    for a, b in edges:
+    for a, b in edge_pairs:
         adj[a].add(b)
 
     cycles = []
@@ -23,12 +30,11 @@ def analyze_health(components, connections):
 
     incoming = {i: 0 for i in ids}
     outgoing = {i: 0 for i in ids}
-    for a, b in edges:
+    for a, b in edge_pairs:
         incoming[b] += 1
         outgoing[a] += 1
 
-    dead = [c["id"] for c in components
-            if incoming[c["id"]] == 0 and outgoing[c["id"]] == 0]
+    dead = [i for i in ids if incoming[i] == 0 and outgoing[i] == 0]
 
     return {
         "cycles": cycles,

@@ -208,6 +208,7 @@ class AnalysisResult(BaseModel):
     created_at: datetime
     completed_at: Optional[datetime] = None
     error: Optional[str] = None
+    
 
     parsed_files: list[ParsedFile] = Field(default_factory=list)
     components: list[Component] = Field(
@@ -216,6 +217,7 @@ class AnalysisResult(BaseModel):
     edges: list[ComponentEdge] = Field(default_factory=list)
     unresolved: UnresolvedBucket = Field(default_factory=UnresolvedBucket)
     mermaid: Optional[MermaidOutput] = None
+    health: Optional[dict] = None
 
     llm_model: Optional[str] = Field(
         default=None, description="Value of GEMINI_MODEL used for this analysis, if the LLM step ran"
