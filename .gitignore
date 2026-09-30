@@ -16,6 +16,9 @@ eggs/
 .eggs/
 lib/
 lib64/
+# Frontend sources live under frontend/src/lib/ — the broad `lib/` rule
+# above (meant for Python venv/packaging dirs) must not swallow them.
+!frontend/src/lib/
 parts/
 sdist/
 var/

@@ -286,6 +286,7 @@ function App() {
                 analysis={displayAnalysis}
                 mermaidSource={realMermaidSource}
                 realFallback={realFallback}
+                health={realDoneResult?.health}
                 onSelectComponent={(id) => {
                   // Legacy node-click path (mock data only) — inert on real
                   // diagrams; kept dormant per B3, clears the real selection

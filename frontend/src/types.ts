@@ -91,6 +91,22 @@ export type AnalysisResult = {
   mermaid: { diagram_type: 'graph TD' | 'graph LR'; source: string } | null
   llm_model: string | null
   llm_call_count: 0 | 1
+  /**
+   * Optional, additive architecture-health report from the backend.
+   * Absent (undefined) on older responses, null when the backend skipped
+   * the check — both mean "no health data", and the diagram must render
+   * exactly as if this field did not exist.
+   */
+  health?: AnalysisHealth | null
+}
+
+export type AnalysisHealth = {
+  /** Each entry is an array of component ids forming a dependency loop. */
+  cycles: string[][]
+  /** Component ids with no connections (disconnected/unused). */
+  dead_components: string[]
+  /** Human-readable one-line rollup, displayed verbatim in the UI. */
+  summary: string
 }
 
 export type Component = {

@@ -425,6 +425,36 @@
   color: var(--text-h);
 }
 
+/* Health-flags badge: small amber warning pill next to the Copy Mermaid
+   control. Only rendered when backend health flags exist — otherwise this
+   element is absent from the DOM entirely (zero layout change). */
+.health-badge {
+  display: inline-block;
+  font-size: 13px;
+  line-height: 1.4;
+  background: #fef3c2;
+  color: #92400e;
+  border: 1px solid #fcd34d;
+  border-radius: 999px;
+  padding: 4px 12px;
+  margin: 0 0 12px;
+  max-width: 100%;
+}
+
+/* Health-flags diagram overlay hooks. Inline styles set by
+   applyHealthStyling do the real work (including in exported SVGs);
+   these class rules document intent and cover edge cases where an
+   inline property is missing. */
+.diagram-container g.node.codeatlas-dead {
+  cursor: pointer;
+}
+
+.diagram-container .edgePaths path.codeatlas-cycle-edge,
+.diagram-container path.flowchart-link.codeatlas-cycle-edge {
+  stroke: #dc2626;
+  stroke-width: 3px;
+}
+
 .diagram-container g.node.codeatlas-node {
   cursor: pointer;
 }

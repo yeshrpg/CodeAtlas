@@ -9,9 +9,13 @@ import {
   attachNodeClickListeners,
   buildNodeIndex,
 } from '../lib/nodeMapping'
+import {
+  applyHealthStyling,
+  hasHealthIssues,
+} from '../lib/applyHealthStyling'
 import { downloadBlob, serializeSvgToBlob } from '../lib/exportDiagram'
 import ExportControls from './ExportControls'
-import type { Analysis } from '../types'
+import type { Analysis, AnalysisHealth } from '../types'
 
 let mermaidInitialized = false
 
@@ -44,6 +48,13 @@ interface DiagramViewProps {
    * shows real data instead of stale mock data. Omit in legacy mode.
    */
   realFallback?: FallbackTables | null
+  /**
+   * Optional architecture-health report (backend `health` field). When
+   * undefined/null/empty the diagram renders exactly as without it —
+   * this prop only ever adds styling + a summary badge, never changes
+   * the base render or node-click behavior.
+   */
+  health?: AnalysisHealth | null
 }
 
 function DiagramView({
@@ -52,6 +63,7 @@ function DiagramView({
   fileName,
   mermaidSource,
   realFallback,
+  health,
 }: DiagramViewProps) {
   const [svg, setSvg] = useState<string | null>(null)
   const [code, setCode] = useState<string | null>(null)
@@ -112,11 +124,32 @@ function DiagramView({
     return cleanup
   }, [svg, analysis, onSelectComponent])
 
+  // Health-flags overlay (dead nodes grey/dashed, cycle edges red/bold).
+  // Strictly additive: skipped entirely when health is absent/empty, runs
+  // after click-listener attachment, and never touches click behavior.
+  // applyHealthStyling is internally try/catch-guarded and returns its own
+  // cleanup, so a failure here can never break the base diagram.
+  useEffect(() => {
+    const container = svgContainerRef.current
+    if (!svg || !container) return undefined
+    if (!hasHealthIssues(health)) return undefined
+    return applyHealthStyling(container, health, code)
+  }, [svg, code, health])
+
   const handleDownload = () => {
     const svgElement = svgContainerRef.current?.querySelector('svg')
     if (!svgElement) return
     downloadBlob(serializeSvgToBlob(svgElement), fileName)
   }
+
+  // Low-weight warning badge next to the Copy Mermaid control. Shown only
+  // when health flags exist AND the backend supplied a summary string —
+  // the summary is rendered verbatim. Otherwise null: zero DOM/layout
+  // change versus today's rendering.
+  const showHealthBadge =
+    hasHealthIssues(health) &&
+    typeof health?.summary === 'string' &&
+    health.summary.length > 0
 
   if (failed) {
     // Direct-render failure on a real analysis shows real rows; legacy mode
@@ -188,6 +221,11 @@ function DiagramView({
   return (
     <section className="diagram-container" aria-label="Architecture diagram">
       <ExportControls code={code} canDownload={svg !== null} onDownload={handleDownload} />
+      {showHealthBadge ? (
+        <p className="health-badge" role="status">
+          {health?.summary}
+        </p>
+      ) : null}
       {svg ? (
         <div ref={svgContainerRef} dangerouslySetInnerHTML={{ __html: svg }} />
       ) : (
