@@ -13,14 +13,14 @@
 **Code Atlas converts multi-million-line repositories into interactive, mathematically verified architectural maps via static AST analysis—with zero cloud dependencies.**
 
 [![Frontend Live](https://img.shields.io/badge/Frontend-Vercel%20Live-black?style=flat-square&logo=vercel)](https://codeatlas-frontend-nu.vercel.app)
-[![Backend Status](https://img.shields.io/badge/Backend-Render%20Live-success?style=flat-square&logo=render)](https://codeatlas-backend-a6jw.onrender.com)
+[![Backend Status](https://img.shields.io/badge/Backend-Render%20Live-success?style=flat-square&logo=render)](https://codeatlas-backend-a6jw.onrender.com/docs)
 [![API Docs](https://img.shields.io/badge/API%20Docs-Swagger%20%2F%20OpenAPI-orange?style=flat-square)](https://codeatlas-backend-a6jw.onrender.com/docs)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square)](LICENSE)
 [![Runtime](https://img.shields.io/badge/Runtime-Py%203.11%2B%20%7C%20TS%205.8%2B-informational?style=flat-square)](backend/requirements.txt)
 
 <br/>
 
-**[🌐 Live Frontend Web App](https://codeatlas-frontend-nu.vercel.app)** &nbsp;•&nbsp; **[⚡ Live Backend API](https://codeatlas-backend-a6jw.onrender.com)** &nbsp;•&nbsp; **[📖 Interactive Swagger Docs](https://codeatlas-backend-a6jw.onrender.com/docs)**
+**[🌐 Live Frontend Web App](https://codeatlas-frontend-nu.vercel.app)** &nbsp;•&nbsp; **[⚡ Live Backend API & Docs](https://codeatlas-backend-a6jw.onrender.com/docs)** &nbsp;•&nbsp; **[📖 Interactive Swagger Docs](https://codeatlas-backend-a6jw.onrender.com/docs)**
 
 ---
 
@@ -148,7 +148,7 @@ Navigate to `http://localhost:5173` or run a direct CLI parse against any reposi
 ```bash
 curl -s -X POST http://localhost:8000/analyze \
   -H "Content-Type: application/json" \
-  -d '{"repo_url": "https://github.com/pallets/flask", "use_llm": false}' | jq '.stats'
+  -d '{"owner": "pallets", "name": "flask"}'
 ```
 
 ```json
@@ -197,8 +197,8 @@ curl -s -X POST http://localhost:8000/analyze \
   * **L1 System Topology**: Component-level data paths with weighted edge frequencies.
   * **L2 Component Drilldown**: High-resolution call-graph among internal files and ingress/egress boundaries.
 
-### 4. CI/CD Architecture Guard & Diffing
-* **Commit-to-Commit Differential Analysis**: `POST /compare` accepts `base` and `head` Git references, surfacing structural drift:
+### 4. Phase 2 Roadmap: CI/CD Architecture Guard & Diffing
+* **Commit-to-Commit Differential Analysis (Roadmap)**: Planned `POST /compare` accepts `base` and `head` Git references, surfacing structural drift:
   * 🟢 **Added Edges / Modules**
   * 🔴 **Removed Dependencies**
   * ⚠️ **New Circular References** (detected via Tarjan's SCC algorithm)
@@ -247,7 +247,7 @@ Place in repository root for automated policy enforcement:
 
 ```json
 {
-  "$schema": "https://codeatlas.dev/schema/v1.json",
+  // CodeAtlas configuration
   "aggregation": {
     "minComponents": 5,
     "maxComponents": 25,
