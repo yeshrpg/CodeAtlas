@@ -13,14 +13,14 @@
 **Code Atlas converts multi-million-line repositories into interactive, mathematically verified architectural maps via static AST analysis—with zero cloud dependencies.**
 
 [![Frontend Live](https://img.shields.io/badge/Frontend-Vercel%20Live-black?style=flat-square&logo=vercel)](https://codeatlas-frontend-nu.vercel.app)
-[![Backend Status](https://img.shields.io/badge/Backend-Render%20Live-success?style=flat-square&logo=render)](https://codeatlas-backend-a6jw.onrender.com)
+[![Backend Status](https://img.shields.io/badge/Backend-Render%20Live-success?style=flat-square&logo=render)](https://codeatlas-backend-a6jw.onrender.com/docs)
 [![API Docs](https://img.shields.io/badge/API%20Docs-Swagger%20%2F%20OpenAPI-orange?style=flat-square)](https://codeatlas-backend-a6jw.onrender.com/docs)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square)](LICENSE)
 [![Runtime](https://img.shields.io/badge/Runtime-Py%203.11%2B%20%7C%20TS%205.8%2B-informational?style=flat-square)](backend/requirements.txt)
 
 <br/>
 
-**[🌐 Live Frontend Web App](https://codeatlas-frontend-nu.vercel.app)** &nbsp;•&nbsp; **[⚡ Live Backend API](https://codeatlas-backend-a6jw.onrender.com)** &nbsp;•&nbsp; **[📖 Interactive Swagger Docs](https://codeatlas-backend-a6jw.onrender.com/docs)**
+**[🌐 Live Frontend Web App](https://codeatlas-frontend-nu.vercel.app)** &nbsp;•&nbsp; **[⚡ Live Backend API & Docs](https://codeatlas-backend-a6jw.onrender.com/docs)** &nbsp;•&nbsp; **[📖 Interactive Swagger Docs](https://codeatlas-backend-a6jw.onrender.com/docs)**
 
 ---
 
@@ -55,55 +55,16 @@ Architecture diagrams decay the millisecond they are exported to PNG or drawn on
 
 ## 📸 Interface & Visual Walkthrough
 
-Experience how Code Atlas decomposes, visualizes, and audits complex codebases in real time.
-
-### 1. Interactive Architecture Map (`Analyze` Mode)
-> Real-time AST ingestion rendering deterministic component boundaries, weighted import relationships, and pipeline performance metrics.
-
 <div align="center">
-  <img src="docs/assets/screenshots/01_analyze_architecture_view.png" alt="Code Atlas Analyze Architecture View" width="850" />
-</div>
-
-<br/>
-
-### 2. Base Revision Setup (`Compare` Mode)
-> Select baseline repository URLs and target commit references (`HEAD~1`, branch name, or specific SHA) for architectural diffing.
-
-<div align="center">
-  <img src="docs/assets/screenshots/02_compare_base_config.png" alt="Code Atlas Compare Base Target" width="850" />
-</div>
-
-<br/>
-
-### 3. Head Revision & Regression Diff
-> Compare target revisions to isolate newly introduced circular dependencies, layer boundary breaches, and orphaned modules.
-
-<div align="center">
-  <img src="docs/assets/screenshots/03_compare_head_diff.png" alt="Code Atlas Compare Head Target" width="850" />
-</div>
-
-<br/>
-
-### 4. Deep AST Evidence & Symbol Inspector (`Analysis Data`)
-> Inspect the underlying RFC-compliant JSON payload containing exact `file:line` proof, exported symbols, and resolved import paths.
-
-<div align="center">
-  <img src="docs/assets/screenshots/04_ast_analysis_data.png" alt="Code Atlas AST Analysis Data Inspector" width="850" />
-</div>
-
-<br/>
-
-<div align="center">
-
-### 🔗 Live Environments & Service Endpoints
-
-| Service | Endpoint / Deployment | Description |
-| :--- | :--- | :--- |
-| 🌐 **Frontend Web App** | [**codeatlas-frontend-nu.vercel.app**](https://codeatlas-frontend-nu.vercel.app) | Production interactive canvas, Mermaid v12 rendering engine & diff explorer |
-| ⚡ **Backend Engine** | [**Live API on Render**](https://codeatlas-backend-a6jw.onrender.com) | Production FastAPI REST service & AST ingestion pipeline |
-| 📖 **Interactive API Docs** | [Swagger UI (`/docs`)](https://codeatlas-backend-a6jw.onrender.com/docs) • [ReDoc (`/redoc`)](https://codeatlas-backend-a6jw.onrender.com/redoc) | Live OpenAPI schema explorer and endpoint sandbox |
-| 🩺 **System Health** | [`GET /health`](https://codeatlas-backend-a6jw.onrender.com/health) | Uptime status, concurrency limits & Gemini configuration check |
-
+  <img src="docs/assets/screenshots/01_repo_analysis.png" alt="Code Atlas Ingestion & Architecture Overview" width="850" />
+  <br/><br/>
+  <img src="docs/assets/screenshots/02_architecture_graph.png" alt="Code Atlas Architecture Component Graph" width="850" />
+  <br/><br/>
+  <img src="docs/assets/screenshots/03_components_list.png" alt="Code Atlas Extracted Components" width="850" />
+  <br/><br/>
+  <img src="docs/assets/screenshots/04_connections_table.png" alt="Code Atlas Module Connections & Evidence" width="850" />
+  <br/><br/>
+  <img src="docs/assets/screenshots/05_unresolved_imports.png" alt="Code Atlas Topological Connections & Import Audit" width="850" />
 </div>
 
 ---
@@ -187,7 +148,7 @@ Navigate to `http://localhost:5173` or run a direct CLI parse against any reposi
 ```bash
 curl -s -X POST http://localhost:8000/analyze \
   -H "Content-Type: application/json" \
-  -d '{"repo_url": "https://github.com/pallets/flask", "use_llm": false}' | jq '.stats'
+  -d '{"owner": "pallets", "name": "flask"}'
 ```
 
 ```json
@@ -236,8 +197,8 @@ curl -s -X POST http://localhost:8000/analyze \
   * **L1 System Topology**: Component-level data paths with weighted edge frequencies.
   * **L2 Component Drilldown**: High-resolution call-graph among internal files and ingress/egress boundaries.
 
-### 4. CI/CD Architecture Guard & Diffing
-* **Commit-to-Commit Differential Analysis**: `POST /compare` accepts `base` and `head` Git references, surfacing structural drift:
+### 4. Phase 2 Roadmap: CI/CD Architecture Guard & Diffing
+* **Commit-to-Commit Differential Analysis (Roadmap)**: Planned `POST /compare` accepts `base` and `head` Git references, surfacing structural drift:
   * 🟢 **Added Edges / Modules**
   * 🔴 **Removed Dependencies**
   * ⚠️ **New Circular References** (detected via Tarjan's SCC algorithm)
@@ -286,7 +247,7 @@ Place in repository root for automated policy enforcement:
 
 ```json
 {
-  "$schema": "https://codeatlas.dev/schema/v1.json",
+  // CodeAtlas configuration
   "aggregation": {
     "minComponents": 5,
     "maxComponents": 25,
@@ -386,5 +347,14 @@ cd frontend && npm run lint && npm run build
 Code Atlas is distributed under the **MIT License**. See [`LICENSE`](LICENSE) for terms.
 
 Designed and engineered with strict static analysis fundamentals by the **Code Atlas Team**.
+
+Yeshwanth Reddy P G — Team Lead & Backend Architect 
+
+Venkata Adithya — Frontend Engineer
+
+Satvik — Parser Engineer 
+
+Rohan — Presenter and Pitching
+
 
 *"The code decides the connections. AI explains them."*
