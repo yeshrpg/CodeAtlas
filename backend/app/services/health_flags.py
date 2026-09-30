@@ -6,7 +6,7 @@ def _get(obj, *names):
 
 def analyze_health(components, edges):
     ids = {_get(c, "id", "component_id") for c in components}
-    edge_pairs = {(_get(e, "source", "from_id", "from_"), _get(e, "target", "to_id", "to_"))
+    edge_pairs = {(_get(e, "source_id", "source", "from_id", "from_"), _get(e, "target_id", "target", "to_id", "to_"))
                   for e in edges}
 
     adj = {i: set() for i in ids}
