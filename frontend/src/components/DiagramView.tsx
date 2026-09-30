@@ -15,6 +15,7 @@ import {
 } from '../lib/applyHealthStyling'
 import { downloadBlob, serializeSvgToBlob } from '../lib/exportDiagram'
 import ExportControls from './ExportControls'
+import { HealthIssuesPanel } from './HealthIssuesPanel'
 import type { Analysis, AnalysisHealth } from '../types'
 
 let mermaidInitialized = false
@@ -239,6 +240,7 @@ function DiagramView({
       ) : (
         <p className="diagram-pending">Rendering diagram…</p>
       )}
+      <HealthIssuesPanel health={health} />
     </section>
   )
 }
