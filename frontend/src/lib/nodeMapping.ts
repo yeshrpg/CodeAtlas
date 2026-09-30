@@ -49,11 +49,17 @@ export function buildNodeIndex(
  * Attach click listeners to every rendered `g.node` under `root` that maps
  * back to a known component. Returns a cleanup function that removes all
  * attached listeners (call it before re-attaching on re-render).
+ *
+ * Set `quiet` when the index is known-inapplicable to the rendered SVG
+ * (e.g. a real backend `mermaid.source` paired with the legacy mock
+ * index): unmatched nodes are still skipped, but without the per-node
+ * console warning, which would otherwise spam once per node.
  */
 export function attachNodeClickListeners(
   root: ParentNode,
   index: Map<string, string>,
   onSelect: (componentId: string) => void,
+  options?: { quiet?: boolean },
 ): () => void {
   const attached: Array<{ el: Element; handler: (e: Event) => void }> = []
 
@@ -62,9 +68,11 @@ export function attachNodeClickListeners(
     if (nodeId === null) return // not a node id we recognize — skip silently
     const componentId = index.get(nodeId)
     if (componentId === undefined) {
-      console.warn(
-        `[CodeAtlas] rendered node "${nodeId}" has no matching component — skipping.`,
-      )
+      if (!options?.quiet) {
+        console.warn(
+          `[CodeAtlas] rendered node "${nodeId}" has no matching component — skipping.`,
+        )
+      }
       return
     }
     const handler = () => onSelect(componentId)

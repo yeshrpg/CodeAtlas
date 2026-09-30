@@ -114,15 +114,23 @@ function DiagramView({
 
   // Re-attach node click listeners after every successful render so they
   // always match the currently displayed SVG (no stale/duplicate listeners).
+  // In direct mode (real backend `mermaid.source`) the legacy mock index is
+  // inapplicable by design, so listeners attach quiet — otherwise every
+  // node would log a "no matching component" warning.
   useEffect(() => {
     const container = svgContainerRef.current
     if (!svg || !container) return undefined
     const index = buildNodeIndex(analysis?.components)
-    const cleanup = attachNodeClickListeners(container, index, (componentId) => {
-      onSelectComponent(componentId)
-    })
+    const cleanup = attachNodeClickListeners(
+      container,
+      index,
+      (componentId) => {
+        onSelectComponent(componentId)
+      },
+      { quiet: mermaidSource !== undefined },
+    )
     return cleanup
-  }, [svg, analysis, onSelectComponent])
+  }, [svg, analysis, onSelectComponent, mermaidSource])
 
   // Health-flags overlay (dead nodes grey/dashed, cycle edges red/bold).
   // Strictly additive: skipped entirely when health is absent/empty, runs
