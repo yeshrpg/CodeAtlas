@@ -348,4 +348,13 @@ Code Atlas is distributed under the **MIT License**. See [`LICENSE`](LICENSE) fo
 
 Designed and engineered with strict static analysis fundamentals by the **Code Atlas Team**.
 
+Yeshwanth Reddy P G — Team Lead & Backend Architect 
+
+Venkata Adithya — Frontend Engineer
+
+Satvik — Parser Engineer 
+
+Rohan — Presenter and Pitching
+
+
 *"The code decides the connections. AI explains them."*
