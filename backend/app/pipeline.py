@@ -177,10 +177,18 @@ def run_analysis(
         components = enrich_components(components)  # the ONE LLM call (self-falls-back)
         mermaid = render_mermaid(components, edges)
 
+        try:
+            from app.services.health_flags import analyze_health
+            health = analyze_health(components, edges)
+        except Exception:
+            log.exception("health_flags crashed; continuing without it")
+            health = None
+
         llm_used = any(c.label.source == LabelSource.llm for c in components)
 
         return AnalysisResult(
             analysis_id=analysis_id,
+            health=health,
             status=AnalysisStatus.done,
             repo=RepoMeta(
                 owner=owner,
